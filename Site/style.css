@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 8vh;
+    background-color: #16578d;
+}
+
+header img {
+    height: 10vh;
+}
+
+header nav {
+    text-align: center;
+    width: 78%;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 1rem;
+}
+
+header button {
+    padding: .5rem 1rem;
+    margin: 0 1rem;
+    border-radius: .5rem;
+    border: transparent;
+    font-weight: bold;
+}
+
+header button:nth-child(2n) {
+    background-color: #f48924;
+    color: #ffffff;
+}
+
+/* main {
+} */
+
+main #boxSides {
+    background: url(./Assets/fundao.png);
+    filter: brightness(60%);
+    background-position: center;
+    background-size: contain;
+    height: 92vh;
+    display: flex;
+    align-items: center;
+}
+
+main #boxSides .sides {
+    width: 50vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+}
+
+main #boxSides #side1 {
+    flex-direction: column;
+    text-align: center;
+}
+
+main #boxSides #side1 #side1One {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+main #boxSides #side1 #boxSide1Two {
+    border-top: #ffffff 3px solid;
+    border-bottom: #ffffff 3px solid;
+    width: 19rem;
+    padding: 1rem 0;
+    align-self: center;
+    margin-bottom: 2rem;
+}
+
+main #boxSides #side1 #side1Two {
+    color: #f48924;
+    font-size: 4rem;
+    text-shadow: 0 6px 5px #3a414e;
+}
+
+main #boxSides #side1 #side1Three {
+    color: white;
+    font-size: 2rem;
+    font-style: italic;
+    width: 70%;
+    margin: auto;
+}
+
+main #boxSides #side1 #side1Four {
+    color: #f48924;
+    font-size: 2rem;
+}
+
+main #boxSides #side2 {
+    flex-direction: column;
+    text-align: center;
+}
+
+main #boxSides #side2 #side2One {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+main #boxSides #side2 #boxSide2Two {
+    border-top: #ffffff 3px solid;
+    border-bottom: #ffffff 3px solid;
+    width: 10rem;
+    padding: 1rem 0;
+    align-self: center;
+}
+
+main #boxSides #side2 #side2Two {
+    color: #f48924;
+    font-size: 4rem;
+    text-shadow: 0 6px 5px #3a414e;
+}
