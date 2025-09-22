@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="secao-simulacao">
+        <h1>Simulador Financeiro - EcoLight</h1>
+
+        <div id="caixa_informacoes">
+            <label>
+                KW gastos por mês
+                <br>
+                <input type="text" id="input_quantidade_kwh">
+            </label>
+
+            <div id="caixa_selects">
+                <label>
+                    Preço por Kw:
+                    <br>
+                    <select id="select_preçoKwh">
+                        <option value="option_70">R$0,70</option>
+                        <option value="option_85">R$0,85</option>
+                        <option value="option_95">R$0,95</option>
+                        <option value="option_100">R$1,00</option>
+
+                    </select>
+                </label>
+
+                <label>
+                    Plano à calcular
+                    <br>
+                    <select id="select_plano">
+                        <option value="mensal">Mensal</option>
+                        <option value="semestral">Semestral</option>
+                        <option value="anual">Anual</option>
+                        <option value="bienal">Bienal</option>
+                        <option value="quadrianual">Quadrianual</option>
+                    </select>
+                </label>
+            </div>
+
+        </div>
+
+        <div class="descricao_caixa">
+            <p>
+                Este simulador está levando em conta uma economia de
+                <span class="porcentagem_span">25%</span>
+                na despesa energética
+            </p>
+
+            <img src="./assets/logo-ecolight-transp.png" alt="logo ecolight">
+        </div>
+
+        <button onclick="calcular()">Calcular economia</button>
+    </div>
+
+    <div id="secao_cards">
+        <div class="teste">
+            <div class="card">
+                <h2>Sem a Ecolight, você gastaria:</h2>
+                <span id="sem_ecolight_span" class="texto_card"></span>
+            </div>
+
+            <div class="card">
+                <h2>Com a Ecolight, você gastaria:</h2>
+                <span id="com_ecolight_span" class="texto_card"></span>
+
+            </div>
+        </div>
+
+        <div class="card_economizar">
+            <h2> Economizando:</h2>
+
+            <span id="economia_span" class="texto_card"></span>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function calcular() {
+        var quantidadeKwh = Number(input_quantidade_kwh.value);
+        var plano = select_plano.value;
+        var preçoKwh = select_preçoKwh.value
+
+        if (plano == 'mensal') {
+            plano = 1
+        } else if (plano == 'semestral') {
+            plano = 6
+        } else if (plano == 'anual') {
+            plano = 12
+        } else if (plano == 'bienal') {
+            plano = 24
+        } else {
+            plano = 48
+        }
+
+        if (preçoKwh == 'option_70') {
+            preçoKwh = 0.7
+        } else if (preçoKwh == 'option_85') {
+            preçoKwh = 0.85
+        } else if (preçoKwh == 'option_95') {
+            preçoKwh = 0.95
+        } else {
+            preçoKwh = 1
+        }
+
+        var valorPorKwh = quantidadeKwh * preçoKwh
+        var semProduto = valorPorKwh * plano;
+        var comProduto = semProduto - semProduto * 0.25;
+        var valorPoupado = semProduto - comProduto;
+
+        sem_ecolight_span.innerHTML = `${semProduto.toLocaleString('pt-BR', {
+            style: "currency",
+            currency: 'BRL'
+        })}`
+
+        com_ecolight_span.innerHTML = `${comProduto.toLocaleString('pt-BR', {
+            style: "currency",
+            currency: 'BRL'
+        })}`
+
+        economia_span.innerHTML = `${valorPoupado.toLocaleString('pt-BR', {
+            style: "currency",
+            currency: 'BRL'
+        })}`
+    }
+</script>

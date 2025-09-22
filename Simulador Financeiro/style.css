@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+#secao-simulacao {
+    display: flex;
+    flex-direction: column;
+    background-color: #ebebeb;
+    width: 40%;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #16578D;
+    border-bottom: solid 3px #16578D;
+    padding-bottom: 0.7rem;
+}
+
+img {
+    width: 220px;
+    height: 220px;
+}
+
+#caixa_informacoes {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+#caixa_selects {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+select {
+    border: none;
+    border-radius: 10px;
+    padding: 5px 8px;
+    width: 170px;
+    cursor: pointer;
+    box-shadow: 4px 4px 4px 0 rgb(0, 0, 0, 0.8);
+    font-size: 15px;
+    outline: none;
+}
+
+input {
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 5px 8px;
+    margin-top: 3px;
+    box-shadow: 4px 4px 4px 0 rgb(0, 0, 0, 0.8);
+    width: 170px;
+    font-size: 15px;
+}
+
+label {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+p {
+    width: 50%;
+    text-align: center;
+    padding: 7px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    color: #16578D;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    font-weight: 700;
+}
+
+.porcentagem_span {
+    color: #F48924;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.descricao_caixa {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    background-color: #16578D;
+    color: #ffffff;
+    padding: 0.5rem;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#secao_cards {
+    background-color: #16578D;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    height: 100vh;
+}
+
+.card {
+    height: 300px;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #ebebeb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 4px 4px 4px 0 rgb(0, 0, 0, 0.8);
+}
+
+.card_economizar {
+    width: 75%;
+    height: 300px;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #ebebeb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 4px 4px 4px 0 rgb(0, 0, 0, 0.8);
+}
+
+h2 {
+    color: #16578D;
+    text-align: center;
+}
+
+.teste {
+    display: flex;
+    gap: 2rem;
+}
+
+.texto_card {
+    font-size: 50px;
+    font-weight: bold;
+    margin: auto 0;
+    text-align: center;
+}
+
+#sem_ecolight_span {
+    color: red;
+}
+
+#com_ecolight_span {
+    color: #F48924;
+}
+
+#economia_span {
+    color: green;
+}
