@@ -35,8 +35,17 @@ header button {
     font-weight: bold;
 }
 
+header button:nth-child(1n) a {
+    text-decoration: none;
+    color: #000000;
+}
+
 header button:nth-child(2n) {
     background-color: #f48924;
+}
+
+header button:nth-child(2n) a {
+    text-decoration: none;
     color: #ffffff;
 }
 

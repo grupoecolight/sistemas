@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 8vh;
+    background-color: #16578d;
+}
+
+header img {
+    height: 10vh;
+}
+
+header nav {
+    text-align: center;
+    width: 78%;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #ffffff;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    margin: 1rem;
+}
+
+header button {
+    padding: .5rem 1rem;
+    margin: 0 1rem;
+    border-radius: .5rem;
+    border: transparent;
+    font-weight: bold;
+}
+
+header button:nth-child(1n) a {
+    text-decoration: none;
+    color: #000000;
+}
+
+header button:nth-child(2n) {
+    background-color: #f48924;
+}
+
+header button:nth-child(2n) a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+main {
+    background: url(./Assets/Fundo\ login\ -\ EcoLight.pptx.png);
+    height: 92vh;
+    display: flex;
+    flex-direction: row;
+}
+
+main #fora {
+    height: 92vh;
+    width: 5vw;
+}
+
+main #dentro {
+    height: 92vh;
+    width: 95vw;
+    display: flex;
+    flex-direction: row;
+}
+
+main #dentro #visual {
+    height: 92vh;
+    width: 35%;
+    background-color: #16578d;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main #dentro #visual p {
+    color: #16578d;
+}
+
+main #dentro #visual h1 {
+    color: #ffffff;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    border-bottom: #ffffff solid 3px;
+    padding-bottom: 1rem;
+    width: 55%;
+    text-align: center;
+}
+
+main #dentro #visual img {
+    height: 30rem;
+}
+
+main #dentro #visual span {
+    color: #16578d;
+    background-color: #ffffff;
+    padding: .8rem .5rem;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    border-radius: .8rem;
+    font-weight: bold;
+}
+
+main #dentro #interacao {
+    height: 92vh;
+    width: 65%;
+    /* background-color: #686868; */
+    background-color: #EBEBEB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main #dentro #interacao #conteudo {
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+}
+
+main #dentro #interacao #conteudo h2 {
+    color: #16578d;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    width: 70%;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+main #dentro #interacao #conteudo label {
+    align-self: flex-start;
+    color: #16578d;
+    font-weight: bold;
+}
+
+main #dentro #interacao #conteudo input {
+    width: 99%;
+    height: 2.5rem;
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 2px 2px 3px .5px rgba(97, 97, 97, 0.801);
+    margin: .5rem;
+}
+
+main #dentro #interacao #conteudo span {
+    align-self: flex-start;
+    color: #16578d;
+}
+
+main #dentro #interacao #conteudo span a {
+    text-decoration: none;
+    color: #16578d;
+    border-bottom: solid 1px #16578d;
+    padding-bottom: .1rem;
+}
+
+main #dentro #interacao #conteudo button {
+    background-color: #16578d;
+    color: #ffffff;
+    border: none;
+    padding: .5rem 4rem;
+    border-radius: .5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 4rem;
+}
