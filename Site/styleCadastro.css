@@ -144,6 +144,12 @@ main #dentro #interacao #conteudo input {
     margin: .5rem;
 }
 
+main #dentro #interacao #conteudo #div_mensagemEmail {
+    color: #ff0000;
+    align-self: flex-start;
+    font-weight: bold;
+}
+
 main #dentro #interacao #conteudo span {
     align-self: flex-start;
     color: #16578d;
@@ -165,4 +171,9 @@ main #dentro #interacao #conteudo button {
     font-weight: bold;
     font-size: 1.5rem;
     margin-top: 4rem;
+    transition: 0.5s;
+}
+
+main #dentro #interacao #conteudo button:active {
+    transform: scale(1.1);
 }

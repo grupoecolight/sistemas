@@ -53,13 +53,15 @@ header button:nth-child(2n) a {
 } */
 
 main #boxSides {
-    background: url(./Assets/fundao.png);
-    filter: brightness(60%);
+    background: url(./Assets/interior\ moderno\ do\ edifício\ de\ escritórios.\ Conceito\ de\ renderização\ 3D.jpg);
+    filter: brightness(80%);
     background-position: center;
-    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 92vh;
     display: flex;
     align-items: center;
+    text-shadow: 3px 3px 1px #000;
 }
 
 main #boxSides .sides {

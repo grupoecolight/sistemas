@@ -34,22 +34,32 @@
             <section id="interacao">
                 <div id="conteudo">
                     <h2>Preencha seus dados e seja nosso cliente!</h2>
+
                     <label for="input_nomeEmpresa">Nome da empresa</label>
                     <input type="text" name="" id="input_nomeEmpresa">
+
                     <label for="input_emailEmpresa">E-mail da empresa</label>
-                    <input type="text" name="" id="input_emailEmpresa">
+                    <input type="text" name="" id="input_emailEmpresa" oninput="valEmail()">
+                    <div id="div_mensagemEmail"></div>
+
                     <label for="input_cnpjEmpresa">CNPJ da empresa</label>
                     <input type="text" name="" id="input_cnpjEmpresa">
+
                     <label for="input_text">CEP da empresa</label>
-                    <input type="text" name="" id="input_text">
+                    <input type="text" name="" id="input_cep">
+
                     <label for="input_text">Telefone da empresa</label>
                     <input type="text" name="" id="input_text">
+
                     <label for="input_password">Senha</label>
                     <input type="password" name="" id="input_password">
+
                     <label for="input_repetirPassword">Repetir Senha</label>
                     <input type="password" name="" id="input_repetirPassword">
+
                     <span>Esqueceu a senha? <a href="#">Clique aqui!</a></span>
-                    <button>Entrar</button>
+
+                    <button onclick="entrar()">Entrar</button>
                 </div>
             </section>
         </div>
@@ -58,5 +68,7 @@
     <footer>
 
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
