@@ -36,16 +36,16 @@ header button {
     font-weight: bold;
 }
 
-header button:nth-child(1n) a {
+header .cadastrar a {
     text-decoration: none;
     color: #000000;
 }
 
-header button:nth-child(2n) {
+header .logar {
     background-color: #f48924;
 }
 
-header button:nth-child(2n) a {
+header .logar a {
     text-decoration: none;
     color: #ffffff;
 }
@@ -57,19 +57,19 @@ main {
     flex-direction: row;
 }
 
-main #fora {
+main .fora {
     height: 92vh;
     width: 5vw;
 }
 
-main #dentro {
+main .dentro {
     height: 92vh;
     width: 95vw;
     display: flex;
     flex-direction: row;
 }
 
-main #dentro #visual {
+main .dentro .visual {
     height: 92vh;
     width: 35%;
     background-color: #16578d;
@@ -79,11 +79,11 @@ main #dentro #visual {
     align-items: center;
 }
 
-main #dentro #visual p {
+main .dentro .visual p {
     color: #16578d;
 }
 
-main #dentro #visual h1 {
+main .dentro .visual h1 {
     color: #ffffff;
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     border-bottom: #ffffff solid 3px;
@@ -92,11 +92,11 @@ main #dentro #visual h1 {
     text-align: center;
 }
 
-main #dentro #visual img {
+main .dentro .visual img {
     height: 30rem;
 }
 
-main #dentro #visual span {
+main .dentro .visual span {
     color: #16578d;
     background-color: #ffffff;
     padding: .8rem .5rem;
@@ -105,7 +105,7 @@ main #dentro #visual span {
     font-weight: bold;
 }
 
-main #dentro #interacao {
+main .dentro .interacao {
     height: 92vh;
     width: 65%;
     /* background-color: #686868; */
@@ -115,13 +115,13 @@ main #dentro #interacao {
     align-items: center;
 }
 
-main #dentro #interacao #conteudo {
+main .dentro .interacao .conteudo {
     display: flex;
     flex-direction: column;    
     align-items: center;
 }
 
-main #dentro #interacao #conteudo h2 {
+main .dentro .interacao .conteudo h2 {
     color: #16578d;
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     width: 70%;
@@ -129,13 +129,13 @@ main #dentro #interacao #conteudo h2 {
     margin-bottom: 3rem;
 }
 
-main #dentro #interacao #conteudo label {
+main .dentro .interacao .conteudo label {
     align-self: flex-start;
     color: #16578d;
     font-weight: bold;
 }
 
-main #dentro #interacao #conteudo input {
+main .dentro .interacao .conteudo input {
     width: 99%;
     height: 2.5rem;
     border: none;
@@ -144,19 +144,19 @@ main #dentro #interacao #conteudo input {
     margin: .5rem;
 }
 
-main #dentro #interacao #conteudo span {
+main .dentro .interacao .conteudo span {
     align-self: flex-start;
     color: #16578d;
 }
 
-main #dentro #interacao #conteudo span a {
+main .dentro .interacao .conteudo span a {
     text-decoration: none;
     color: #16578d;
     border-bottom: solid 1px #16578d;
     padding-bottom: .1rem;
 }
 
-main #dentro #interacao #conteudo button {
+main .dentro .interacao .conteudo button {
     background-color: #16578d;
     color: #ffffff;
     border: none;
