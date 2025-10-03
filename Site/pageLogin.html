@@ -34,11 +34,15 @@
             <section class="interacao">
                 <div class="conteudo">
                     <h2>Preencha seus dados e tenha acesso a sua conta!</h2>
+                    
                     <label for="input_emailOuCnpj">E-mail ou CNPJ da empresa</label>
-                    <input type="text" name="" id="input_emailOuCnpj">
+                    <input type="text" name="" id="input_emailOuCnpj" oninput="valEmail()">
+
                     <label for="input_password">Senha</label>
-                    <input type="password" name="" id="input_password">
+                    <input type="password" name="" id="input_password" oninput="valSenha()">
+                    <div id="div_mensagemSenha"></div>
                     <span>Esqueceu a senha? <a href="#">Clique aqui!</a></span>
+
                     <button>Entrar</button>
                 </div>
             </section>
@@ -48,5 +52,7 @@
     <footer>
 
     </footer>
+
+    <script src="scriptLogin.js"></script>
 </body>
 </html>
