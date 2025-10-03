@@ -150,6 +150,18 @@ main .dentro .interacao .conteudo #div_mensagemEmail {
     font-weight: bold;
 }
 
+main .dentro .interacao .conteudo #div_mensagemSenha {
+    color: #ff0000;
+    align-self: flex-start;
+    font-weight: bold;
+}
+
+main .dentro .interacao .conteudo #div_mensagemRepetirSenha {
+    color: #ff0000;
+    align-self: flex-start;
+    font-weight: bold;
+}
+
 main .dentro .interacao .conteudo span {
     align-self: flex-start;
     color: #16578d;
