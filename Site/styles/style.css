@@ -52,9 +52,9 @@ header button:nth-child(2n) a {
 /* main {
 } */
 
-main #boxSides {
+main .boxSides {
     background: url(./Assets/interior\ moderno\ do\ edifício\ de\ escritórios.\ Conceito\ de\ renderização\ 3D.jpg);
-    filter: brightness(80%);
+    filter: brightness(70%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -64,24 +64,24 @@ main #boxSides {
     text-shadow: 3px 3px 1px #000;
 }
 
-main #boxSides .sides {
+main .boxSides .sides {
     width: 50vw;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
 }
 
-main #boxSides #side1 {
+main .boxSides .side1 {
     flex-direction: column;
     text-align: center;
 }
 
-main #boxSides #side1 #side1One {
+main .boxSides .side1 .side1One {
     color: white;
     font-size: 3rem;
     margin-bottom: 2rem;
 }
 
-main #boxSides #side1 #boxSide1Two {
+main .boxSides .side1 .boxSide1Two {
     border-top: #ffffff 3px solid;
     border-bottom: #ffffff 3px solid;
     width: 19rem;
@@ -90,13 +90,13 @@ main #boxSides #side1 #boxSide1Two {
     margin-bottom: 2rem;
 }
 
-main #boxSides #side1 #side1Two {
+main .boxSides .side1 .side1Two {
     color: #f48924;
     font-size: 4rem;
     text-shadow: 0 6px 5px #3a414e;
 }
 
-main #boxSides #side1 #side1Three {
+main .boxSides .side1 .side1Three {
     color: white;
     font-size: 2rem;
     font-style: italic;
@@ -104,23 +104,23 @@ main #boxSides #side1 #side1Three {
     margin: auto;
 }
 
-main #boxSides #side1 #side1Four {
+main .boxSides .side1 .side1Four {
     color: #f48924;
     font-size: 2rem;
 }
 
-main #boxSides #side2 {
+main .boxSides .side2 {
     flex-direction: column;
     text-align: center;
 }
 
-main #boxSides #side2 #side2One {
+main .boxSides .side2 .side2One {
     color: #ffffff;
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-main #boxSides #side2 #boxSide2Two {
+main .boxSides .side2 .boxSide2Two {
     border-top: #ffffff 3px solid;
     border-bottom: #ffffff 3px solid;
     width: 10rem;
@@ -128,7 +128,7 @@ main #boxSides #side2 #boxSide2Two {
     align-self: center;
 }
 
-main #boxSides #side2 #side2Two {
+main .boxSides .side2 .side2Two {
     color: #f48924;
     font-size: 4rem;
     text-shadow: 0 6px 5px #3a414e;

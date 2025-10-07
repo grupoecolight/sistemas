@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Cadastro - EcoLight</title>
-    <link rel="stylesheet" href="styleCadastro.css">
+    <link rel="stylesheet" href="styles/styleCadastro.css">
 </head>
 <body>
     <header>
@@ -13,49 +13,51 @@
             <a href="">Sobre nós</a>
             <a href="">Serviços</a>
             <a href="">Contato</a>
-            <a href="">Simulador financeiro</a>
+            <a href="./simuladorFinanceiro.html">Simulador financeiro</a>
         </nav>
-        <button>Cadastre-se</button>
-        <button><a href="./pageLogin.html">Já sou cliente</a></button>
+        <button class="cadastrar">Cadastre-se</button>
+        <button class="logar"><a href="./pageLogin.html">Já sou cliente</a></button>
     </header>
 
     <main>
         <div id="fora">
 
         </div>
-        <div id="dentro">
-            <section id="visual">
+        <div class="dentro">
+            <section class="visual">
                 <p>a</p>
                 <h1>Bem-vindo à tela de cadastro da EcoLight!</h1>
                 <img src="./Assets/Logo-Preta-semFundo.png" alt="">
                 <span>Página institucional</span>
                 <p>a</p>
             </section>
-            <section id="interacao">
-                <div id="conteudo">
+            <section class="interacao">
+                <div class="conteudo">
                     <h2>Preencha seus dados e seja nosso cliente!</h2>
 
                     <label for="input_nomeEmpresa">Nome da empresa</label>
-                    <input type="text" name="" id="input_nomeEmpresa">
+                    <input type="text" name="" id="input_nomeEmpresa" oninput="valNome()">
 
                     <label for="input_emailEmpresa">E-mail da empresa</label>
                     <input type="text" name="" id="input_emailEmpresa" oninput="valEmail()">
                     <div id="div_mensagemEmail"></div>
 
                     <label for="input_cnpjEmpresa">CNPJ da empresa</label>
-                    <input type="text" name="" id="input_cnpjEmpresa">
+                    <input type="text" name="" id="input_cnpjEmpresa" oninput="valCnpj()">
 
                     <label for="input_text">CEP da empresa</label>
-                    <input type="text" name="" id="input_cep">
+                    <input type="text" name="" id="input_cepEmpresa" oninput="valCep()">
 
                     <label for="input_text">Telefone da empresa</label>
-                    <input type="text" name="" id="input_text">
+                    <input type="text" name="" id="input_telefoneEmpresa" oninput="valTel()">
 
-                    <label for="input_password">Senha</label>
-                    <input type="password" name="" id="input_password">
+                    <label for="input_senhaEmpresa">Senha</label>
+                    <input type="password" name="" id="input_senhaEmpresa" oninput="valSenha()">
+                    <div id="div_mensagemSenha"></div>
 
-                    <label for="input_repetirPassword">Repetir Senha</label>
-                    <input type="password" name="" id="input_repetirPassword">
+                    <label for="input_repetirSenhaEmpresa">Repetir Senha</label>
+                    <input type="password" name="" id="input_repetirSenhaEmpresa" oninput="valRepetirSenha()">
+                    <div id="div_mensagemRepetirSenha"></div>
 
                     <span>Esqueceu a senha? <a href="#">Clique aqui!</a></span>
 

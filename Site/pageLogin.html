@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Login - EcoLight</title>
-    <link rel="stylesheet" href="styleLogin.css">
+    <link rel="stylesheet" href="styles/styleLogin.css">
 </head>
 <body>
     <header>
@@ -13,32 +13,36 @@
             <a href="">Sobre nós</a>
             <a href="">Serviços</a>
             <a href="">Contato</a>
-            <a href="">Simulador financeiro</a>
+            <a href="./simuladorFinanceiro.html">Simulador financeiro</a>
         </nav>
-        <button><a href="./pageCadastro.html">Cadastre-se</a></button>
-        <button><a href="./pageLogin.html">Já sou cliente</a></button>
+        <button class="cadastrar"><a href="./pageCadastro.html">Cadastre-se</a></button>
+        <button class="logar"><a href="./pageLogin.html">Já sou cliente</a></button>
     </header>
 
     <main>
-        <div id="fora">
+        <div class="fora">
 
         </div>
-        <div id="dentro">
-            <section id="visual">
+        <div class="dentro">
+            <section class="visual">
                 <p>a</p>
                 <h1>Bem-vindo de volta à EcoLight</h1>
                 <img src="./Assets/Logo-Preta-semFundo.png" alt="">
                 <span>Página institucional</span>
                 <p>a</p>
             </section>
-            <section id="interacao">
-                <div id="conteudo">
+            <section class="interacao">
+                <div class="conteudo">
                     <h2>Preencha seus dados e tenha acesso a sua conta!</h2>
+                    
                     <label for="input_emailOuCnpj">E-mail ou CNPJ da empresa</label>
-                    <input type="text" name="" id="input_emailOuCnpj">
+                    <input type="text" name="" id="input_emailOuCnpj" oninput="valEmail()">
+
                     <label for="input_password">Senha</label>
-                    <input type="password" name="" id="input_password">
+                    <input type="password" name="" id="input_password" oninput="valSenha()">
+                    <div id="div_mensagemSenha"></div>
                     <span>Esqueceu a senha? <a href="#">Clique aqui!</a></span>
+
                     <button>Entrar</button>
                 </div>
             </section>
@@ -48,5 +52,7 @@
     <footer>
 
     </footer>
+
+    <script src="scriptLogin.js"></script>
 </body>
 </html>
