@@ -83,11 +83,24 @@ INSERT INTO Sensor (codSensor, area, andar) VALUES
 ('CC01', 'Sala de Projetos', 1),
 ('EE01', 'Escritório Principal', 3);
 
-SELECT * FROM ensor;
+SELECT * FROM Sensor;
 
-UPDATE Sensor SET idCliente = 1 WHERE fkEmpresa = 1;
-UPDATE Sensor SET idCliente = 2 WHERE fkEmpresa = 2;
-UPDATE Sensor SET idCliente = 3 WHERE fkEmpresa = 3;
+UPDATE Sensor SET fkEmpresa = 1 WHERE idSensor = 1;
+UPDATE Sensor SET fkEmpresa = 2 WHERE idSensor = 2;
+UPDATE Sensor SET fkEmpresa = 3 WHERE idSensor = 3;
+
+SELECT e.razaoSocial AS 'Nome da Empresa',
+e.cnpj AS 'CNPJ',
+e.cep AS 'CEP',
+e.responsavel AS 'Responsavel da empresa',
+e.fone AS 'Telefone para contato',
+e.dtCadastro AS 'Data de Cadastro',
+e.senha AS 'Senha da Empresa',
+s.codSensor AS 'Código do Sensor',
+s.area AS 'Setor onde está localizado',
+s.andar AS 'Andar onde está localizado'
+FROM empresa e JOIN Sensor s
+ON e.idCliente = s.fkEmpresa; 
 
 
 CREATE TABLE regSensor (
@@ -100,17 +113,16 @@ CREATE TABLE regSensor (
 );
 
 
-SELECT 
-    e.razaoSocial AS 'Empresa',
-    e.responsavel AS 'Responsável',
-    u.areaEmpresa AS 'Área do Usuário',
-    u.email AS 'Email do Usuário',
-    s.codSensor AS 'Código do Sensor',
-    s.area AS 'Local do Sensor',
-    s.andar AS 'Andar',
-    s.idSensor AS 'ID Sensor'
-FROM empresa e
-JOIN usuario u ON e.idCliente = u.fkEmpregado
+SELECT e.razaoSocial AS 'Nome da Empresa',
+e.responsavel AS 'Responsável',
+u.areaEmpresa AS 'Função do Usuario',
+u.email AS 'Email para contato',
+s.codSensor AS 'Código do Sensor',
+s.area AS 'Local do Sensor',
+s.andar AS 'Andar',
+s.idSensor AS 'ID Sensor'
+FROM empresa e JOIN usuario u 
+ON e.idCliente = u.fkEmpregado
 JOIN sensor s ON e.idCliente = s.fkEmpresa
 ORDER BY e.idCliente;
 
