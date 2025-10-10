@@ -2,7 +2,6 @@ CREATE DATABASE Ecolight;
 
 USE Ecolight;
 
-
 CREATE TABLE empresa (
     idCliente INT PRIMARY KEY,
     razaoSocial VARCHAR(255),
@@ -107,6 +106,7 @@ CREATE TABLE regSensor (
     idRegSensor INT,
     intensidadeLuz DECIMAL(4,1),
     fkSensor INT,
+    dtHora DATETIME,
     CONSTRAINT pkRegSensor PRIMARY KEY (idRegSensor, fkSensor),
     CONSTRAINT fkRegSensor FOREIGN KEY (fkSensor)
         REFERENCES sensor(idSensor)
@@ -126,6 +126,25 @@ ON e.idCliente = u.fkEmpregado
 JOIN sensor s ON e.idCliente = s.fkEmpresa
 ORDER BY e.idCliente;
 
+SELECT e.razaoSocial AS 'Nome da Empresa',
+e.cnpj AS 'CNPJ',
+e.cep AS 'CEP',
+e.responsavel AS 'Responsável',
+e.fone AS 'Telefone',
+e.dtCadastro AS 'Data de Cadastro',
+u.areaEmpresa AS 'Área do Usuário',
+u.email AS 'E-mail do Usuário',
+u.senha AS 'Senha do Usuário',
+s.codSensor AS 'Código do Sensor',
+s.area AS 'Local do Sensor',
+s.andar AS 'Andar do Sensor',
+r.intensidadeLuz AS 'Intensidade da Luz',
+r.dtHora AS 'Data e Hora da Leitura'
+FROM empresa e JOIN usuario u 
+ON e.idCliente = u.fkEmpregado
+JOIN sensor s ON e.idCliente = s.fkEmpresa
+LEFT JOIN regSensor r ON s.idSensor = r.fkSensor
+ORDER BY e.idCliente, s.idSensor, r.dtHora;
 
 
 
