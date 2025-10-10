@@ -68,7 +68,7 @@ ON e.idCliente = u.fkEmpregado;
 -- 
 CREATE TABLE Sensor (
     idSensor INT PRIMARY KEY AUTO_INCREMENT,
-    codSensor CHAR(4),
+    tagSensor CHAR(6),
     area VARCHAR(25),
     andar INT,
     fkEmpresa INT,
@@ -76,11 +76,11 @@ CREATE TABLE Sensor (
         REFERENCES empresa(idCliente)
 );
 
-INSERT INTO Sensor (codSensor, area, andar) VALUES
-('AA01', 'Recepção', 1),
-('BB01', 'Sala de Reuniões', 2),
-('CC01', 'Sala de Projetos', 1),
-('EE01', 'Escritório Principal', 3);
+INSERT INTO Sensor (tagSensor, area, andar) VALUES
+('00-NOR', 'Recepção', 0),
+('02-OES', 'Sala de Reuniões', 2),
+('01-NOR', 'Sala de Projetos', 1),
+('03-SUL', 'Escritório Principal', 3);
 
 SELECT * FROM Sensor;
 
@@ -95,7 +95,7 @@ e.responsavel AS 'Responsavel da empresa',
 e.fone AS 'Telefone para contato',
 e.dtCadastro AS 'Data de Cadastro',
 e.senha AS 'Senha da Empresa',
-s.codSensor AS 'Código do Sensor',
+s.tagSensor AS 'Tag do Sensor',
 s.area AS 'Setor onde está localizado',
 s.andar AS 'Andar onde está localizado'
 FROM empresa e JOIN Sensor s
@@ -117,7 +117,7 @@ SELECT e.razaoSocial AS 'Nome da Empresa',
 e.responsavel AS 'Responsável',
 u.areaEmpresa AS 'Função do Usuario',
 u.email AS 'Email para contato',
-s.codSensor AS 'Código do Sensor',
+s.tagSensor AS 'Tag do Sensor',
 s.area AS 'Local do Sensor',
 s.andar AS 'Andar',
 s.idSensor AS 'ID Sensor'
@@ -135,7 +135,7 @@ e.dtCadastro AS 'Data de Cadastro',
 u.areaEmpresa AS 'Área do Usuário',
 u.email AS 'E-mail do Usuário',
 u.senha AS 'Senha do Usuário',
-s.codSensor AS 'Código do Sensor',
+s.tagSensor AS 'Tag do Sensor',
 s.area AS 'Local do Sensor',
 s.andar AS 'Andar do Sensor',
 r.intensidadeLuz AS 'Intensidade da Luz',
@@ -145,7 +145,3 @@ ON e.idCliente = u.fkEmpregado
 JOIN sensor s ON e.idCliente = s.fkEmpresa
 LEFT JOIN regSensor r ON s.idSensor = r.fkSensor
 ORDER BY e.idCliente, s.idSensor, r.dtHora;
-
-
-
-
