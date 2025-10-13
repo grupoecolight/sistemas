@@ -8,15 +8,53 @@
 </head>
 <body>
     <header>
-        <a href="./index.html"><img src="./Assets/Logo-Preta-semFundo.png" alt=""></a>
-        <nav>
-            <a href="">Sobre nós</a>
-            <a href="">Serviços</a>
-            <a href="">Contato</a>
-            <a href="./simuladorFinanceiro.html">Simulador financeiro</a>
-        </nav>
-        <button><a href="./pageCadastro.html">Cadastre-se</a></button>
-        <button><a href="./pageLogin.html">Já sou cliente</a></button>
+        <div class="container_logo">
+            <a href="./index.html"><img src="./Assets/Logo-Preta-semFundo-Pequena.png" alt=""></a>
+        </div>
+        <div class="container_links">
+            <nav class="nav_1">
+                <span>
+                    <a href="#">Home</a>
+                </span>
+                <span>
+                    <a href="">Sobre nós</a>
+                </span>
+                <span>
+                    <a href="">Serviços</a>
+                </span>
+                <span>
+                    <a href="">Contato</a>
+                </span>
+                <span>
+                    <a href="./simuladorFinanceiro.html">Simulador financeiro</a>
+                </span>
+            </nav>
+            <nav class="nav_2">
+                <span onclick="buttonMenu()" id="buttonMenu_dropdown">Menu <img src="./Assets/arrow_bottom.png" alt=""></span>
+                <div id="menu_dropdown" style="display: none;">
+                    <span>
+                        <a href="#">Home</a>
+                    </span>
+                    <span>
+                        <a href="">Sobre nós</a>
+                    </span>
+                    <span>
+                        <a href="">Serviços</a>
+                    </span>
+                    <span>
+                        <a href="">Contato</a>
+                    </span>
+                    <span>
+                        <a href="./simuladorFinanceiro.html">Simulador financeiro</a>
+                    </span>
+                </div>
+            </nav>
+            <div class="buttons">
+                <button class="cadastro"><a href="./pageCadastro.html">Cadastre-se</a></button>
+                <button class="logar"><a href="./pageLogin.html">Já sou cliente</a></button>
+            </div>
+        </div>
+        
     </header>
 
     <main>
@@ -41,6 +79,6 @@
 
     </footer>
 
-
+    <script src="./menuDropdown.js"></script>
 </body>
 </html>
