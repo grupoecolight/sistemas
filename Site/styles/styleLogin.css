@@ -94,6 +94,17 @@ header .nav_2 {
     }
 }
 
+@media screen and (max-width: 800px) {
+    header .container_logo {
+        display: none;
+    }
+
+    header .container_links {
+        width: 100%;
+        margin-left: 1rem;
+    }
+}
+
 @media screen and (max-width: 500px) {
     header .nav_2 {
         width: 50px;
