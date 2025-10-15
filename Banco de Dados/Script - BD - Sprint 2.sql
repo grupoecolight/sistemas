@@ -63,8 +63,6 @@ u.senha AS 'Senha do Usuario'
 FROM empresa e JOIN usuario u
 ON e.idCliente = u.fkEmpregado;
 
-
-
 -- 
 CREATE TABLE Sensor (
     idSensor INT PRIMARY KEY AUTO_INCREMENT,
@@ -166,7 +164,6 @@ INSERT INTO regSensor VALUES
 (14, 33.0, 2, '2025-01-25 17:10:00'),
 (15, 33.0, 2, '2025-01-25 17:15:00'),
 (16, 32.0, 2, '2025-01-25 17:20:00');
-
 
 -- Empresa 1
 INSERT INTO regSensor VALUES
