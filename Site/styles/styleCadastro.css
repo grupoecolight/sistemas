@@ -222,26 +222,20 @@ header .logar a {
 /* Fim Header */
 
 main {
-    background: url(./Assets/Fundo\ login\ -\ EcoLight.pptx.png);
-    height: 92vh;
+    height: 875px;
     display: flex;
     flex-direction: row;
 }
 
-main .fora {
-    height: 92vh;
-    width: 5vw;
-}
-
-main .dentro {
-    height: 92vh;
-    width: 95vw;
+main .container_cadastro {
+    height: 875px;
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
 
-main .dentro .visual {
-    height: 92vh;
+main .container_cadastro .visual {
+    height: 875px;
     width: 35%;
     background-color: #16578d;
     display: flex;
@@ -250,24 +244,24 @@ main .dentro .visual {
     align-items: center;
 }
 
-main .dentro .visual p {
+main .container_cadastro .visual p {
     color: #16578d;
 }
 
-main .dentro .visual h1 {
+main .container_cadastro .visual h1 {
     color: #ffffff;
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     border-bottom: #ffffff solid 3px;
-    padding-bottom: 1rem;
+    margin-top: 3rem;
     width: 55%;
     text-align: center;
 }
 
-main .dentro .visual img {
-    height: 30rem;
+main .container_cadastro .visual img {
+    height: 20rem;
 }
 
-main .dentro .visual span {
+main .container_cadastro .visual span {
     color: #16578d;
     background-color: #ffffff;
     padding: .8rem .5rem;
@@ -276,8 +270,13 @@ main .dentro .visual span {
     font-weight: bold;
 }
 
-main .dentro .interacao {
-    height: 92vh;
+main .container_cadastro .visual a {
+    text-decoration: none;
+    color: #16578d;
+}
+
+main .container_cadastro .interacao {
+    height: 875px;
     width: 65%;
     /* background-color: #686868; */
     background-color: #EBEBEB;
@@ -286,13 +285,13 @@ main .dentro .interacao {
     align-items: center;
 }
 
-main .dentro .interacao .conteudo {
+main .container_cadastro .interacao .conteudo {
     display: flex;
     flex-direction: column;    
     align-items: center;
 }
 
-main .dentro .interacao .conteudo h2 {
+main .container_cadastro .interacao .conteudo h2 {
     color: #16578d;
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     width: 90%;
@@ -300,13 +299,13 @@ main .dentro .interacao .conteudo h2 {
     margin-bottom: 3rem;
 }
 
-main .dentro .interacao .conteudo label {
+main .container_cadastro .interacao .conteudo label {
     align-self: flex-start;
     color: #16578d;
     font-weight: bold;
 }
 
-main .dentro .interacao .conteudo input {
+main .container_cadastro .interacao .conteudo input {
     width: 99%;
     height: 2.5rem;
     border: none;
@@ -315,37 +314,37 @@ main .dentro .interacao .conteudo input {
     margin: .5rem;
 }
 
-main .dentro .interacao .conteudo #div_mensagemEmail {
+main .container_cadastro .interacao .conteudo #div_mensagemEmail {
     color: #ff0000;
     align-self: flex-start;
     font-weight: bold;
 }
 
-main .dentro .interacao .conteudo #div_mensagemSenha {
+main .container_cadastro .interacao .conteudo #div_mensagemSenha {
     color: #ff0000;
     align-self: flex-start;
     font-weight: bold;
 }
 
-main .dentro .interacao .conteudo #div_mensagemRepetirSenha {
+main .container_cadastro .interacao .conteudo #div_mensagemRepetirSenha {
     color: #ff0000;
     align-self: flex-start;
     font-weight: bold;
 }
 
-main .dentro .interacao .conteudo span {
+main .container_cadastro .interacao .conteudo span {
     align-self: flex-start;
     color: #16578d;
 }
 
-main .dentro .interacao .conteudo span a {
+main .container_cadastro .interacao .conteudo span a {
     text-decoration: none;
     color: #16578d;
     border-bottom: solid 1px #16578d;
     padding-bottom: .1rem;
 }
 
-main .dentro .interacao .conteudo button {
+main .container_cadastro .interacao .conteudo button {
     background-color: #16578d;
     color: #ffffff;
     border: none;
@@ -357,6 +356,6 @@ main .dentro .interacao .conteudo button {
     transition: 0.5s;
 }
 
-main .dentro .interacao .conteudo button:active {
+main .container_cadastro .interacao .conteudo button:active {
     transform: scale(1.1);
 }
