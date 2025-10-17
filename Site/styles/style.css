@@ -228,9 +228,17 @@ main {
     height: 800px;
 }
 
+main .overlayMain {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 800px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
 main .boxSides {
     background: url(../Assets/interior\ moderno\ do\ edifício\ de\ escritórios.\ Conceito\ de\ renderização\ 3D.jpg);
-    filter: brightness(70%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -238,14 +246,14 @@ main .boxSides {
     width: 100%;
     display: flex;
     align-items: center;
-    text-shadow: 3px 3px 1px #000;
+    /* text-shadow: 3px 3px 1px #000; */
 }
-
 
 main .boxSides .sides {
     width: 50%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
+    z-index: 2;
 }
 
 main .boxSides .side1 {
@@ -448,9 +456,12 @@ main .boxSides .side2 .side2Two {
 
 .nossosServicos {
     padding-top: 2rem;
-    height: 1500px;
+    height: 1400px;
     background-color: #16578D;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .nossosServicos h2 {
@@ -461,7 +472,7 @@ main .boxSides .side2 .side2Two {
 }
 
 .nossosServicos hr {
-    width: 25%;
+    width: 55%;
     height: 3px;
     margin-left: 7rem;
     background-color: #fff;
@@ -470,15 +481,47 @@ main .boxSides .side2 .side2Two {
     margin-bottom: 2rem;
 }
 
+.nossosServicos .containerServicos {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .nossosServicos .containersServico {
     margin: auto;
-    width: 90%;
+    width: 800px;
     display: flex;
 }
 
 .nossosServicos .containersServico .imgServicos {
-    width: 350px;
+    width: 355px;
     height: 348px;
+    margin: 25px;
+    border-radius: 1rem;
+    box-shadow: 4px 4px 5px 1px #ffffff;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.nossosServicos .containersServico .imgServicos .overlayServicos {
+    content: '';
+    position: absolute;
+    width: 355px;
+    height: 348px;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.nossosServicos .containersServico .imgServicos span {
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    z-index: 2;
 }
 
 .nossosServicos .containersServico .imgManutencao {
@@ -499,17 +542,151 @@ main .boxSides .side2 .side2Two {
     background-size: cover;
 }
 
-/* .nossosServicos .containersServico img {
-    width: 100%;
-    height: 100%;
-} */
-
 .nossosServicos .containersServico .textServicos {
-    width: 50%;
+    width: 355px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: #ffffff;
+    margin: 0 25px;
+    font-size: 1.5rem;
+}
+
+.nossosServicos .containersServico .textServicos .containerText {
+    width: 85%;
+}
+
+.nossosServicos .containerServicos .containerText .boldText {
+    color: #f48924;
 }
 
 /* Fim Section Nossos Serviços */
+
+/* Começo Entre em Contato */
+
+.entreContato {
+    width: 100%;
+    height: 600px;
+    background-color: #EBEBEB;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.entreContato .cadastrar {
+    background-color: #F48924;
+    height: 100px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+}
+
+.entreContato .cadastrar a {
+    color: #16578D;
+    text-decoration: none;
+    background-color: #ffffff;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 1rem;
+    box-shadow: 1px 1px 10px 1px #ffffff;
+}
+
+.entreContato .contato {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.entreContato .contato .containerContato {
+    width: 95%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 5px .5px #9c9c9c33;
+    border-radius: .5rem;
+}
+
+.entreContato .contato .tittleContato {
+    text-align: center;
+}
+
+.entreContato .contato h2 {
+    color: #16578D;
+    margin-bottom: 0;
+    font-size: 2rem;
+}
+
+.entreContato .contato hr {
+    border: 1px solid #16578D;
+    background-color: #16578D;
+    width: 12%;
+    height: 1px;
+    margin-bottom: 5rem;
+}
+
+.entreContato .contato .redesMensagem {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #16578D;
+    font-weight: bold;
+}
+
+.entreContato .contato .redes {
+    width: 200px;
+    text-align: center;
+}
+
+.entreContato .contato .redes .containerRedes {
+    width: 95%;
+}
+
+.entreContato .contato .redes .icons {
+    margin-top: 2rem;
+}
+
+.entreContato .contato .redes a {
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+.entreContato .contato .mensagem {
+    width: 60%;
+}
+
+.entreContato .contato .mensagem input {
+    width: 95%;
+    margin-bottom: 1rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: transparent;
+    box-shadow: 5px 5px 5px .5px #9c9c9c33;
+    font-size: 1rem;
+}
+
+.entreContato .contato .mensagem .input_button {
+    width: 5rem;
+    background-color: #F48924;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.entreContato .contato .mensagem textarea {
+    width: 95%;
+    height: 100px;
+    margin-bottom: 1rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: transparent;
+    box-shadow: 5px 5px 5px .5px #9c9c9c33;
+    font-size: 1rem;
+}
+
+/* Fim Entre em Contato */

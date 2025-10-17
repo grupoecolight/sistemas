@@ -58,6 +58,7 @@
     </header>
 
     <main>
+        <div class="overlayMain"></div>
         <div class="boxSides">
             <div class="sides side1">
                 <span class="side1One">Abrilhante a sua empresa com a</span>
@@ -122,7 +123,7 @@
         </div>
     </section>
 
-    <section class="nossosServicos">
+    <section class="nossosServicos" id="idNossosServicos">
         <div class="tittleNossosServicos">
             <h2>Conheça nossos serviços</h2>
             <hr>
@@ -131,27 +132,74 @@
         <div class="containerServicos">
             <div class="containerManutencao containersServico">
                 <div class="imgServicos imgManutencao">
-                    <!-- <img src="./Assets/manutencao.png" alt="" class="servicoImg1"> -->
+                    <div class="overlayServicos"></div>
+                    <span>Manutenção</span>
                 </div>    
                 <div class="textServicos">
-                    <span>Realizamos as manutenções nos sensores, <span class="boldText">garantindo sua boa funcionalidade e precisão.</span></span>
+                    <div class="containerText">
+                        <span>Realizamos as manutenções nos sensores, <span class="boldText">garantindo sua boa funcionalidade e precisão.</span></span>
+                    </div>
                 </div>  
             </div>
             <div class="containerInstalacao containersServico">
                 <div class="textServicos">
-                    Estudamos a melhor forma de implementar nosso projeto em seu ambiente, garantindo a <span class="boldText">melhor eficiência</span> possível dos nossos sensores.
+                    <div class="containerText">
+                        <span>Estudamos a melhor forma de implementar nosso projeto em seu ambiente, garantindo a <span class="boldText">melhor eficiência</span> possível dos nossos sensores.</span>
+                    </div>
                 </div>  
                 <div class="imgServicos imgInstalacao">
-                    <!-- <img src="./Assets/sensorFundo.png" alt="" class="servicoImg2"> -->
+                    <div class="overlayServicos"></div>
+                    <span>Instalação do sensor</span>
                 </div>
             </div>
             <div class="containerMonitoramento containersServico">
                 <div class="imgServicos imgMonitoramento">
-                    <!-- <img src="./Assets/monitoramento.png" alt="" class="servicoImg3"> -->
+                    <div class="overlayServicos"></div>
+                    <span>Monitoramento</span>
                 </div>    
                 <div class="textServicos">
-                    Analisamos os dados gerados e enviamos para nosso cliente relatórios detalhados, <span class="boldText">auxiliando no controle de sua iluminação.</span>
+                    <div class="containerText">
+                        <span>Analisamos os dados gerados e enviamos para nosso cliente relatórios detalhados, <span class="boldText">auxiliando no controle de sua iluminação.</span></span>
+                    </div>
                 </div>  
+            </div>
+        </div>
+    </section>
+
+    <section class="entreContato" id="idEntreContato">
+        <div class="cadastrar">
+            <span>Ainda não é cliente EcoLight?</span>
+            <a href="./pageCadastro.html">Cadastre-se</a>
+        </div>
+        <div class="contato">
+            <div class="containerContato">
+                <div class="tittleContato">
+                    <h2>Entre em contato!</h2>
+                    <hr>
+                </div>
+                <div class="redesMensagem">
+                    <div class="redes">
+                        <div class="containerRedes">
+                            <span>Mande um e-mail para nós via formulário e entre nas nossas redes sociais</span>
+                            <div class="icons">
+                                <a href="https://www.linkedin.com/feed/">
+                                    <img src="./Assets/iconLinkedIn.png" alt="">
+                                </a>
+                                <a href="https://www.instagram.com/">
+                                    <img src="./Assets/iconInstagram.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mensagem">
+                        <form action="#" method="post">
+                            <input type="text" name="" id="input_nomeEmpresa" placeholder="Nome da empresa">
+                            <input type="text" name="" id="input_emailEmpresa" placeholder="Email da empresa">
+                            <textarea name="" id="textarea_mensagem" placeholder="Deixe sua mensagem..."></textarea>
+                            <input type="submit" name="" id="input_submit" class="input_button" value="Enviar">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
