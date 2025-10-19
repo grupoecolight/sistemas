@@ -1,5 +1,5 @@
 function valEmail() {
-    var email = document.getElementById('input_emailEmpresa').value
+    var email = document.getElementById('input_emailOuCnpj').value
 
     var tamanho = email.length - 1
     
@@ -16,28 +16,31 @@ function valEmail() {
     }    
 
     if (email[0] == '.' || (email[tamanho] == '.' && email[(tamanho - 1)] == '.')) { // Não deixa começar com ponto e nem ter 2 pontos seguidos
-        input_emailEmpresa.value = input_emailEmpresa.value.slice(0, -1)
+        input_emailOuCnpj.value = input_emailOuCnpj.value.slice(0, -1)
     }
     
     if (email[tamanho] == ' ' || email[tamanho] == ',' || email[tamanho] == ':' || email[tamanho] == ';') { // Não pode usar 'espaço', 'vírgula', ':', ';'
-        input_emailEmpresa.value = input_emailEmpresa.value.slice(0, -1)
+        input_emailOuCnpj.value = input_emailOuCnpj.value.slice(0, -1)
     }
 }
 
 function valSenha() {
-    var senha = document.getElementById('input_senhaEmpresa').value
+    var senha = document.getElementById('input_password').value
     var tamanho = senha.length
 
     if (tamanho > 50) { // Não deixa colocar mais que 50 caracteres
-        input_senhaEmpresa.value = input_senhaEmpresa.value.slice(0, -1)
+        input_password.value = input_password.value.slice(0, -1)
     }
 }
 
 function entrar() {
-    var email = document.getElementById('input_emailEmpresa').value
+    var emailCorreto = 'admin@ecolight.com'
+    var senhaCorreta = 'Urubu100'
+
+    var email = document.getElementById('input_emailOuCnpj').value
     var validacao = true
 
-    var senha = document.getElementById('input_senhaEmpresa').value
+    var senha = document.getElementById('input_password').value
     var senhaMaiuscula = senha.toUpperCase()
     var senhaMinuscula = senha.toLowerCase()
 
@@ -71,6 +74,18 @@ function entrar() {
     if (senha.length < 8) { // A senha deve conter pelo menos 8 caracteres
         div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 8 Caracteres <br>'
         validacao = false
+    }
+
+    if (validacao) {
+        if (email == emailCorreto) {
+            if (senha == senhaCorreta) {
+                window.location.href = './dashboard.html'
+            } else {
+                alert(`Senha Incorreta.`)
+            }
+        } else {
+            alert(`Email não encontrado em nosso Banco de Dados.`)
+        }
     }
     
 }

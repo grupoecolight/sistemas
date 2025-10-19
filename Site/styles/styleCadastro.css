@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #EBEBEB;
 }
 
 /* Começo Header */
@@ -356,8 +357,12 @@ main .container_cadastro .interacao .conteudo button {
     border-radius: .5rem;
     font-weight: bold;
     font-size: 1.5rem;
-    margin-top: 4rem;
+    margin-top: 2.2rem;
     transition: 0.5s;
+}
+
+main .container_cadastro .interacao .conteudo button:hover {
+    transform: scale(1.05);
 }
 
 main .container_cadastro .interacao .conteudo button:active {

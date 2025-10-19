@@ -98,12 +98,16 @@ header .nav_2 {
 }
 
 @media screen and (max-width: 800px) {
+    header {
+        width: 100vw;
+    }
+    
     header .container_logo {
         display: none;
     }
 
     header .container_links {
-        width: 100%;
+        width: 95%;
         margin-left: 1rem;
         justify-content: space-between;
     }
@@ -365,20 +369,29 @@ main .boxSides .side2 .side2Two {
     align-items: center;
     flex-direction: column;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top: 2rem;
 }
 
 .quemSomos .tittleQuemSomos {
-    width: 100%;
     text-align: center;
 }
 
 .quemSomos h2 {
     color: #16578d;
-    font-size: 3rem;
-    /* margin-top: -3rem; */
-    margin-bottom: 2rem;
-    border-bottom: 3px solid #16578d;
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: -2rem;
     display: inline-block;
+    /* font-family: monospace; */
+}
+
+.quemSomos hr {
+    width: 65%;
+    height: 3px;
+    background-color: #16578d;
+    border-radius: 2px;
+    border: transparent;
+    margin-bottom: 2rem;
 }
 
 .quemSomos .containerCards {
@@ -393,7 +406,7 @@ main .boxSides .side2 .side2Two {
 .quemSomos .cards {
     background-color: #ffffff;
     width: 250px;
-    height: 200px;
+    height: 220px;
     margin: 0.2rem 3rem;
     border-radius: 0.5rem;
     border: 1px solid #16578d;
@@ -439,7 +452,7 @@ main .boxSides .side2 .side2Two {
 
 @media screen and (max-width: 884px) {
     .quemSomos {
-        height: 1000px;
+        height: 1050px;
     }
 }
 
@@ -468,17 +481,21 @@ main .boxSides .side2 .side2Two {
     align-items: center;
 }
 
+.nossosServicos .tittleNossosServicos {
+    text-align: center;
+}
+
 .nossosServicos h2 {
     color: #fff;
-    margin: 2rem 0 0 4rem;
+    margin-top: 2rem;
+    margin-bottom: .5rem;
     font-size: 2rem;
     text-shadow: 0px 2px 10px #0a273f;
 }
 
 .nossosServicos hr {
-    width: 55%;
+    width: 65%;
     height: 3px;
-    margin-left: 7rem;
     background-color: #fff;
     border-radius: 2px;
     border: transparent;
@@ -496,6 +513,22 @@ main .boxSides .side2 .side2Two {
     margin: auto;
     width: 800px;
     display: flex;
+}
+
+@media screen and (max-width: 800px) {
+    .nossosServicos {
+        height: 1750px;
+    }
+
+    .nossosServicos .containersServico {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nossosServicos .containerInstalacao {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }
 
 .nossosServicos .containersServico .imgServicos {

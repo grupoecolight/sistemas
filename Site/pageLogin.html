@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="container_logo">
-            <a href="./index.html"><img src="./Assets/Logo-Preta-semFundo-Pequena.png" alt=""></a>
+            <a href="./index.html"><img src="./Assets/logo_ecolight_transparente_branca.png" alt=""></a>
         </div>
         <div class="container_links">
             <nav class="nav_1">
@@ -69,13 +69,13 @@
                     
                     <label for="input_emailOuCnpj">E-mail ou CNPJ da empresa</label>
                     <input type="text" name="" id="input_emailOuCnpj" oninput="valEmail()">
-
+                    <div id="div_mensagemEmail"></div>
                     <label for="input_password">Senha</label>
                     <input type="password" name="" id="input_password" oninput="valSenha()">
                     <div id="div_mensagemSenha"></div>
                     <span>Esqueceu a senha? <a href="#">Clique aqui!</a></span>
 
-                    <button>Entrar</button>
+                    <button onclick="entrar()">Entrar</button>
                 </div>
             </section>
         </div>
