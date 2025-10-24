@@ -1,5 +1,4 @@
 CREATE DATABASE Ecolight;
-
 USE Ecolight;
 
 CREATE TABLE empresa (
@@ -22,19 +21,36 @@ INSERT INTO empresa (razaoSocial, cnpj, cep, responsavel, telefone, dtCadastro, 
 SELECT * FROM empresa;
 
 
+CREATE TABLE mensagem (
+idMensagem INT PRIMARY KEY AUTO_INCREMENT,
+nomeEmpresa VARCHAR (45),
+emailEmpresa VARCHAR (255),
+nomeRepresentante VARCHAR (45),
+contatoTel CHAR(11),
+mensagem VARCHAR(500)
+);
+
+
+
+
 
 CREATE TABLE usuario (
     idUsuario INT AUTO_INCREMENT,
+    nome VARCHAR(45),
     areaEmpresa VARCHAR(45),
     email VARCHAR(255),
     senha VARCHAR(45),
+    userAdmin INT,
+    CONSTRAINT chkUserAdmin CHECK (userAdmin IN (0,1)),
+    
     fkOrganizacao INT,
     CONSTRAINT pkUsuario PRIMARY KEY (idUsuario, fkOrganizacao),
     CONSTRAINT fkUsuarioEmpresa FOREIGN KEY (fkOrganizacao)
         REFERENCES empresa(idEmpresa)
 );
 
-INSERT INTO usuario (areaEmpresa, email, senha, fkOrganizacao) VALUES
+
+INSERT INTO usuario (areaEmpresa, email, senha, fkOrganizacao, userAdmin) VALUES
 ('Administração', 'admin@empresa1.com', 'admin123', 1),
 ('Recursos Humanos', 'rh@empresa1.com', 'rh2025', 2),
 ('Gerência', 'gerente@empresa2.com', 'ger@XPTO', 3);
@@ -46,7 +62,6 @@ SELECT * FROM usuario;
 -- UPDATE usuario SET fkOrganizacao = 1 WHERE idUsuario = 1;
 -- UPDATE usuario SET fkOrganizacao = 2 WHERE idUsuario = 2;
 -- UPDATE usuario SET fkOrganizacao = 3 WHERE idUsuario = 3;
--- 
 
 
 -- JOIN das FK com as PK
