@@ -52,6 +52,36 @@ header .container_logo img:hover {
 
 /* Fim Container Logo */
 
+/* Começo Container Links */
+
+header .container_links {
+    height: 90%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .container_links a {
+    display: flex;
+    align-items: center;
+    margin: .05rem;
+    height: 50%;
+    padding: 0 1rem;
+    transition: .5s;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header .container_links a:hover {
+    background-color: #08365c9c;
+    transform: scale(1.1);
+}
+
+/* Fim Container Link */
+
 /* Começo Container Perfil */
 
 header .container_perfil {
@@ -145,6 +175,7 @@ main .filtros .tittleEmpresa {
     border-radius: 1rem;
     color: #ffffff;
     text-align: center;
+    box-shadow: 0px 4px 4px 0px #3b3b3b3a;
 }
 
 main .filtros h1 {
@@ -194,6 +225,7 @@ main .tabelas .bemVindo {
     justify-content: space-around;
     align-items: center;
     border-radius: 1rem;
+    box-shadow: 0px 4px 4px 0px #3b3b3b3a;
 }
 
 main .tabelas .bemVindo .container_bemVindo {
@@ -229,7 +261,7 @@ main .tabelas .container_bemVindo .local {
 }
 
 main .tabelas .bemVindo .lampadaFundo {
-    background: url(./Assets/lampada_mensagem_tela_geral_dashboard.png);
+    background: url(../Assets/lampada_mensagem_tela_geral_dashboard.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

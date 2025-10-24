@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./styles/dashboardGrafico.css">
+</head>
+<body>
+    
+    <header>
+        <div class="container_logo">
+            <a href="./index.html"><img src="./Assets/logo_ecolight_transparente_branca.png" alt=""></a>
+        </div>
+        <div class="container_links">
+            <a href="./dashboard.html">Tabela</a>
+        </div>
+        <div class="container_perfil">
+            <img onclick="buttonPerfilMenu()" src="./Assets/account.png" alt="">
+            <!-- <span>
+            </span> -->
+            <div id="dropdownPerfil" style="display: none;">
+                <span>
+                    <a href="#">Perfil</a>
+                </span>
+                <span>
+                    <a href="#">Cadastrar</a>
+                </span>
+                <span>
+                    <a href="#">Trocar Senha</a>
+                </span>
+                <span>
+                    <a href="./index.html" class="exit">Sair</a>
+                </span>
+            </div>
+        </div>
+        
+    </header>
+
+    <main>
+        <div class="container_dashboard">
+            <div class="filtros">
+                <div class="tittleEmpresa">
+                    <h1>EcoLight</h1>
+                </div>
+                <div class="container_filtros">
+                    <span class="tittleFiltro">Ambientes</span>
+                    <span>Ambiente 1</span>
+                    <span>Ambiente 2</span>
+                    <span>Ambiente 3</span>
+                    <span>Ambiente 4</span>
+                    <span>Ambiente 5</span>
+                    <span>Ambiente 6</span>
+                </div>
+                <div class="container_filtros">
+                    <span class="tittleFiltro">Sensores</span>
+                    <span>00-NOR</span>
+                    <span>01-SUL</span>
+                    <span>00-OES</span>
+                    <span>02-LST</span>
+                    <span>01-NOR</span>
+                    <span>02-OES</span>
+                </div>
+            </div>
+            <div class="tabelas">
+                <div class="container_myChart">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div class="container_myChart">
+                    <canvas id="myChart2"></canvas>
+                </div>
+            </div>
+            <div class="kpis">
+                <div class="kpi">
+                    <div class="container_kpi">
+                        <span class="tittleKpi">Padrão:</span>
+                        <span class="conteudoKpi">49%</span>
+                    </div>
+                </div>
+                <div class="kpi">
+                    <div class="container_kpi">
+                        <span class="tittleKpi">Quantidade de alertas Ambiente 2:</span>
+                        <span class="conteudoKpi">10</span>
+                    </div>
+                </div>
+                <div class="kpi">
+                    <div class="container_kpi">
+                        <span class="tittleKpi">Média geral dos sensores:</span>
+                        <span class="conteudoKpi">18,5%</span>
+                    </div>
+                </div>
+                <div class="kpi kpiIdeal">
+                    <div class="container_kpi">
+                        <span class="tittleKpi tittleKpiIdeal">Incidência de luz ideal:</span>
+                        <span class="conteudoKpi conteudoKpiIdeal">0</span>
+                    </div>
+                </div>
+                <div class="kpi kpiElevada">
+                    <div class="container_kpi">
+                        <span class="tittleKpi tittleKpiElevada">Incidência de luz elevada</span>
+                        <span class="conteudoKpi conteudoKpiElevada">0</span>
+                    </div>
+                </div>
+                <div class="kpi kpiInferior">
+                    <div class="container_kpi">
+                        <span class="tittleKpi tittleKpiInferior">Incidência de luz inferior</span>
+                        <span class="conteudoKpi conteudoKpiInferior">10</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./dashboardgrafico.js"></script>
+    <script src="./menuDropdown.js"></script>
+</body>
+</html>
