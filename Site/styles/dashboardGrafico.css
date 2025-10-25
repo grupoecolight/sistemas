@@ -204,6 +204,66 @@ main .filtros .container_filtros span {
     color: #64ADE0;
 }
 
+main .filtros .container_filtros .filtro_ambiente1 {
+    color: #e45b5b;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_ambiente2 {
+    color: #64ADE0;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_ambiente3 {
+    color: #e45b5b;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_ambiente4 {
+    color: #e45b5b;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_ambiente5 {
+    color: #e45b5b;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_ambiente6 {
+    color: #64ADE0;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_sensor1 {
+    color: #e45b5b;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_sensor2 {
+    color: #e45b5b;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_sensor3 {
+    color: #e45b5b;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_sensor4 {
+    color: #e45b5b;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_sensor5 {
+    color: #e45b5b;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_sensor6 {
+    color: #e45b5b;
+    font-weight: bold;
+}
+
 /* Fim Filtros */
 
 /* Começo Tabelas */

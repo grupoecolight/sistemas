@@ -56,7 +56,7 @@
                 </div>
             </nav>
             <div class="buttons">
-                <button class="cadastro"><a href="./pageCadastro.html">Cadastre-se</a></button>
+                <!-- <button class="cadastro"><a href="./pageCadastro.html">Cadastre-se</a></button> -->
                 <button class="logar"><a href="./pageLogin.html">Já sou cliente</a></button>
             </div>
         </div>
@@ -202,8 +202,12 @@
                         <form action="#" method="post">
                             <input type="text" name="" id="input_nomeEmpresa" placeholder="Nome da empresa">
                             <input type="text" name="" id="input_emailEmpresa" placeholder="Email da empresa">
+                            <div class="container_doisInput">
+                                <input type="text" name="" id="input_nomeRepresentante" placeholder="Nome do representante">
+                                <input type="text" name="" id="input_telefoneContato" placeholder="Telefone para contato">
+                            </div>
                             <textarea name="" id="textarea_mensagem" placeholder="Deixe sua mensagem..."></textarea>
-                            <input type="submit" name="" id="input_submit" class="input_button" value="Enviar">
+                            <input type="button" name="" id="input_submit" class="input_button" value="Enviar" onclick="buttonSubmitForm()">
                         </form>
                     </div>
                 </div>
@@ -215,6 +219,7 @@
 
     </footer>
 
+    <script src="./formEmpresa.js"></script>
     <script src="./menuDropdown.js"></script>
 </body>
 </html>

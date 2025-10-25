@@ -20,7 +20,7 @@ options: {
     plugins: {
         title: {
             display: true,
-            text: '02-NOR',
+            text: 'Histórico de Registros do Sensor 002-NOR',
             font: {
                 size: 30
             }

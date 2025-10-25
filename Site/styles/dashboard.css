@@ -203,6 +203,36 @@ main .filtros .container_filtros span {
     color: #64ADE0;
 }
 
+main .filtros .container_filtros .filtro_ambiente1 {
+    color: #e45b5b;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_ambiente2 {
+    color: #64ADE0;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_ambiente3 {
+    color: #e45b5b;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_ambiente4 {
+    color: #e45b5b;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_ambiente5 {
+    color: #e45b5b;
+    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_ambiente6 {
+    color: #64ADE0;
+    font-weight: bold;
+}
+
 /* Fim Filtros */
 
 /* Começo Tabelas */
@@ -333,6 +363,30 @@ main .tabelas .tabela .conteudoTabela section .miniTittleTabela {
 main .tabelas .tabela .conteudoTabela section .miniConteudo {
     color: #0072C4;
     margin: .5rem 0;
+}
+
+main .tabelas .tabela .conteudoTabela section .linhaAlerta1, main .tabelas .tabela .conteudoTabela section .linhaIntensidade1 {
+    color: #db1111;
+}
+
+main .tabelas .tabela .conteudoTabela section .linhaAlerta2, main .tabelas .tabela .conteudoTabela section .linhaIntensidade2 {
+    color: #00862D;
+}
+
+main .tabelas .tabela .conteudoTabela section .linhaAlerta3, main .tabelas .tabela .conteudoTabela section .linhaIntensidade3 {
+    color: #db1111;
+}
+
+main .tabelas .tabela .conteudoTabela section .linhaAlerta4, main .tabelas .tabela .conteudoTabela section .linhaIntensidade4 {
+    color: #db1111;
+}
+
+main .tabelas .tabela .conteudoTabela section .linhaAlerta5, main .tabelas .tabela .conteudoTabela section .linhaIntensidade5 {
+    color: #db1111;
+}
+
+main .tabelas .tabela .conteudoTabela section .linhaAlerta6, main .tabelas .tabela .conteudoTabela section .linhaIntensidade6 {
+    color: #00862D;
 }
 
 /* Fim Tabela */

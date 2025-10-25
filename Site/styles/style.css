@@ -536,7 +536,7 @@ main .boxSides .side2 .side2Two {
     height: 348px;
     margin: 25px;
     border-radius: 1rem;
-    box-shadow: 4px 4px 5px 1px #ffffff;
+    box-shadow: 4px 4px 5px 1px #0000006e;
     color: #ffffff;
     display: flex;
     justify-content: center;
@@ -604,7 +604,7 @@ main .boxSides .side2 .side2Two {
 
 .entreContato {
     width: 100%;
-    height: 600px;
+    height: 650px;
     background-color: #EBEBEB;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -638,7 +638,7 @@ main .boxSides .side2 .side2Two {
 
 .entreContato .contato {
     width: 100%;
-    height: 500px;
+    height: 550px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -718,6 +718,16 @@ main .boxSides .side2 .side2Two {
     border: transparent;
     box-shadow: 5px 5px 5px .5px #9c9c9c33;
     font-size: 1rem;
+}
+
+.entreContato .contato .mensagem .container_doisInput {
+    display: flex;
+    justify-content: space-between;
+    width: 96.5%;
+}
+
+.entreContato .contato .mensagem .container_doisInput input {
+    width: 45%;
 }
 
 .entreContato .contato .mensagem .input_button {
