@@ -30,10 +30,6 @@ contatoTel CHAR(11),
 mensagem VARCHAR(500)
 );
 
-
-
-
-
 CREATE TABLE usuario (
     idUsuario INT AUTO_INCREMENT,
     nome VARCHAR(45),
@@ -90,43 +86,43 @@ CREATE TABLE Sensor (
 );
 
 -- Empresa 1
-INSERT INTO Sensor (idSensor, tagSensor, area, andar, fkEmpresa) VALUES
-(default, '01-NOR', 'Sala de reuniões', 2, 1),
-(default, '02-NOR', 'Sala de reuniões', 2, 1),
-(default, '03-NOR', 'Sala de reuniões', 2, 1),
-(default, '04-NOR', 'Sala de reuniões', 2, 1),
-(default, '01-SUL', 'Sala de reuniões', 2, 1),
-(default, '02-SUL', 'Sala de reuniões', 2, 1),
-(default, '03-SUL', 'Sala de reuniões', 2, 1),
-(default, '04-SUL', 'Sala de reuniões', 2, 1);
+INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
+(default, '002-NOR', 'Sala de reuniões', 1),
+(default, '012-NOR', 'Sala de reuniões', 1),
+(default, '022-NOR', 'Sala de reuniões', 1),
+(default, '032-NOR', 'Sala de reuniões', 1),
+(default, '042-SUL', 'Sala de reuniões', 1),
+(default, '052-SUL', 'Sala de reuniões', 1),
+(default, '062-SUL', 'Sala de reuniões', 1),
+(default, '072-SUL', 'Sala de reuniões', 1);
 
 
 -- Empresa 2
-INSERT INTO Sensor (idSensor, tagSensor, area, andar, fkEmpresa) VALUES
-(default, '01-LES', 'Sala de conferência', 7, 2),
-(default, '02-LES', 'Sala de conferência', 7, 2),
-(default, '03-LES', 'Sala de conferência', 7, 2),
-(default, '04-LES', 'Sala de conferência', 7, 2),
-(default, '01-OES', 'Sala de conferência', 7, 2),
-(default, '02-OES', 'Sala de conferência', 7, 2),
-(default, '03-OES', 'Sala de conferência', 7, 2),
-(default, '04-OES', 'Sala de conferência', 7, 2);
+INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
+(default, '007-LES', 'Sala de conferência', 2),
+(default, '017-LES', 'Sala de conferência', 2),
+(default, '027-LES', 'Sala de conferência', 2),
+(default, '037-LES', 'Sala de conferência', 2),
+(default, '047-OES', 'Sala de conferência', 2),
+(default, '057-OES', 'Sala de conferência', 2),
+(default, '067-OES', 'Sala de conferência', 2),
+(default, '077-OES', 'Sala de conferência', 2);
 
 
 -- Empresa 3
-INSERT INTO Sensor (idSensor, tagSensor, area, andar, fkEmpresa) VALUES
-(default, '01-OES', 'Recepção', 4, 3),
-(default, '02-OES', 'Recepção', 4, 3),
-(default, '03-OES', 'Recepção', 4, 3),
-(default, '04-OES', 'Recepção', 4, 3),
-(default, '01-SUL', 'Recepção', 4, 3),
-(default, '02-SUL', 'Recepção', 4, 3),
-(default, '03-SUL', 'Recepção', 4, 3),
-(default, '04-SUL', 'Recepção', 4, 3),
-(default, '01-LES', 'Recepção', 4, 3),
-(default, '02-LES', 'Recepção', 4, 3),
-(default, '03-LES', 'Recepção', 4, 3),
-(default, '04-LES', 'Recepção', 4, 3);
+INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
+(default, '001-OES', 'Recepção', 3), -- dois primeiros dígitos numericos = andar / último dígito numerico = andar
+(default, '011-OES', 'Recepção', 3),
+(default, '021-OES', 'Recepção', 3),
+(default, '031-OES', 'Recepção', 3),
+(default, '001-SUL', 'Recepção', 3),
+(default, '021-SUL', 'Recepção', 3),
+(default, '031-SUL', 'Recepção', 3),
+(default, '041-SUL', 'Recepção', 3),
+(default, '001-LES', 'Recepção', 3),
+(default, '011-LES', 'Recepção', 3),
+(default, '021-LES', 'Recepção', 3),
+(default, '031-LES', 'Recepção', 3);
 
 SELECT * FROM Sensor;
 
