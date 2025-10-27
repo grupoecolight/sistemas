@@ -49,14 +49,14 @@
                     <h2>Preencha os dados para cadastrar um novo funcionário!</h2>
 
                     <label for="input_nomeUsuario">Nome do Usuário</label>
-                    <input type="text" name="" id="input_nomeUsuario" oninput="valNome()">
+                    <input type="text" name="" id="input_nomeUsuario" oninput="valNome()" placeholder="Ricardo Gomez">
 
                     <label for="input_emailUsuario">E-mail do Usuário</label>
-                    <input type="text" name="" id="input_emailUsuario" oninput="valEmail()">
+                    <input type="text" name="" id="input_emailUsuario" oninput="valEmail()" placeholder="ricardo@gmail.com">
                     <div id="div_mensagemEmail"></div>
 
                     <label for="input_areaUsuario">Área do Usuário</label>
-                    <input type="text" name="" id="input_areaUsuario"> <!-- oninput="valCnpj()" -->
+                    <input type="text" name="" id="input_areaUsuario" placeholder="Técnino em Infraestrutura"> <!-- oninput="valCnpj()" -->
 
                     <!-- <label for="input_text">CEP da empresa</label>
                     <input type="text" name="" id="input_cepEmpresa" oninput="valCep()"> -->
@@ -65,11 +65,11 @@
                     <input type="text" name="" id="input_telefoneEmpresa" oninput="valTel()"> -->
 
                     <label for="input_senhaUsuario">Senha</label>
-                    <input type="password" name="" id="input_senhaUsuario" oninput="valSenha()">
+                    <input type="password" name="" id="input_senhaUsuario" oninput="valSenha()" placeholder="********** ">
                     <div id="div_mensagemSenha"></div>
 
                     <label for="input_repetirSenhaUsuario">Repetir Senha</label>
-                    <input type="password" name="" id="input_repetirSenhaUsuario" oninput="valRepetirSenha()">
+                    <input type="password" name="" id="input_repetirSenhaUsuario" oninput="valRepetirSenha()"placeholder ="**********">
                     <div id="div_mensagemRepetirSenha"></div>
 
                     <button onclick="entrar()">Cadastrar</button>
