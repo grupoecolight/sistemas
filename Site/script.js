@@ -140,12 +140,12 @@ function entrar() {
     //     div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra <br>'
     //     validacao = false
     // }
-    if (senha == senhaMaiuscula) { // A Senha deve ter pelo menos 1 letra Maiúscula
-        div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra Maiúscula <br>'
+    if (senha == senhaMaiuscula) { // A Senha deve ter pelo menos 1 letra Minúscula
+        div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra Minúscula <br>'
         validacao = false
     }
-    if (senha == senhaMinuscula) { // A Senha deve ter pelo menos 1 letra Minúscula
-        div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra Minúscula <br>'
+    if (senha == senhaMinuscula) { // A Senha deve ter pelo menos 1 letra Maiúscula
+        div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra Maiúscula <br>'
         validacao = false
     }
     if (senha.length < 8) { // A senha deve conter pelo menos 8 caracteres

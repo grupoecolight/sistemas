@@ -12,11 +12,12 @@
         <div class="container_logo">
             <a href="./index.html"><img src="./Assets/logo_ecolight_transparente_branca.png" alt=""></a>
         </div>
-        <div class="container_links">
-            <a href="./dashboard.html">Tabela</a>
+        <div class="container_title">
+            <h1>Dashboard - Ambiente 2</h1>
         </div>
         <div class="container_perfil">
             <img onclick="buttonPerfilMenu()" src="./Assets/account.png" alt="">
+            <img class="menuHamburguer" onclick="buttonPerfilMenu()" src="./Assets/menu.png" alt="">
             <!-- <span>
             </span> -->
             <div id="dropdownPerfil" style="display: none;">
@@ -24,10 +25,10 @@
                     <a href="#">Perfil</a>
                 </span>
                 <span>
-                    <a href="./pageCadastro.html">Cadastrar</a>
+                    <a href="./pageCadastro.html">Cadastrar novo Usuário</a>
                 </span>
                 <span>
-                    <a href="#">Trocar Senha</a>
+                    <a href="#">Configurações</a>
                 </span>
                 <span>
                     <a href="./index.html" class="exit">Sair</a>
@@ -41,25 +42,30 @@
         <div class="container_dashboard">
             <div class="filtros">
                 <div class="tittleEmpresa">
-                    <h1>EcoLight</h1>
+                    <h2>EcoLight</h2>
                 </div>
-                <div class="container_filtros">
+                <div class="container_filtros container_filtrosAmbientes">
                     <span class="tittleFiltro">Ambientes</span>
-                    <span class="filtro_ambiente1">Ambiente 1</span>
-                    <span class="filtro_ambiente2">Ambiente 2</span>
-                    <span class="filtro_ambiente3">Ambiente 3</span>
-                    <span class="filtro_ambiente4">Ambiente 4</span>
-                    <span class="filtro_ambiente5">Ambiente 5</span>
-                    <span class="filtro_ambiente6">Ambiente 6</span>
+                    <span class="conteudo_filtro filtro_geral"><a href="./dashboard.html">Visão geral <img src="./Assets/filtro_geral.png" alt=""></a></span>
+                    <span class="conteudo_filtro filtro_ambiente1">Ambiente 1 <img src="./Assets/filtro_check.png" alt=""></span>
+                    <span class="conteudo_filtro filtro_ambiente2">Ambiente 2<img src="./Assets/filtro_alertaInferior.png" alt=""></span>
+                    <span class="conteudo_filtro filtro_ambiente3">Ambiente 3 <img src="./Assets/filtro_check.png" alt=""></span>
+                    <span class="conteudo_filtro filtro_ambiente4">Ambiente 4 <img src="./Assets/filtro_check.png" alt=""></span>
+                    <span class="conteudo_filtro filtro_ambiente5">Ambiente 5 <img src="./Assets/filtro_alertaElevado.png" alt=""></span>
+                    <span class="conteudo_filtro filtro_ambiente6">Ambiente 6 <img src="./Assets/filtro_check.png" alt=""></span>
                 </div>
-                <div class="container_filtros">
+                <div class="container_filtros container_filtrosSensores">
                     <span class="tittleFiltro">Sensores</span>
-                    <span class="filtro_sensor1">00-NOR</span>
-                    <span class="filtro_sensor2">01-SUL</span>
-                    <span class="filtro_sensor3">00-OES</span>
-                    <span class="filtro_sensor4">02-LST</span>
-                    <span class="filtro_sensor5">01-NOR</span>
-                    <span class="filtro_sensor6">02-OES</span>
+                    <span class="filtro_sensor1">002-NOR</span>
+                    <span class="filtro_sensor2">012-NOR</span>
+                    <span class="filtro_sensor3">022-NOR</span>
+                    <span class="filtro_sensor4">032-NOR</span>
+                    <span class="filtro_sensor5">042-NOR</span>
+                    <span class="filtro_sensor6">052-NOR</span>
+                    <span class="filtro_sensor7">062-NOR</span>
+                    <span class="filtro_sensor8">072-NOR</span>
+                    <span class="filtro_sensor9">082-NOR</span>
+                    <span class="filtro_sensor10">092-NOR</span>
                 </div>
             </div>
             <div class="tabelas">
@@ -73,37 +79,37 @@
             <div class="kpis">
                 <div class="kpi">
                     <div class="container_kpi">
-                        <span class="tittleKpi">Intervalo Ideal:</span>
+                        <span class="tittleKpi">Métrica de luminosidade Ideal:</span>
                         <span class="conteudoKpi">44% a 54%</span>
                     </div>
                 </div>
                 <div class="kpi">
                     <div class="container_kpi">
-                        <span class="tittleKpi">Quantidade de alertas Ambiente 2:</span>
+                        <span class="tittleKpi">Quantidade de alertas no Ambiente 2:</span>
                         <span class="conteudoKpi">10</span>
                     </div>
                 </div>
                 <div class="kpi">
                     <div class="container_kpi">
-                        <span class="tittleKpi">Média geral dos sensores:</span>
+                        <span class="tittleKpi">Média geral dos sensores do Ambiente 2:</span>
                         <span class="conteudoKpi">18,5%</span>
                     </div>
                 </div>
                 <div class="kpi kpiIdeal">
                     <div class="container_kpi">
-                        <span class="tittleKpi tittleKpiIdeal">Ambientes com Incidência de luz ideal:</span>
+                        <span class="tittleKpi tittleKpiIdeal">Sensores com Incidência de luz ideal:</span>
                         <span class="conteudoKpi conteudoKpiIdeal">0</span>
                     </div>
                 </div>
                 <div class="kpi kpiElevada">
                     <div class="container_kpi">
-                        <span class="tittleKpi tittleKpiElevada">Ambientes com Incidência de luz elevada</span>
+                        <span class="tittleKpi tittleKpiElevada">Sensores com incidência de luz acima do ideal:</span>
                         <span class="conteudoKpi conteudoKpiElevada">0</span>
                     </div>
                 </div>
                 <div class="kpi kpiInferior">
                     <div class="container_kpi">
-                        <span class="tittleKpi tittleKpiInferior">Ambientes com Incidência de luz inferior</span>
+                        <span class="tittleKpi tittleKpiInferior">Sensores com incidência de luz abaixo do ideal:</span>
                         <span class="conteudoKpi conteudoKpiInferior">10</span>
                     </div>
                 </div>

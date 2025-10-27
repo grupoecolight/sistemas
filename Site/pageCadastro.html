@@ -11,55 +11,37 @@
         <div class="container_logo">
             <a href="./index.html"><img src="./Assets/logo_ecolight_transparente_branca.png" alt=""></a>
         </div>
-        <div class="container_links">
-            <nav class="nav_1">
+        <div class="container_title">
+            <h1>Tela de Cadastro</h1>
+        </div>
+        <div class="container_perfil">
+            <img src="./Assets/account.png" alt="">
+            <img class="menuHamburguer" onclick="buttonPerfilMenu()" src="./Assets/menu.png" alt="">
+            <!-- <span>
+            </span> -->
+            <div id="dropdownPerfil" style="display: none;">
                 <span>
-                    <a href="./index.html">Home</a>
+                    <a href="./dashboard.html">Dashboard</a>
                 </span>
                 <span>
-                    <a href="./index.html#idQuemSomos">Sobre nós</a>
+                    <a href="#">Perfil</a>
                 </span>
                 <span>
-                    <a href="./index.html#idNossosServicos">Serviços</a>
+                    <a href="#">Configurações</a>
                 </span>
                 <span>
-                    <a href="./index.html#idEntreContato">Contato</a>
+                    <a href="./index.html" class="exit">Sair</a>
                 </span>
-                <span>
-                    <a href="./simuladorFinanceiro.html">Simulador financeiro</a>
-                </span>
-            </nav>
-            <nav class="nav_2">
-                <span onclick="buttonMenu()" id="buttonMenu_dropdown">Menu <img src="./Assets/arrow_bottom.png" alt=""></span>
-                <div id="menu_dropdown" style="display: none;">
-                    <span>
-                        <a href="./index.html">Home</a>
-                    </span>
-                    <span>
-                        <a href="./index.html#idQuemSomos">Sobre nós</a>
-                    </span>
-                    <span>
-                        <a href="">Serviços</a>
-                    </span>
-                    <span>
-                        <a href="">Contato</a>
-                    </span>
-                    <span>
-                        <a href="./simuladorFinanceiro.html">Simulador financeiro</a>
-                    </span>
-                </div>
-            </nav>
-            <div class="buttons">
-                <button class="logar"><a href="./pageLogin.html">Já sou cliente</a></button>
             </div>
         </div>
+        
     </header>
 
     <main>
         <div class="container_cadastro">
             <section class="visual">
-                <h1>Bem-vindo à tela de cadastro da EcoLight!</h1>
-                <img src="./Assets/Logo-Preta-semFundo-Pequena.png" alt="">
+                <h2>Bem-vindo à tela de cadastro da EcoLight!</h2>
+                <img src="./Assets/logo_ecolight_transparente_branca.png" alt="">
                 <span><a href="./dashboard.html">Dashboard</a></span>
             </section>
             <section class="interacao">
@@ -90,9 +72,7 @@
                     <input type="password" name="" id="input_repetirSenhaUsuario" oninput="valRepetirSenha()">
                     <div id="div_mensagemRepetirSenha"></div>
 
-                    <span>Esqueceu a senha? <a href="#">Clique aqui!</a></span>
-
-                    <button onclick="entrar()">Entrar</button>
+                    <button onclick="entrar()">Cadastrar</button>
                 </div>
             </section>
         </div>

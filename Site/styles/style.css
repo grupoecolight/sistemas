@@ -9,7 +9,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 70px;
+    height: 90px;
     width: 100%;
     background-color: #16578d;
     position: fixed;
@@ -208,11 +208,11 @@ header button {
 header button:hover {
     transform: scale(1.1);
 }
-
+/* Código refatorado e excluído, mantido para histórico
 header .cadastro a {
     text-decoration: none;
     color: #000000;
-}
+} */
 
 header .logar {
     background-color: #f48924;
@@ -548,7 +548,7 @@ main .boxSides .side2 .side2Two {
 .nossosServicos .containersServico .imgServicos .overlayServicos {
     content: '';
     position: absolute;
-    width: 355px;
+    width: 350px;
     height: 348px;
     border-radius: 1rem;
     background-color: rgba(0, 0, 0, 0.5);
@@ -611,7 +611,7 @@ main .boxSides .side2 .side2Two {
 
 .entreContato .cadastrar {
     background-color: #F48924;
-    height: 100px;
+    height: 120px;
     color: #ffffff;
     display: flex;
     justify-content: center;
@@ -623,12 +623,12 @@ main .boxSides .side2 .side2Two {
     color: #16578D;
     text-decoration: none;
     background-color: #ffffff;
-    padding: .5rem 1rem;
+    padding: .5rem 3.5rem;
     border-radius: .5rem;
     font-size: 1.5rem;
     font-weight: bold;
     margin: 0 1rem;
-    box-shadow: 1px 1px 10px 1px #ffffff;
+    box-shadow: 0 4px 4px 0 #0000003f;
     transition: .5s;
 }
 

@@ -6,7 +6,7 @@ function buttonSubmitForm () {
         cont++
     }
     if (cont > 500) {
-        alert(`Para a mensagem ser enviada, ela precisa ser abaixo de 500 caracteres.`)
+        alert(`Erro! Você ultrapassou o limite de 500 caracteres.`)
     } else {
         alert(`Mensagem enviada`)
     }

@@ -13,7 +13,7 @@ header {
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    height: 70px;
+    height: 90px;
     width: 100%;
     background-color: #16578d;
     position: fixed;
@@ -46,11 +46,15 @@ header .container_logo img {
     transition: .5s;
 }
 
-header .container_logo img:hover {
-    transform: scale(1.1);
+/* Fim Container Logo */
+
+/* Começo Container Title */
+
+header .container_title {
+    color: #ffffff;
 }
 
-/* Fim Container Logo */
+/* Fim Container Tittle */
 
 /* Começo Container Links */
 
@@ -107,15 +111,18 @@ header .container_perfil img {
     transition: .5s;
 }
 
-header .container_perfil img:hover {
-    transform: scale(1.1);
+header .container_perfil .menuHamburguer {
+    margin: 0 1.5rem;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
 }
 
 header .container_perfil #dropdownPerfil {
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 70px;
+    top: 90px;
     z-index: 1;
 }
 
@@ -178,7 +185,7 @@ main .filtros .tittleEmpresa {
     box-shadow: 0px 4px 4px 0px #3b3b3b3a;
 }
 
-main .filtros h1 {
+main .filtros h2 {
     padding: .5rem 1rem;
     margin-top: 0;
 }
@@ -191,12 +198,24 @@ main .filtros .container_filtros {
     border-radius: 1rem;
     box-shadow: 0px 4px 4px 0px #3b3b3b3a;
     margin-bottom: 1rem;
+    overflow-y: auto;
 }
 
-main .filtros .container_filtros .tittleFiltro {
-    margin: 2rem 0;
-    font-size: 1.3rem;
-    color: #0072C4;
+main .filtros .container_filtrosAmbientes {
+    height: 300px;
+}
+
+main .filtros .container_filtrosSensores {
+    height: 380px;
+}
+
+main .filtros .container_filtros::-webkit-scrollbar {
+    display: none;
+}
+
+main .filtros .container_filtros .filtro_geral a {
+    color: #64ADE0;
+    text-decoration: none;
 }
 
 main .filtros .container_filtros span {
@@ -205,63 +224,85 @@ main .filtros .container_filtros span {
 }
 
 main .filtros .container_filtros .filtro_ambiente1 {
-    color: #e45b5b;
-    font-weight: bold;
+    color: #64ADE0;
 }
 
 main .filtros .container_filtros .filtro_ambiente2 {
-    color: #64ADE0;
-    font-weight: bold;
+    color: #C41D00;
+    font-size: 1.2rem;
 }
 
 main .filtros .container_filtros .filtro_ambiente3 {
-    color: #e45b5b;
-    font-weight: bold;
+    color: #64ADE0;
 }
 
 main .filtros .container_filtros .filtro_ambiente4 {
-    color: #e45b5b;
-    font-weight: bold;
+    color: #64ADE0;
 }
 
 main .filtros .container_filtros .filtro_ambiente5 {
-    color: #e45b5b;
-    font-weight: bold;
+    color: #FFD535;
 }
 
 main .filtros .container_filtros .filtro_ambiente6 {
     color: #64ADE0;
-    font-weight: bold;
+}
+
+main .filtros .container_filtros .conteudo_filtro, .conteudo_filtro a {
+    display: flex;
+    align-items: center;
+}
+
+main .filtros .container_filtros img {
+    width: 1.5rem;
+    margin-left: .2rem;
+}
+
+main .filtros .container_filtros .tittleFiltro {
+    margin: 1.5rem 0;
+    font-size: 1.5rem;
+    color: #16578d;
 }
 
 main .filtros .container_filtros .filtro_sensor1 {
-    color: #e45b5b;
-    font-weight: bold;
+    color: #C41D00;
+    font-size: 1.2rem;
 }
 
 main .filtros .container_filtros .filtro_sensor2 {
     color: #e45b5b;
-    font-weight: bold;
 }
 
 main .filtros .container_filtros .filtro_sensor3 {
     color: #e45b5b;
-    font-weight: bold;
 }
 
 main .filtros .container_filtros .filtro_sensor4 {
     color: #e45b5b;
-    font-weight: bold;
 }
 
 main .filtros .container_filtros .filtro_sensor5 {
     color: #e45b5b;
-    font-weight: bold;
 }
 
 main .filtros .container_filtros .filtro_sensor6 {
     color: #e45b5b;
-    font-weight: bold;
+}
+
+main .filtros .container_filtros .filtro_sensor7 {
+    color: #e45b5b;
+}
+
+main .filtros .container_filtros .filtro_sensor8 {
+    color: #e45b5b;
+}
+
+main .filtros .container_filtros .filtro_sensor9 {
+    color: #e45b5b;
+}
+
+main .filtros .container_filtros .filtro_sensor10 {
+    color: #e45b5b;
 }
 
 /* Fim Filtros */
@@ -487,7 +528,7 @@ main .kpis .kpi .container_kpi .tittleKpiInferior {
 main .kpis .kpi .container_kpi .conteudoKpi {
     margin-top: 1.5rem;
     color: #FFAC5E;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 

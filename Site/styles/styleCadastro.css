@@ -9,9 +9,10 @@ body {
 
 header {
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    height: 70px;
+    height: 90px;
     width: 100%;
     background-color: #16578d;
     position: fixed;
@@ -44,180 +45,107 @@ header .container_logo img {
     transition: .5s;
 }
 
-header .container_logo img:hover {
-    transform: scale(1.1);
+/* Fim Container Logo */
+
+/* Começo Container Title */
+
+header .container_title {
+    color: #ffffff;
 }
 
-/* Fim Container Logo */
+/* Fim Container Tittle */
 
 /* Começo Container Links */
 
-header .container_links {
-    width: 90%;
-    display: flex;
-}
-
-header .nav_1 {
+/* header .container_links {
+    height: 90%;
+    width: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    width: 78%;
 }
 
-header .nav_2 {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-@media screen and (max-width: 1000px) {
-    header .nav_1 {
-        width: 70%;
-
-    }
-}
-/* @media screen and (max-width: 900px) {
-    header .nav_1 {
-        width: 60%;
-
-    }
-} */
-@media screen and (max-width: 900px) {
-    header .nav_1 {
-        display: none;
-    }
-
-    header .nav_2 {
-        display: flex;
-    }
-
-    header .container_links {
-        justify-content: center;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    header .container_logo {
-        display: none;
-    }
-
-    header .container_links {
-        width: 100%;
-        margin-left: 1rem;
-        justify-content: space-between;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    header .nav_2 {
-        width: 50px;
-    }
-    
-    header .nav_2 #buttonMenu_dropdown {
-        width: 50px;
-    }
-}
-
-header .nav_1 span {
+header .container_links a {
     display: flex;
     align-items: center;
     margin: .05rem;
-    height: 100%;
+    height: 50%;
     padding: 0 1rem;
     transition: .5s;
     border-radius: 1rem;
-}
-
-header .nav_1 span:hover {
-    background-color: #08365c9c;
-    transform: scale(1.1);
-}
-
-header .nav_1 a {
     text-decoration: none;
     color: #ffffff;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-header .nav_2 #buttonMenu_dropdown {
-    cursor: pointer;
-    padding: .5rem;
-    width: 150px;
-    height: 100%;
-    padding: .5rem;
-    transition: .2s;
-}
-
-header .nav_2 #buttonMenu_dropdown:hover {
+header .container_links a:hover {
+    background-color: #08365c9c;
     transform: scale(1.1);
-}
+} 
+*/
 
-header .nav_2 span {
+/* Fim Container Link */
+
+/* Começo Container Perfil */
+
+header .container_perfil {
+    height: 100%;
+    width: 10%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    color: #fff;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-header .nav_2 #menu_dropdown {
-    display: none;
-    position: absolute;
-    top: 70px;
-    z-index: 1;
-}
-
-header .nav_2 #menu_dropdown span {
-    background-color: #16578d;
-    padding: .5rem;
-    transition: .1s;
-}
-
-header .nav_2 #menu_dropdown span:hover {
-    background-color: #104068;
-    transform: scale(1.03);
-}
-
-header .nav_2 #menu_dropdown span a {
-    text-decoration: none;
-    color: #fff;
-}
-
-/* .nav_2:hover #menu_dropdown {
-    display: block;
+/* header .container_perfil span {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
 } */
 
-header .buttons {
-    display: flex;
-    align-items: center;
-}
-
-header button {
-    padding: .5rem 1rem;
-    margin: 0 1rem;
-    border-radius: .5rem;
-    border: transparent;
-    font-weight: bold;
+header .container_perfil img {
+    width: 68px;
+    height: 68px;
     transition: .5s;
 }
 
-header button:hover {
-    transform: scale(1.1);
+header .container_perfil .menuHamburguer {
+    margin: 0 1.5rem;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
 }
 
-header .cadastro a {
-    text-decoration: none;
-    color: #000000;
+header .container_perfil #dropdownPerfil {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 90px;
+    z-index: 1;
 }
 
-header .logar {
-    background-color: #f48924;
+header .container_perfil #dropdownPerfil span {
+    width: 100%;
+    display: flex;
+    background-color: #16578d;
 }
 
-header .logar a {
+header .container_perfil #dropdownPerfil span a {
+    width: 100%;
+    padding: .5rem 1rem;
     text-decoration: none;
     color: #ffffff;
+    transition: .5s;
+}
+
+header .container_perfil #dropdownPerfil span a:hover {
+    background-color: #60b1d1b2;
+}
+
+header .container_perfil #dropdownPerfil span .exit:hover {
+    background-color: #7c0707e1;
 }
 
 /* Fim Container Links */
@@ -252,7 +180,7 @@ main .container_cadastro .visual p {
     color: #16578d;
 }
 
-main .container_cadastro .visual h1 {
+main .container_cadastro .visual h2 {
     color: #ffffff;
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     border-bottom: #ffffff solid 3px;
