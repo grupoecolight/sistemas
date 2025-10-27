@@ -52,6 +52,9 @@ function entrar() {
     } else if (email.endsWith('.')) { // Não pode terminar com ponto
         validacao = false
         div_mensagemEmail.innerHTML += `Não pode terminar com ponto`
+    } else if (email.length == 0) {
+        validacao = false
+        div_mensagemEmail.innerHTML += `O campo e-mail não foi preenchido.`
     } else if (email.includes('@') == false) { // Tem que ter pelo menos 1 '@'
         validacao = false
         div_mensagemEmail.innerHTML += `Tem que ter pelo menos 1 '@'`
