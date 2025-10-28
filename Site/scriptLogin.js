@@ -45,7 +45,9 @@ function entrar() {
     var senhaMinuscula = senha.toLowerCase()
 
     div_mensagemEmail.innerHTML = ''
-
+    if(email == "" || senha == ""){
+        alert(`Preencha todos os campos para continuar`)
+    } else {
     if (email.length > 255) { // Não pode ter mais de 255 caracteres
         validacao = false
         div_mensagemEmail.innerHTML += `Não pode ter mais de 255 caracteres`
@@ -91,4 +93,5 @@ function entrar() {
         }
     }
     
+  }
 }

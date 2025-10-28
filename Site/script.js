@@ -113,6 +113,8 @@ function valRepetirSenha() {
 }
 
 function entrar() {
+    var nomeUsuario = input_nomeUsuario.value;
+    var areaUsuario = input_areaUsuario.value;
     var email = document.getElementById('input_emailUsuario').value
     var validacao = true
 
@@ -122,40 +124,52 @@ function entrar() {
     var repetirSenha = document.getElementById('input_repetirSenhaUsuario').value
 
     div_mensagemEmail.innerHTML = ''
+    if(nomeUsuario == "" || email == "" || areaUsuario == "" || senha == "" || repetirSenha == ""){
+        alert(`Preencha todos os campos para continuar`)
+    } else {
+        if (email.length > 255) { // Não pode ter mais de 255 caracteres
+            validacao = false
+            div_mensagemEmail.innerHTML += `Não pode ter mais de 255 caracteres`
+        } else if (email.endsWith('.')) { // Não pode terminar com ponto
+            validacao = false
+            div_mensagemEmail.innerHTML += `Não pode terminar com ponto`
+        } else if (email.includes('@') == false) { // Tem que ter pelo menos 1 '@'
+            validacao = false
+            div_mensagemEmail.innerHTML += `Tem que ter pelo menos 1 '@'`
+        } else {
+            div_mensagemEmail.innerHTML = ''
+        }
 
-    if (email.length > 255) { // Não pode ter mais de 255 caracteres
-        validacao = false
-        div_mensagemEmail.innerHTML += `Não pode ter mais de 255 caracteres`
-    } else if (email.endsWith('.')) { // Não pode terminar com ponto
-        validacao = false
-        div_mensagemEmail.innerHTML += `Não pode terminar com ponto`
-    } else if (email.includes('@') == false) { // Tem que ter pelo menos 1 '@'
-        validacao = false
-        div_mensagemEmail.innerHTML += `Tem que ter pelo menos 1 '@'`
-    }
+        div_mensagemSenha.innerHTML = ''
+        
+        // if (senha == senhaMaiuscula && senha == senhaMinuscula) {
+        //     div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra <br>'
+        //     validacao = false
+        // }
+        if (senha == senhaMaiuscula) { // A Senha deve ter pelo menos 1 letra Minúscula
+            div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra Minúscula <br>'
+            validacao = false
+        }
+        if (senha == senhaMinuscula) { // A Senha deve ter pelo menos 1 letra Maiúscula
+            div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra Maiúscula <br>'
+            validacao = false
+        }
+        if (senha.length < 8) { // A senha deve conter pelo menos 8 caracteres
+            div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 8 Caracteres <br>'
+            validacao = false
+        }
+        
+        if (senha != repetirSenha) { // As senhas devem ser iguais
+            div_mensagemRepetirSenha.innerHTML = 'As senhas devem ser iguais'
+            validacao = false    
+        } else {
+            div_mensagemRepetirSenha.innerHTML = ''
+        }
+        
+        if (validacao) {
+            alert('Usuário Cadastrado.')
+        }
 
-    div_mensagemSenha.innerHTML = ''
-
-    // if (senha == senhaMaiuscula && senha == senhaMinuscula) {
-    //     div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra <br>'
-    //     validacao = false
-    // }
-    if (senha == senhaMaiuscula) { // A Senha deve ter pelo menos 1 letra Minúscula
-        div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra Minúscula <br>'
-        validacao = false
     }
-    if (senha == senhaMinuscula) { // A Senha deve ter pelo menos 1 letra Maiúscula
-        div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra Maiúscula <br>'
-        validacao = false
-    }
-    if (senha.length < 8) { // A senha deve conter pelo menos 8 caracteres
-        div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 8 Caracteres <br>'
-        validacao = false
-    }
-    
-    if (senha != repetirSenha) { // As senhas devem ser iguais
-        div_mensagemRepetirSenha.innerHTML = 'As senhas devem ser iguais'
-        validacao = false    
-    }
-    
 }
+

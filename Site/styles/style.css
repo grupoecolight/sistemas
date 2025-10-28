@@ -627,8 +627,8 @@ main .boxSides .side2 .side2Two {
     border-radius: .5rem;
     font-size: 1.5rem;
     font-weight: bold;
-    margin: 0 1rem;
-    box-shadow: 0 4px 4px 0 #0000003f;
+    margin: 0 4rem;
+    box-shadow: 0 6px 3px 0 #0000003f;
     transition: .5s;
 }
 
