@@ -47,9 +47,9 @@ CREATE TABLE usuario (
 
 
 INSERT INTO usuario (areaEmpresa, email, senha, fkOrganizacao, userAdmin) VALUES
-('Administração', 'admin@empresa1.com', 'admin123', 1),
-('Recursos Humanos', 'rh@empresa1.com', 'rh2025', 2),
-('Gerência', 'gerente@empresa2.com', 'ger@XPTO', 3);
+('Administração', 'admin@empresa1.com', 'admin123', 1, 0),
+('Recursos Humanos', 'rh@empresa1.com', 'rh2025', 2, 1),
+('Gerência', 'gerente@empresa2.com', 'ger@XPTO', 3, 0);
 
 SELECT * FROM usuario;
 
@@ -77,9 +77,8 @@ ON e.idEmpresa = u.fkOrganizacao;
 -- 
 CREATE TABLE Sensor (
     idSensor INT PRIMARY KEY AUTO_INCREMENT,
-    tagSensor CHAR(6),
+    tagSensor CHAR(7),
     area VARCHAR(25),
-    andar INT,
     fkEmpresa INT,
     CONSTRAINT fkSensorEmpresa FOREIGN KEY (fkEmpresa)
         REFERENCES empresa(idEmpresa)
@@ -138,8 +137,7 @@ e.telefone AS 'Telefone para contato',
 e.dtCadastro AS 'Data de Cadastro',
 e.senha AS 'Senha da Empresa',
 s.tagSensor AS 'Tag do Sensor',
-s.area AS 'Setor onde está localizado',
-s.andar AS 'Andar onde está localizado'
+s.area AS 'Setor onde está localizado'
 FROM empresa e JOIN Sensor s
 ON e.idEmpresa = s.fkEmpresa; 
 
@@ -340,7 +338,6 @@ u.areaEmpresa AS 'Função do Usuário',
 u.email AS 'Email para contato',
 s.tagSensor AS 'Tag do Sensor',
 s.area AS 'Local do Sensor',
-s.andar AS 'Andar',
 s.idSensor AS 'ID Sensor'
 FROM empresa e JOIN usuario u 
 ON e.idEmpresa = u.fkOrganizacao
@@ -358,7 +355,6 @@ u.email AS 'E-mail do Usuário',
 u.senha AS 'Senha do Usuário',
 s.tagSensor AS 'Tag do Sensor',
 s.area AS 'Local do Sensor',
-s.andar AS 'Andar do Sensor',
 r.intensidadeLuz AS 'Intensidade da Luz',
 r.dtHora AS 'Data e Hora da Leitura'
 FROM empresa e JOIN usuario u 
