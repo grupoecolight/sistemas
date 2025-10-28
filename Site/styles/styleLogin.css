@@ -44,10 +44,6 @@ header .container_logo img {
     transition: .5s;
 }
 
-header .container_logo img:hover {
-    transform: scale(1.1);
-}
-
 /* Fim Container Logo */
 
 /* Começo Container Links */
@@ -114,7 +110,7 @@ header .nav_2 {
     header .nav_2 {
         width: 50px;
     }
-    
+
     header .nav_2 #buttonMenu_dropdown {
         width: 50px;
     }
@@ -289,7 +285,7 @@ main .container_login .interacao {
 
 main .container_login .interacao .conteudo {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     align-items: center;
     margin: 0 1rem;
 }

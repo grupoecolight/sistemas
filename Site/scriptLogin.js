@@ -2,23 +2,23 @@ function valEmail() {
     var email = document.getElementById('input_emailOuCnpj').value
 
     var tamanho = email.length - 1
-    
-    
+
+
     if (email.includes('@')) { // Não pode ter mais de 1 '@'
         email = email.replace('@', '*')
         if (email.includes('@')) {
             div_mensagemEmail.innerHTML = 'Apenas 1 "@" é permitido'
         } else {
             div_mensagemEmail.innerHTML = ''
-        }    
+        }
     } else {
         div_mensagemEmail.innerHTML = ''
-    }    
+    }
 
     if (email[0] == '.' || (email[tamanho] == '.' && email[(tamanho - 1)] == '.')) { // Não deixa começar com ponto e nem ter 2 pontos seguidos
         input_emailOuCnpj.value = input_emailOuCnpj.value.slice(0, -1)
     }
-    
+
     if (email[tamanho] == ' ' || email[tamanho] == ',' || email[tamanho] == ':' || email[tamanho] == ';') { // Não pode usar 'espaço', 'vírgula', ':', ';'
         input_emailOuCnpj.value = input_emailOuCnpj.value.slice(0, -1)
     }
@@ -45,9 +45,7 @@ function entrar() {
     var senhaMinuscula = senha.toLowerCase()
 
     div_mensagemEmail.innerHTML = ''
-    if(email == "" || senha == ""){
-        alert(`Preencha todos os campos para continuar`)
-    } else {
+
     if (email.length > 255) { // Não pode ter mais de 255 caracteres
         validacao = false
         div_mensagemEmail.innerHTML += `Não pode ter mais de 255 caracteres`
@@ -59,25 +57,16 @@ function entrar() {
         div_mensagemEmail.innerHTML += `O campo e-mail não foi preenchido.`
     } else if (email.includes('@') == false) { // Tem que ter pelo menos 1 '@'
         validacao = false
-        div_mensagemEmail.innerHTML += `Tem que ter pelo menos 1 '@'`
+        div_mensagemEmail.innerHTML += `O campo e-mail requer o uso de pelo menos 1 '@'`
     }
 
     div_mensagemSenha.innerHTML = ''
 
-    // if (senha == senhaMaiuscula && senha == senhaMinuscula) {
-    //     div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra <br>'
-    //     validacao = false
-    // }
-    if (senha == senhaMaiuscula) { // A Senha deve ter pelo menos 1 letra Minúscula
-        div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra Minúscula <br>'
+    if (senha.length == 0) {
+        div_mensagemSenha.innerHTML += 'Preencha o campo senha. <br>'
         validacao = false
-    }
-    if (senha == senhaMinuscula) { // A Senha deve ter pelo menos 1 letra Maiúscula
-        div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra Maiúscula <br>'
-        validacao = false
-    }
-    if (senha.length < 8) { // A senha deve conter pelo menos 8 caracteres
-        div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 8 Caracteres <br>'
+    } else if (senha != senhaCorreta) {
+        div_mensagemSenha.innerHTML += 'Senha incorreta. <br>'
         validacao = false
     }
 
@@ -92,6 +81,5 @@ function entrar() {
             alert(`Email não encontrado em nosso Banco de Dados.`)
         }
     }
-    
-  }
+
 }

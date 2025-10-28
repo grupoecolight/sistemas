@@ -51,10 +51,6 @@ header .container_logo img {
     transition: .5s;
 }
 
-header .container_logo img:hover {
-    transform: scale(1.1);
-}
-
 /* Fim Container Logo */
 
 /* Começo Container Links */
@@ -120,7 +116,7 @@ header .nav_2 {
     header .nav_2 {
         width: 50px;
     }
-    
+
     header .nav_2 #buttonMenu_dropdown {
         width: 50px;
     }

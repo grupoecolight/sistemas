@@ -42,10 +42,6 @@ header .container_logo img {
     transition: .5s;
 }
 
-header .container_logo img:hover {
-    transform: scale(1.1);
-}
-
 /* Fim Container Logo */
 
 /* Começo Container Links */
@@ -101,7 +97,7 @@ header .nav_2 {
     header {
         width: 100vw;
     }
-    
+
     header .container_logo {
         display: none;
     }
@@ -117,7 +113,7 @@ header .nav_2 {
     header .nav_2 {
         width: 50px;
     }
-    
+
     header .nav_2 #buttonMenu_dropdown {
         width: 50px;
     }
@@ -414,7 +410,7 @@ main .boxSides .side2 .side2Two {
 
 .quemSomos .cards .imgCards {
     width: 100%;
-    display: flex; 
+    display: flex;
     justify-content: center;
 }
 
@@ -460,7 +456,7 @@ main .boxSides .side2 .side2Two {
     .quemSomos .cards .textCards {
         font-size: .7rem;
     }
-    
+
     .quemSomos .cards .cardImg3 {
         width: 65px;
         height: 65px;
@@ -615,6 +611,7 @@ main .boxSides .side2 .side2Two {
     color: #ffffff;
     display: flex;
     justify-content: center;
+    text-align: center;
     align-items: center;
     font-size: 2.5rem;
 }
@@ -627,8 +624,8 @@ main .boxSides .side2 .side2Two {
     border-radius: .5rem;
     font-size: 1.5rem;
     font-weight: bold;
-    margin: 0 4rem;
-    box-shadow: 0 6px 3px 0 #0000003f;
+    margin: 0 3rem;
+    box-shadow: 0 4px 4px 0 #0000003f;
     transition: .5s;
 }
 
