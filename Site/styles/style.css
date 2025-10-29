@@ -365,7 +365,7 @@ main .boxSides .side2 .side2Two {
     align-items: center;
     flex-direction: column;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding-top: 2rem;
+    padding-top: 3.5rem;
 }
 
 .quemSomos .tittleQuemSomos {
@@ -468,7 +468,7 @@ main .boxSides .side2 .side2Two {
 /* Começo Section Nossos Serviços */
 
 .nossosServicos {
-    padding-top: 2rem;
+    padding-top: 3.5rem;
     height: 1400px;
     background-color: #16578D;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -752,3 +752,66 @@ main .boxSides .side2 .side2Two {
 }
 
 /* Fim Entre em Contato */
+
+/* Começo Footer */
+
+footer {
+    height: 168px;
+    width: 100%;
+    background-color: #0072C4;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+footer .left {
+    width: 75%;
+    border-right: #ffffff solid 1px;
+}
+
+footer .left .atalho_contato {
+    display: flex;
+    justify-content: space-around;
+}
+
+footer .left .atalho_contato span {
+    color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+footer .left .atalho_contato span {
+    font-size: 1.5rem;
+}
+
+footer .left .atalho_contato span a {
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    padding: .5rem 1.5rem;
+    border-radius: 1.5rem;
+    transition: .5s;
+}
+
+footer .left .atalho_contato span a:hover {
+    background-color: #08365c9c;
+    transform: scale(1.1);
+}
+
+footer .left .atalho_contato ul li {
+    color: #ffffff;
+}
+
+footer .left .copyright {
+    color: #ffffff;
+}
+
+footer .right {
+    width: 15%;
+}
+
+footer .right img {
+    width: 112px;
+}
+
+/* Fim Footer */
