@@ -79,6 +79,8 @@ function entrar() {
             }
         } else {
             alert(`Email não encontrado em nosso Banco de Dados.`)
+            input_password.value = ""
+            input_emailOuCnpj.value = ""
         }
     }
 

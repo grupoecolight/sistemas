@@ -237,7 +237,7 @@ main .overlayMain {
     position: absolute;
     width: 100%;
     height: 800px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
 }
 
@@ -749,6 +749,7 @@ main .boxSides .side2 .side2Two {
     border: transparent;
     box-shadow: 5px 5px 5px .5px #9c9c9c33;
     font-size: 1rem;
+    resize: none;
 }
 
 /* Fim Entre em Contato */
