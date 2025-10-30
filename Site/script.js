@@ -125,7 +125,7 @@ function entrar() {
 
     div_mensagemEmail.innerHTML = ''
     if(nomeUsuario == "" || email == "" || areaUsuario == "" || senha == "" || repetirSenha == ""){
-        alert(`Preencha todos os campos para continuar`)
+        div_mensagemRepetirSenha.innerHTML += `Preencha todos os campos para continuar`
     } else {
         if (email.length > 255) { // Não pode ter mais de 255 caracteres
             validacao = false
