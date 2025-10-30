@@ -8,7 +8,7 @@ function buttonSubmitForm () {
 
 
     if (nomeEmpresa == "" || email == "" || nomeRepresentante == "" || tellContato == "" ){
-        alert(`Insira o nome da empressa para poder continuar`)
+        alert(`Preencha todos os campos parar continuar`)
     }
 
     while (cont < messagem.length) {
