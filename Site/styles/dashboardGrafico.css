@@ -544,6 +544,17 @@ main .kpis .kpi .container_kpi .conteudoKpiInferior {
     color: #C41D00;
 }
 
+main .kpis .kpi .container_kpi .topMin {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    align-items: start;
+    margin: 1rem;
+    color: #FFAC5E;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
 /* Fim Kpis */
 /* 292 + 898 + 516 + 90 = 1796 */
 /* Fim Main */

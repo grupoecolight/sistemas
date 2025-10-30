@@ -30,7 +30,7 @@ options: {
         y: {
             beginAtZero: true,
             min: 0,
-            max: 100,
+            max: 60,
             ticks: {
                 stepSize: 10
             }
@@ -45,7 +45,7 @@ data: {
     labels: ['08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30'],
     datasets: [{
     label: '13/10/2025',
-    data: [71, 73, 75, 77, 79, 83, 81, 74, 61, 63],
+    data: [41, 43, 45, 47, 49, 53, 51, 44, 31, 33],
     borderWidth: 5,
     backgroundColor: '#637CEF',
     color: '#637CEF',
@@ -67,7 +67,7 @@ options: {
         y: {
             beginAtZero: true,
             min: 0,
-            max: 100,
+            max: 60,
             ticks: {
                 stepSize: 10
             }

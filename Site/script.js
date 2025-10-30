@@ -15,7 +15,6 @@ function valEmail() {
 
     var tamanho = email.length - 1
     
-    
     if (email.includes('@')) { // Não pode ter mais de 1 '@'
         email = email.replace('@', '*')
         if (email.includes('@')) {
@@ -35,64 +34,6 @@ function valEmail() {
         input_emailUsuario.value = input_emailUsuario.value.slice(0, -1)
     }
 }
-
-// function valCnpj() {
-//     var cnpj = document.getElementById('input_cnpjEmpresa').value
-//     var tamanhoOri = cnpj.length
-//     var tamanho = cnpj.length - 1
-    
-//     if (!isNaN(cnpj[tamanho]) && !(cnpj[tamanho] == ' ')) { // Deixa digitar apenas números
-//         if (tamanho == 2 || tamanho == 6) { // Coloca os pontos automaticamente no CNPJ
-//             input_cnpjEmpresa.value = input_cnpjEmpresa.value.slice(0, -1) + '.' + input_cnpjEmpresa.value[tamanho]
-//         } else if (tamanho == 10 && cnpj[10] != '/') { // Coloca a barra automaticamente no CNPJ
-//             input_cnpjEmpresa.value = input_cnpjEmpresa.value.slice(0, -1) + '/' + input_cnpjEmpresa.value[tamanho]
-//         } else if ((tamanho == 15 && cnpj[15] != '-')) { // Coloca o traço automaticamente no CNPJ
-//             input_cnpjEmpresa.value = input_cnpjEmpresa.value.slice(0, -1) + '-' + input_cnpjEmpresa.value[tamanho]
-//         }    
-//     } else { // Apaga o caractere caso não seja um número
-//         input_cnpjEmpresa.value = input_cnpjEmpresa.value.slice(0, -1)
-//     }
-
-//     if (tamanhoOri > 18) { // Não deixa colocar mais que 18 caracteres
-//         input_cnpjEmpresa.value = input_cnpjEmpresa.value.slice(0, -1)
-//     }
-// }
-
-// function valCep() {
-//     var cep = document.getElementById('input_cepEmpresa').value
-//     var tamanho = cep.length - 1
-
-//     if (!isNaN(cep[tamanho]) && !(cep[tamanho] == ' ')) { // Deixa digitar apenas números
-//         if (tamanho == 5) { // Coloca o traço automaticamente no CEP
-//             input_cepEmpresa.value = input_cepEmpresa.value.slice(0, -1) + '-' + input_cepEmpresa.value[tamanho]
-//         }
-//     } else { // Apaga o caractere caso não seja um número
-//         input_cepEmpresa.value = input_cepEmpresa.value.slice(0, -1)
-//     }
-    
-//     if (tamanho > 8) { // Não deixa colocar mais que 8 caracteres
-//         input_cepEmpresa.value = input_cepEmpresa.value.slice(0, -1)
-//     }
-// }
-
-// function valTel() {
-//     var tel = document.getElementById('input_telefoneEmpresa').value
-//     var tamanho = tel.length - 1
-
-//     if (!isNaN(tel[tamanho]) && !(tel[tamanho] == ' ')) { // Deixa digitar apenas números
-//         if (tamanho == 2 && tel[0] != '(') { // Coloca os parenteses automatico a partir do terceiro número colocado
-//             input_telefoneEmpresa.value = `(${tel[0]}${tel[1]}) ${input_telefoneEmpresa.value.slice(2, (tamanho + 1))}`
-//         } else if (tamanho == 10) { // Coloca o traço automatico
-//             input_telefoneEmpresa.value = input_telefoneEmpresa.value.slice(0, -1) + '-' + input_telefoneEmpresa.value[tamanho]
-//         }
-//     } else { // Apaga tudo que não for número
-//         input_telefoneEmpresa.value = input_telefoneEmpresa.value.slice(0, -1)
-//     }
-    
-//     if (tamanho > 14) { // Não deixa colocar mais que 14 caracteres
-//         input_telefoneEmpresa.value = input_telefoneEmpresa.value.slice(0, -1)
-//     }
-// }
 
 function valSenha() {
     var senha = document.getElementById('input_senhaUsuario').value
@@ -125,7 +66,7 @@ function entrar() {
 
     div_mensagemEmail.innerHTML = ''
     if(nomeUsuario == "" || email == "" || areaUsuario == "" || senha == "" || repetirSenha == ""){
-        div_mensagemRepetirSenha.innerHTML += `Preencha todos os campos para continuar`
+        div_mensagemRepetirSenha.innerHTML = `Preencha todos os campos para continuar`
     } else {
         if (email.length > 255) { // Não pode ter mais de 255 caracteres
             validacao = false
@@ -156,6 +97,10 @@ function entrar() {
         }
         if (senha.length < 8) { // A senha deve conter pelo menos 8 caracteres
             div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 8 Caracteres <br>'
+            validacao = false
+        }
+        if (!senha.includes('0') || !senha.includes('1') || !senha.includes('2') || !senha.includes('3') || !senha.includes('4') || !senha.includes('5') || !senha.includes('6') || !senha.includes('7') || !senha.includes('8') || !senha.includes('9')) {
+            div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 número <br>'
             validacao = false
         }
         
