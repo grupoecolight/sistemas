@@ -752,6 +752,12 @@ main .boxSides .side2 .side2Two {
     resize: none;
 }
 
+.entreContato .contato .mensagem #div_mensagemMensagem {
+    color: #ff0000;
+    align-self: flex-start;
+    font-weight: bold;
+}
+
 /* Fim Entre em Contato */
 
 /* Começo Footer */
