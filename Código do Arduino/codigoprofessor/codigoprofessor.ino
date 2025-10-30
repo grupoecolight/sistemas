@@ -40,6 +40,26 @@ void loop() {
 
     delay(5000); // Delay de 5 segundos
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // if(ldr_read > 750){
 
     //   Serial.print(ldr_read);
