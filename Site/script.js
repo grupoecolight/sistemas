@@ -99,10 +99,6 @@ function entrar() {
             div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 8 Caracteres <br>'
             validacao = false
         }
-        if (!senha.includes('0') || !senha.includes('1') || !senha.includes('2') || !senha.includes('3') || !senha.includes('4') || !senha.includes('5') || !senha.includes('6') || !senha.includes('7') || !senha.includes('8') || !senha.includes('9')) {
-            div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 número <br>'
-            validacao = false
-        }
         
         if (senha != repetirSenha) { // As senhas devem ser iguais
             div_mensagemRepetirSenha.innerHTML = 'As senhas devem ser iguais'

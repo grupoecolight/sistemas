@@ -50,6 +50,7 @@ function entrar() {
     if (email.length == 0) {
         validacao = false
         div_mensagemEmail.innerHTML += `O campo e-mail não foi preenchido.`
+        
     } else if (email.length > 255) { // Não pode ter mais de 255 caracteres
         validacao = false
         div_mensagemEmail.innerHTML += `Não pode ter mais de 255 caracteres`
