@@ -36,7 +36,7 @@ void loop() {
     float lux = 500/(res_ldr/1000); // estima a iluminação em lux
 
  
-    Serial.println(lux + ";"); // printa o valor em lux para ser recebido na API
+    Serial.println(lux, ";"); // printa o valor em lux para ser recebido na API
 
     delay(5000); // Delay de 5 segundos
 
