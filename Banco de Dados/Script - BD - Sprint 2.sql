@@ -30,6 +30,13 @@ contatoTel CHAR(11),
 mensagem VARCHAR(500)
 );
 
+INSERT INTO mensagem VALUES
+(DEFAULT, 'XPTO Technology LTDA', 'xptotechnology@ecolight.com', 'Friedrich Nietzsche', '11985540981', 'Prezados, informamos a ocorrência de um erro no sistema de monitoramento de intensidade luminosa, no dia 16/20. 
+O problema gerou leituras incorretas em alguns pontos de medição. Solicitamos uma revisão para a solução do problema. Esperamos um retorno. Obrigado!! '),
+
+(DEFAULT, 'Eco Buzziness LTDA', 'ecobuzziness@gmail.com', 'Guy Fawkes', '11940028922', 'Prezados, identificamos um erro no sistema de monitoramento de intensidade luminosa em nossa empresa. Solicitamos o suporte técnico para verificação e correção do problema. 
+Por favor, agendem uma visita o mais breve possível para realizar a manutenção necessária.');
+
 CREATE TABLE usuario (
     idUsuario INT AUTO_INCREMENT,
     nome VARCHAR(45),
@@ -362,3 +369,6 @@ ON e.idEmpresa = u.fkOrganizacao
 JOIN Sensor s ON e.idEmpresa = s.fkEmpresa
 LEFT JOIN regSensor r ON s.idSensor = r.fkSensor
 ORDER BY e.idEmpresa, s.idSensor, r.dtHora;
+
+SELECT nomeEmpresa AS Empresa, emailEmpresa AS Empresa, mensagem AS Mensagem
+FROM mensagem;
