@@ -70,13 +70,13 @@ function entrar() {
     } else {
         if (email.length > 255) { // Não pode ter mais de 255 caracteres
             validacao = false
-            div_mensagemEmail.innerHTML += `Não pode ter mais de 255 caracteres`
+            div_mensagemEmail.innerHTML += `O endereço de email não pode conter mais de 255 caracteres`
         } else if (email.endsWith('.')) { // Não pode terminar com ponto
             validacao = false
-            div_mensagemEmail.innerHTML += `Não pode terminar com ponto`
+            div_mensagemEmail.innerHTML += `O endereço de email não pode terminar com '.'`
         } else if (email.includes('@') == false) { // Tem que ter pelo menos 1 '@'
             validacao = false
-            div_mensagemEmail.innerHTML += `Tem que ter pelo menos 1 '@'`
+            div_mensagemEmail.innerHTML += `O endereço de email precisa conter ao menos 1 '@'`
         } else {
             div_mensagemEmail.innerHTML = ''
         }
@@ -88,15 +88,15 @@ function entrar() {
         //     validacao = false
         // }
         if (senha == senhaMaiuscula) { // A Senha deve ter pelo menos 1 letra Minúscula
-            div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra Minúscula <br>'
+            div_mensagemSenha.innerHTML += 'A senha deve conter ao menos 1 letra Minúscula <br>'
             validacao = false
         }
         if (senha == senhaMinuscula) { // A Senha deve ter pelo menos 1 letra Maiúscula
-            div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 1 letra Maiúscula <br>'
+            div_mensagemSenha.innerHTML += 'A senha deve conter ao menos 1 letra Maiúscula <br>'
             validacao = false
         }
         if (senha.length < 8) { // A senha deve conter pelo menos 8 caracteres
-            div_mensagemSenha.innerHTML += 'É preciso ter pelo menos 8 Caracteres <br>'
+            div_mensagemSenha.innerHTML += 'A senha deve conter ao menos 8 Caracteres <br>'
             validacao = false
         }
         
