@@ -2,7 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
+    /* font-family: "Montserrat", sans-serif; */
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 body {
@@ -140,7 +143,8 @@ header .nav_1 span:hover {
 header .nav_1 a {
     text-decoration: none;
     color: #ffffff;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
+    font-size: 1.5rem;
 }
 
 header .nav_2 #buttonMenu_dropdown {
@@ -161,7 +165,7 @@ header .nav_2 span {
     align-items: center;
     margin: 0 1rem 0 0;
     color: #fff;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
 }
 
 header .nav_2 #menu_dropdown {
@@ -197,31 +201,19 @@ header .buttons {
     align-items: center;
 }
 
-header button {
-    padding: .5rem 1rem;
+header .buttons a {
+    background-color: #ffffff;
+    padding: .75rem 3rem;
     margin: 0 1rem;
-    border-radius: .5rem;
-    border: transparent;
+    border-radius: 1rem;
     font-weight: bold;
     transition: .5s;
+    text-decoration: none;
+    color: #16578d;
 }
 
-header button:hover {
+header .buttons a:hover {
     transform: scale(1.1);
-}
-
-header .cadastro a {
-    text-decoration: none;
-    color: #000000;
-}
-
-header .logar {
-    background-color: #f48924;
-}
-
-header .logar a {
-    text-decoration: none;
-    color: #ffffff;
 }
 
 /* Fim Container Links */

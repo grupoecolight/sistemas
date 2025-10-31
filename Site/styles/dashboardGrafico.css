@@ -497,15 +497,18 @@ main .kpis .kpi .container_kpi {
 }
 
 main .kpis .kpiIdeal {
-    background-color: #D9FFE6;
+    /* background-color: #5353537a; */
+    background-color: #57ff92;
 }
 
 main .kpis .kpiElevada {
-    background-color: #FAE9B2;
+    /* background-color: #5353537a; */
+    background-color: #fad55a;
 }
 
 main .kpis .kpiInferior {
-    background-color: #FABDB2;
+    /* background-color: #5353537a; */
+    background-color: #fc6a50;
 }
 
 main .kpis .kpi .container_kpi .tittleKpi {
@@ -514,34 +517,41 @@ main .kpis .kpi .container_kpi .tittleKpi {
 }
 
 main .kpis .kpi .container_kpi .tittleKpiIdeal {
-    color: #00862D;
+    /* color: #00862D; */
+    color: #000;
 }
 
 main .kpis .kpi .container_kpi .tittleKpiElevada {
-    color: #FFAC5E;
+    /* color: #FFAC5E; */
+    color: #000;
 }
 
 main .kpis .kpi .container_kpi .tittleKpiInferior {
-    color: #C41D00;
+    /* color: #C41D00; */
+    color: #000;
 }
 
 main .kpis .kpi .container_kpi .conteudoKpi {
     margin-top: 1.5rem;
     color: #FFAC5E;
+    /* color: #000; */
     font-size: 2rem;
     font-weight: bold;
 }
 
 main .kpis .kpi .container_kpi .conteudoKpiIdeal {
-    color: #00862D;
+    /* color: #00862D; */
+    color: #16578d;
 }
 
 main .kpis .kpi .container_kpi .conteudoKpiElevada {
-    color: #FFAC5E;
+    /* color: #FFAC5E; */
+    color: #16578d;
 }
 
 main .kpis .kpi .container_kpi .conteudoKpiInferior {
-    color: #C41D00;
+    /* color: #C41D00; */
+    color: #16578d;
 }
 
 main .kpis .kpi .container_kpi .topMin {
@@ -552,7 +562,27 @@ main .kpis .kpi .container_kpi .topMin {
     margin: 1rem;
     color: #FFAC5E;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1137px) {
+    main .kpis .kpi .container_kpi .tittleKpi {
+        font-size: 1.1rem;
+    }
+
+    main .kpis .kpi .container_kpi .conteudoKpi {
+        font-size: 1.5rem;
+    }
+
+    main .kpis .kpi .container_kpi .topMin {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 904px) {
+    main .kpis .kpi .container_kpi .tittleKpi {
+        font-size: 1rem;
+    }
 }
 
 /* Fim Kpis */

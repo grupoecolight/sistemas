@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -196,31 +200,19 @@ header .buttons {
     align-items: center;
 }
 
-header button {
+header .buttons a {
+    background-color: #ffffff;
     padding: .75rem 3rem;
     margin: 0 1rem;
-    border-radius: .5rem;
-    border: transparent;
+    border-radius: 1rem;
     font-weight: bold;
     transition: .5s;
-}
-
-header button:hover {
-    transform: scale(1.1);
-}
-/* Código refatorado e excluído, mantido para histórico
-header .cadastro a {
-    text-decoration: none;
-    color: #000000;
-} */
-
-header .logar {
-    background-color: #ffffff;
-}
-
-header .logar a {
     text-decoration: none;
     color: #16578d;
+}
+
+header .buttons a:hover {
+    transform: scale(1.1);
 }
 
 /* Fim Container Links */
@@ -408,7 +400,7 @@ main .boxSides .side2 .side2Two {
     background-color: #ffffff;
     width: 350px;
     height: 320px;
-    margin: 0.2rem 3rem;
+    margin: 1rem 3rem;
     border-radius: 0.5rem;
     border: 1px solid #16578d;
 }
@@ -451,9 +443,9 @@ main .boxSides .side2 .side2Two {
     color: #F59032;
 }
 
-@media screen and (max-width: 884px) {
+@media screen and (max-width: 1134px) {
     .quemSomos {
-        height: 1400px;
+        height: 1600px;
     }
 }
 
@@ -739,6 +731,7 @@ main .boxSides .side2 .side2Two {
     font-weight: bold;
     cursor: pointer;
     transition: .5s;
+    margin-top: 1rem;
 }
 
 .entreContato .contato .mensagem .input_button:hover {
@@ -748,7 +741,7 @@ main .boxSides .side2 .side2Two {
 .entreContato .contato .mensagem textarea {
     width: 95%;
     height: 100px;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     padding: .5rem;
     border-radius: .5rem;
     border: transparent;
@@ -790,24 +783,32 @@ footer .left .atalho_contato {
 footer .left .atalho_contato span {
     color: #ffffff;
    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+   font-size: 1.5rem;
 }
 
-footer .left .atalho_contato span {
-    font-size: 1.5rem;
+footer .left .colaboradores {
+    display: flex;
+    flex-direction: column;
 }
 
-footer .left .atalho_contato span a {
-    font-size: 1.5rem;
-    color: #ffffff;
-    text-decoration: none;
-    padding: .5rem 1.5rem;
-    border-radius: 1.5rem;
-    transition: .5s;
+footer .left .colaboradores .nomesColaboradores {
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
 }
 
-footer .left .atalho_contato span a:hover {
-    background-color: #08365c9c;
-    transform: scale(1.1);
+footer .left .titleColaboradores {
+    display: flex;
+    justify-content: center;
+}
+
+footer .left .nomeColaboradoresColuna1, footer .left .nomeColaboradoresColuna2 {
+    display: flex;
+    flex-direction: column;
+}
+
+footer .left .colaboradores .nomesColaboradores span {
+    font-size: 1rem;
 }
 
 footer .left .atalho_contato ul li {
@@ -824,6 +825,41 @@ footer .right {
 
 footer .right img {
     width: 112px;
+}
+
+@media screen and (max-width: 1210px) {
+    footer {
+        height: 500px;
+        flex-direction: column;
+    }
+
+    footer .left {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    footer .contatoDireto {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .copyright {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .left .atalho_contato {
+        flex-direction: column;
+    }
+
+    footer .left .colaboradores .nomesColaboradores {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
 }
 
 /* Fim Footer */

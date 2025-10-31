@@ -63,7 +63,7 @@
             </nav>
             <div class="buttons">
                 <!-- <button class="cadastro"><a href="./pageCadastro.html">Cadastre-se</a></button> -->
-                <button class="logar"><a href="./pageLogin.html">Login</a></button>
+                <a href="./pageLogin.html">Login</a>
             </div>
         </div>
 
@@ -83,7 +83,7 @@
             <div class="sides side2">
                 <span class="side2One">Reduza seus gastos com iluminação em até</span>
                 <div class="boxSide2Two">
-                    <span class="side2Two">6%</span>
+                    <span class="side2Two">5%</span>
                 </div>
             </div>
         </div>
@@ -214,12 +214,13 @@
                     <div class="mensagem">
                         <form action="#" method="post">
                             <input type="text" name="" id="input_nomeEmpresa" placeholder="Nome da empresa">
-                            <input type="text" name="" id="input_emailEmpresa" placeholder="Email da empresa">
+                            <input type="text" name="" id="input_emailEmpresa" placeholder="Email da empresa" oninput="valEmail()">
+                            <div id="div_mensagemEmail"></div>
                             <div class="container_doisInput">
                                 <input type="text" name="" id="input_nomeRepresentante"
                                 placeholder="Nome do representante">
                                 <input type="text" name="" id="input_telefoneContato"
-                                placeholder="Telefone para contato">
+                                placeholder="Telefone para contato" oninput="valTel()">
                             </div>
                             <textarea name="" id="textarea_mensagem" placeholder="Deixe sua mensagem..."></textarea>
                             <div id="div_mensagemMensagem"></div>
@@ -235,13 +236,24 @@
     <footer>
         <div class="left">
             <div class="atalho_contato">
-                <span>
-                    <a href="#idQuemSomos">Sobre nós</a>
-                </span>
-                <span>
-                    <a href="#idNossosServicos">Nossos serviços</a>
-                </span>
-                <div>
+                <div class="colaboradores">
+                    <div class="titleColaboradores">
+                        <span>Colaboradores</span>
+                    </div>
+                    <div class="nomesColaboradores">
+                        <div class="nomeColaboradoresColuna1">
+                            <span>Eduardo Nascimento</span>
+                            <span>Gustavo Kenzo</span>
+                            <span>João Gomes</span>
+                        </div>
+                        <div class="nomeColaboradoresColuna2">
+                            <span>Kayke Rodrigues</span>
+                            <span>Igor Ruy</span>
+                            <span>Miguel Igor</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contatoDireto">
                     <span>Precisa de um contato mais direto?</span>
                     <ul>
                         <li>São Paulo, SP - R. Haddock Lobo, 474</li>

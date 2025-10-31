@@ -1,8 +1,11 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     background-color: #EBEBEB;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 /* Começo Header */
@@ -134,7 +137,8 @@ header .nav_1 span:hover {
 header .nav_1 a {
     text-decoration: none;
     color: #ffffff;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    font-size: 1.5rem;
 }
 
 header .nav_2 #buttonMenu_dropdown {
@@ -154,7 +158,7 @@ header .nav_2 span {
     display: flex;
     align-items: center;
     color: #fff;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
 }
 
 header .nav_2 #menu_dropdown {
