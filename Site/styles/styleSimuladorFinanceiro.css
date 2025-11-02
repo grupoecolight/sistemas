@@ -348,6 +348,27 @@ main button {
     box-shadow: 4px 4px 4px 0 rgb(0, 0, 0, 0.8);
 }
 
+#entreContato {
+    background-color: #ebebeb;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 4px 4px 4px 0 rgb(0, 0, 0, 0.8);
+    color: #16578D;
+}
+
+#entreContato a {
+    background-color: #F48924;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: #104068;
+    transition: .5s;
+}
+
+#entreContato a:hover {
+    background-color: #10406848;
+}
+
 .card_economizar {
     width: 75%;
     height: 300px;
