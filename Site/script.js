@@ -6,7 +6,9 @@ function valNome() {
     var ultimaLetraMinuscula = ultimaLetra.toLowerCase()
 
     if (ultimaLetra == ultimaLetraMaiuscula && ultimaLetra == ultimaLetraMinuscula || (tamanho > 254)) { // Válido apenas a entrada de letras e o limite é 255
-        input_nomeUsuario.value = input_nomeUsuario.value.slice(0, -1)
+        if (!(ultimaLetra == ' ')) {
+            input_nomeUsuario.value = input_nomeUsuario.value.slice(0, -1)
+        }
     }
 }
 
@@ -64,21 +66,21 @@ function entrar() {
     var senhaMinuscula = senha.toLowerCase()
     var repetirSenha = document.getElementById('input_repetirSenhaUsuario').value
 
-    div_mensagemEmailSenha.innerHTML = ''
+    // div_mensagemEmailSenha.innerHTML = ''
     if(nomeUsuario == "" || email == "" || areaUsuario == "" || senha == "" || repetirSenha == ""){
         div_mensagemRepetirSenha.innerHTML = `Preencha todos os campos para continuar`
     } else {
         if (email.length > 255) { // Não pode ter mais de 255 caracteres
             validacao = false
-            div_mensagemEmailSenha.innerHTML += `O endereço de email não pode conter mais de 255 caracteres`
+            div_mensagemEmail.innerHTML += `O endereço de email não pode conter mais de 255 caracteres`
         } else if (email.endsWith('.')) { // Não pode terminar com ponto
             validacao = false
-            div_mensagemEmailSenha.innerHTML += `O endereço de email não pode terminar com '.'`
+            div_mensagemEmail.innerHTML += `O endereço de email não pode terminar com '.'`
         } else if (email.includes('@') == false) { // Tem que ter pelo menos 1 '@'
             validacao = false
-            div_mensagemEmailSenha.innerHTML += `O endereço de email precisa conter ao menos 1 '@'`
+            div_mensagemEmail.innerHTML += `O endereço de email precisa conter ao menos 1 '@'`
         } else {
-            div_mensagemEmailSenha.innerHTML = ''
+            div_mensagemEmail.innerHTML = ''
         }
 
         div_mensagemSenha.innerHTML = ''
@@ -109,6 +111,11 @@ function entrar() {
         
         if (validacao) {
             alert('Usuário Cadastrado.')
+            input_nomeUsuario.value = ''
+            input_emailUsuario.value = ''
+            input_areaUsuario.value = ''
+            input_senhaUsuario.value = ''
+            input_repetirSenhaUsuario.value = ''
         }
 
     }

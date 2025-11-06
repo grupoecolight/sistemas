@@ -240,9 +240,9 @@ main .filtros .container_filtros .filtro_ambiente6 {
     color: #64ADE0;
 }
 
-main .filtros .container_filtros .filtro_ambiente2 a {
-    color: #e45b5b;
+main .filtros .container_filtros a {
     text-decoration: none;
+    color: unset;
 }
 
 main .filtros .container_filtros .conteudo_filtro {

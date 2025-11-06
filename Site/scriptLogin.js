@@ -47,10 +47,9 @@ function entrar() {
     div_mensagemEmail.innerHTML = ''
     div_mensagemSenha.innerHTML = ''
 
-    if (email.length == 0) {
+    if (email.length == 0 || senha.length == 0) {
         validacao = false
-        div_mensagemSenha.innerHTML += `O campo e-mail não foi preenchido. <br>`
-        
+        div_mensagemSenha.innerHTML += `Preencha os campos de Email e Senha. <br>`
     } else if (email.length > 255) { // Não pode ter mais de 255 caracteres
         validacao = false
         div_mensagemSenha.innerHTML += `O campo e-mail não comporta mais de 255 caracteres <br>`
@@ -61,12 +60,6 @@ function entrar() {
         div_mensagemSenha.innerHTML += 'Seu e-mail ou senha estão incorretos. <br>'
         validacao = false
     }
-
-
-    if (senha.length == 0) {
-        div_mensagemSenha.innerHTML += 'O campo senha não foi preenchido. <br>'
-        validacao = false
-    } 
 
     if (validacao) {
         if (email == emailCorreto) {
