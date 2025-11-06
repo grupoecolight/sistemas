@@ -18,12 +18,12 @@ function valEmail() {
     if (email.includes('@')) { // Não pode ter mais de 1 '@'
         email = email.replace('@', '*')
         if (email.includes('@')) {
-            div_mensagemEmail.innerHTML = 'Apenas 1 "@" é permitido'
+            div_mensagemEmailSenha.innerHTML = 'Apenas 1 "@" é permitido'
         } else {
-            div_mensagemEmail.innerHTML = ''
+            div_mensagemEmailSenha.innerHTML = ''
         }    
     } else {
-        div_mensagemEmail.innerHTML = ''
+        div_mensagemEmailSenha.innerHTML = ''
     }    
 
     if (email[0] == '.' || (email[tamanho] == '.' && email[(tamanho - 1)] == '.')) { // Não deixa começar com ponto e nem ter 2 pontos seguidos
@@ -64,21 +64,21 @@ function entrar() {
     var senhaMinuscula = senha.toLowerCase()
     var repetirSenha = document.getElementById('input_repetirSenhaUsuario').value
 
-    div_mensagemEmail.innerHTML = ''
+    div_mensagemEmailSenha.innerHTML = ''
     if(nomeUsuario == "" || email == "" || areaUsuario == "" || senha == "" || repetirSenha == ""){
         div_mensagemRepetirSenha.innerHTML = `Preencha todos os campos para continuar`
     } else {
         if (email.length > 255) { // Não pode ter mais de 255 caracteres
             validacao = false
-            div_mensagemEmail.innerHTML += `O endereço de email não pode conter mais de 255 caracteres`
+            div_mensagemEmailSenha.innerHTML += `O endereço de email não pode conter mais de 255 caracteres`
         } else if (email.endsWith('.')) { // Não pode terminar com ponto
             validacao = false
-            div_mensagemEmail.innerHTML += `O endereço de email não pode terminar com '.'`
+            div_mensagemEmailSenha.innerHTML += `O endereço de email não pode terminar com '.'`
         } else if (email.includes('@') == false) { // Tem que ter pelo menos 1 '@'
             validacao = false
-            div_mensagemEmail.innerHTML += `O endereço de email precisa conter ao menos 1 '@'`
+            div_mensagemEmailSenha.innerHTML += `O endereço de email precisa conter ao menos 1 '@'`
         } else {
-            div_mensagemEmail.innerHTML = ''
+            div_mensagemEmailSenha.innerHTML = ''
         }
 
         div_mensagemSenha.innerHTML = ''

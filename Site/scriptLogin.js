@@ -7,7 +7,7 @@ function valEmail() {
     if (email.includes('@')) { // Não pode ter mais de 1 '@'
         email = email.replace('@', '*')
         if (email.includes('@')) {
-            div_mensagemEmail.innerHTML = 'Apenas 1 "@" é permitido'
+            div_mensagemEmail.innerHTML = 'O e-mail comporta apenas 1 "@".'
         } else {
             div_mensagemEmail.innerHTML = ''
         }
@@ -49,25 +49,22 @@ function entrar() {
 
     if (email.length == 0) {
         validacao = false
-        div_mensagemEmail.innerHTML += `O campo e-mail não foi preenchido.`
+        div_mensagemSenha.innerHTML += `O campo e-mail não foi preenchido. <br>`
         
     } else if (email.length > 255) { // Não pode ter mais de 255 caracteres
         validacao = false
-        div_mensagemEmail.innerHTML += `Não pode ter mais de 255 caracteres`
+        div_mensagemSenha.innerHTML += `O campo e-mail não comporta mais de 255 caracteres <br>`
     } else if (email.endsWith('.')) { // Não pode terminar com ponto
         validacao = false
-        div_mensagemEmail.innerHTML += `Não pode terminar com ponto`
-    } else if (email != emailCorreto) {
-        div_mensagemEmail.innerHTML += `Email não encontrado em nosso Banco de Dados.`
-        validacao = false
-    } else if (senha != senhaCorreta) {
-        div_mensagemSenha.innerHTML += 'Senha incorreta. <br>'
+        div_mensagemSenha.innerHTML += `O campo e-mail não pode terminar com "." <br>`
+    } else if (email != emailCorreto || senha != senhaCorreta) {
+        div_mensagemSenha.innerHTML += 'Seu e-mail ou senha estão incorretos. <br>'
         validacao = false
     }
 
 
     if (senha.length == 0) {
-        div_mensagemSenha.innerHTML += 'Preencha o campo senha. <br>'
+        div_mensagemSenha.innerHTML += 'O campo senha não foi preenchido. <br>'
         validacao = false
     } 
 
