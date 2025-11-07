@@ -58,7 +58,7 @@ header .container_title {
 
 /* Começo Container Links */
 
-/* header .container_links {
+header .container_links {
     height: 90%;
     width: 10%;
     display: flex;
@@ -82,7 +82,7 @@ header .container_links a {
 header .container_links a:hover {
     background-color: #08365c9c;
     transform: scale(1.1);
-} */
+}
 
 /* Fim Container Link */
 
@@ -197,17 +197,25 @@ main .filtros .container_filtros {
     align-items: center;
     border-radius: 1rem;
     box-shadow: 0px 4px 4px 0px #3b3b3b3a;
+    margin-bottom: 1rem;
     overflow-y: auto;
-    height: 722px;
+}
+
+main .filtros .container_filtrosAmbientes {
+    height: 300px;
+}
+
+main .filtros .container_filtrosSensores {
+    height: 380px;
 }
 
 main .filtros .container_filtros::-webkit-scrollbar {
     display: none;
 }
 
-main .filtros .container_filtros .filtro_geral {
-    font-size: 1.2rem;
-    color: #0072C4;
+main .filtros .container_filtros .filtro_geral a {
+    color: #64ADE0;
+    text-decoration: none;
 }
 
 main .filtros .container_filtros span {
@@ -217,11 +225,11 @@ main .filtros .container_filtros span {
 
 main .filtros .container_filtros .filtro_ambiente1 {
     color: #64ADE0;
-    /* font-size: 1.2rem; */
+    font-size: 1.2rem;
 }
 
 main .filtros .container_filtros .filtro_ambiente2 {
-    color: #e45b5b;
+    color: #C41D00;
 }
 
 main .filtros .container_filtros .filtro_ambiente3 {
@@ -245,7 +253,7 @@ main .filtros .container_filtros a {
     color: unset;
 }
 
-main .filtros .container_filtros .conteudo_filtro {
+main .filtros .container_filtros .conteudo_filtro, .conteudo_filtro a {
     display: flex;
     align-items: center;
 }
@@ -261,6 +269,47 @@ main .filtros .container_filtros .tittleFiltro {
     color: #16578d;
 }
 
+main .filtros .container_filtros .filtro_sensor1 {
+    color: #64ADE0;
+}
+
+main .filtros .container_filtros .filtro_sensor2 {
+    color: #64ADE0;
+}
+
+main .filtros .container_filtros .filtro_sensor3 {
+    color: #64ADE0;
+}
+
+main .filtros .container_filtros .filtro_sensor4 {
+    color: #0086e6;
+    font-size: 1.2rem;
+}
+
+main .filtros .container_filtros .filtro_sensor5 {
+    color: #64ADE0;
+}
+
+main .filtros .container_filtros .filtro_sensor6 {
+    color: #64ADE0;
+}
+
+main .filtros .container_filtros .filtro_sensor7 {
+    color: #64ADE0;
+}
+
+main .filtros .container_filtros .filtro_sensor8 {
+    color: #64ADE0;
+}
+
+main .filtros .container_filtros .filtro_sensor9 {
+    color: #64ADE0;
+}
+
+main .filtros .container_filtros .filtro_sensor10 {
+    color: #64ADE0;
+}
+
 /* Fim Filtros */
 
 /* Começo Tabelas */
@@ -270,11 +319,48 @@ main .container_dashboard .tabelas {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
-/* Começo Bem Vindo */
+/* Começo MyChart */
 
+/* #myChart2 {
+    background: linear-gradient(to bottom, #EBEBEB, #EBEBEB, #EBEBEB, #EBEBEB, #EBEBEB, #00c400b0, #EBEBEB, #EBEBEB, #EBEBEB, #EBEBEB, #EBEBEB);
+} */
+
+.container_myChart {
+    height: 50%;
+    /* width: 98%; */
+    margin: auto;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #fff;
+}
+
+#myChart, #myChart2 {
+    height: 100%;
+    width: 100% ;
+    margin: auto;
+}
+
+.tabelas .textMetrica {
+    width: 70%;
+    background-color: #ffe134;
+    padding: .5rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin: -.5rem auto .5rem auto;
+}
+
+.tabelas .textMetrica .titleMetrica {
+    font-weight: bold;
+}
+
+/* Fim MyChart */
+
+/* Começo Bem Vindo */
+/* 
 main .tabelas .bemVindo {
     width: 100%;
     height: 35%;
@@ -326,11 +412,11 @@ main .tabelas .bemVindo .lampadaFundo {
     height: 98%;
     width: 30%;
 }
-
+*/
 /* Fim Bem Vindo */
 
 /* Começo Tabela */
-
+/*
 main .tabelas .tabela {
     width: 100%;
     height: 60%;
@@ -392,66 +478,7 @@ main .tabelas .tabela .conteudoTabela section .miniConteudo {
     color: #0072C4;
     margin: .5rem 0;
 }
-
-main .tabelas .tabela .conteudoTabela section .linhaAlertaAlto {
-    color: #FFD535;
-}
-
-main .tabelas .tabela .conteudoTabela section .linhaAlertaIdeal {
-    color: #00862D;
-}
-
-main .tabelas .tabela .conteudoTabela section .linhaAlertaAbaixo {
-    color: #db1111;
-}
-
-main .tabelas .tabela .conteudoTabela section .linhaAlerta1, main .tabelas .tabela .conteudoTabela section .linhaIntensidade1 {
-    color: #db1111;
-}
-
-main .tabelas .tabela .conteudoTabela section .linhaAlerta2, main .tabelas .tabela .conteudoTabela section .linhaIntensidade2 {
-    color: #00862D;
-}
-/* #00862D */
-main .tabelas .tabela .conteudoTabela section .linhaAlerta3, main .tabelas .tabela .conteudoTabela section .linhaIntensidade3 {
-    color: #00862D;
-}
-
-main .tabelas .tabela .conteudoTabela section .linhaAlerta4, main .tabelas .tabela .conteudoTabela section .linhaIntensidade4 {
-    color: #00862D;
-}
-
-main .tabelas .tabela .conteudoTabela section .linhaAlerta5, main .tabelas .tabela .conteudoTabela section .linhaIntensidade5 {
-    color: #db1111;
-}
-
-main .tabelas .tabela .conteudoTabela section .linhaAlerta6, main .tabelas .tabela .conteudoTabela section .linhaIntensidade6 {
-    color: #db1111;
-}
-main .tabelas .tabela .conteudoTabela section .linhaAlerta7, main .tabelas .tabela .conteudoTabela section .linhaIntensidade7 {
-    color: #FFD535;
-}
-
-main .tabelas .tabela .conteudoTabela section .linhaAlerta8, main .tabelas .tabela .conteudoTabela section .linhaIntensidade8 {
-    color: #FFD535;
-}
-/* #00862D */
-main .tabelas .tabela .conteudoTabela section .linhaAlerta9, main .tabelas .tabela .conteudoTabela section .linhaIntensidade9 {
-    color: #FFD535;
-}
-
-main .tabelas .tabela .conteudoTabela section .linhaAlerta10, main .tabelas .tabela .conteudoTabela section .linhaIntensidade10 {
-    color: #FFD535;
-}
-
-main .tabelas .tabela .conteudoTabela section .linhaAlerta11, main .tabelas .tabela .conteudoTabela section .linhaIntensidade11 {
-    color: #FFD535;
-}
-
-main .tabelas .tabela .conteudoTabela section .linhaAlerta12, main .tabelas .tabela .conteudoTabela section .linhaIntensidade12 {
-    color: #FFD535;
-}
-
+*/
 /* Fim Tabela */
 
 /* Fim Tabelas */
@@ -521,7 +548,7 @@ main .kpis .kpi .container_kpi .tittleKpiIdeal {
 }
 
 main .kpis .kpi .container_kpi .tittleKpiElevada {
-    /* color: #ffe600; */
+    /* color: #FFAC5E; */
     color: #000;
 }
 
@@ -533,8 +560,13 @@ main .kpis .kpi .container_kpi .tittleKpiInferior {
 main .kpis .kpi .container_kpi .conteudoKpi {
     margin-top: 1.5rem;
     color: #FFAC5E;
+    /* color: #000; */
     font-size: 2rem;
     font-weight: bold;
+}
+
+main .kpis .kpi .container_kpi .mediaSensores {
+    color: #64ADE0;
 }
 
 main .kpis .kpi .container_kpi .conteudoKpiIdeal {
@@ -543,7 +575,7 @@ main .kpis .kpi .container_kpi .conteudoKpiIdeal {
 }
 
 main .kpis .kpi .container_kpi .conteudoKpiElevada {
-    /* color: #ffe600; */
+    /* color: #FFAC5E; */
     color: #16578d;
 }
 
@@ -554,6 +586,37 @@ main .kpis .kpi .container_kpi .conteudoKpiInferior {
 
 main .kpis .metricaIdeal .container_kpi .conteudoKpi {
     color: #ffffff;
+}
+
+main .kpis .kpi .container_kpi .topMin {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    align-items: start;
+    margin: 1rem;
+    color: #FFAC5E;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1137px) {
+    main .kpis .kpi .container_kpi .tittleKpi {
+        font-size: 1.1rem;
+    }
+
+    main .kpis .kpi .container_kpi .conteudoKpi {
+        font-size: 1.5rem;
+    }
+
+    main .kpis .kpi .container_kpi .topMin {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 904px) {
+    main .kpis .kpi .container_kpi .tittleKpi {
+        font-size: 1rem;
+    }
 }
 
 /* Fim Kpis */

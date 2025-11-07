@@ -229,11 +229,11 @@ main .filtros .container_filtros .filtro_ambiente1 {
 
 main .filtros .container_filtros .filtro_ambiente2 {
     color: #C41D00;
-    font-size: 1.2rem;
 }
 
 main .filtros .container_filtros .filtro_ambiente3 {
-    color: #64ADE0;
+    color: #FFD535;
+    font-size: 1.2rem;
 }
 
 main .filtros .container_filtros .filtro_ambiente4 {
@@ -241,7 +241,7 @@ main .filtros .container_filtros .filtro_ambiente4 {
 }
 
 main .filtros .container_filtros .filtro_ambiente5 {
-    color: #FFD535;
+    color: #64ADE0;
 }
 
 main .filtros .container_filtros .filtro_ambiente6 {
@@ -270,44 +270,44 @@ main .filtros .container_filtros .tittleFiltro {
 }
 
 main .filtros .container_filtros .filtro_sensor1 {
-    color: #C41D00;
-    font-size: 1.2rem;
+    color: #FFD535;
 }
 
 main .filtros .container_filtros .filtro_sensor2 {
-    color: #e45b5b;
+    color: #FFD535;
 }
 
 main .filtros .container_filtros .filtro_sensor3 {
-    color: #e45b5b;
+    color: #FFD535;
 }
 
 main .filtros .container_filtros .filtro_sensor4 {
-    color: #e45b5b;
+    color: #FFD535;
 }
 
 main .filtros .container_filtros .filtro_sensor5 {
-    color: #e45b5b;
+    color: #FFD535;
 }
 
 main .filtros .container_filtros .filtro_sensor6 {
-    color: #e45b5b;
+    color: #e4b600;
+    font-size: 1.2rem;
 }
 
 main .filtros .container_filtros .filtro_sensor7 {
-    color: #e45b5b;
+    color: #FFD535;
 }
 
 main .filtros .container_filtros .filtro_sensor8 {
-    color: #e45b5b;
+    color: #FFD535;
 }
 
 main .filtros .container_filtros .filtro_sensor9 {
-    color: #e45b5b;
+    color: #FFD535;
 }
 
 main .filtros .container_filtros .filtro_sensor10 {
-    color: #e45b5b;
+    color: #FFD535;
 }
 
 /* Fim Filtros */
@@ -342,6 +342,19 @@ main .container_dashboard .tabelas {
     height: 100%;
     width: 100% ;
     margin: auto;
+}
+
+.tabelas .textMetrica {
+    width: 70%;
+    background-color: #ffe134;
+    padding: .5rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin: -.5rem auto .5rem auto;
+}
+
+.tabelas .textMetrica .titleMetrica {
+    font-weight: bold;
 }
 
 /* Fim MyChart */
@@ -501,6 +514,10 @@ main .kpis .kpi .container_kpi {
     text-align: center;
 }
 
+main .kpis .metricaIdeal {
+    background-color: #0072C4;
+}
+
 main .kpis .kpiIdeal {
     /* background-color: #5353537a; */
     background-color: #57ff92;
@@ -517,8 +534,12 @@ main .kpis .kpiInferior {
 }
 
 main .kpis .kpi .container_kpi .tittleKpi {
-    color: #FFAC5E;
+    color: #000;
     font-size: 1.3rem;
+}
+
+main .kpis .metricaIdeal .container_kpi .tittleKpi {
+    color: #000;
 }
 
 main .kpis .kpi .container_kpi .tittleKpiIdeal {
@@ -544,6 +565,10 @@ main .kpis .kpi .container_kpi .conteudoKpi {
     font-weight: bold;
 }
 
+main .kpis .kpi .container_kpi .mediaSensores {
+    color: #FFD535;
+}
+
 main .kpis .kpi .container_kpi .conteudoKpiIdeal {
     /* color: #00862D; */
     color: #16578d;
@@ -557,6 +582,10 @@ main .kpis .kpi .container_kpi .conteudoKpiElevada {
 main .kpis .kpi .container_kpi .conteudoKpiInferior {
     /* color: #C41D00; */
     color: #16578d;
+}
+
+main .kpis .metricaIdeal .container_kpi .conteudoKpi {
+    color: #ffffff;
 }
 
 main .kpis .kpi .container_kpi .topMin {

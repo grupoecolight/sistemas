@@ -10,9 +10,9 @@ data: {
         label: '18:00:00 PM',
         data: [9, 10, 11, 10, 9, 7, 8, 8, 7, 6],
         borderWidth: 5,
-        backgroundColor: '#637CEF',
-        color: '#637CEF',
-        borderColor: '#637CEF',
+        backgroundColor: '#e45b5b',
+        color: '#e45b5b',
+        borderColor: '#e45b5b',
         barPercentage: 0.4
     }]
 },
@@ -51,9 +51,9 @@ data: {
     label: '13/10/2025',
     data: [21, 23, 17, 16, 24, 29, 26, 31, 35, 41],
     borderWidth: 5,
-    backgroundColor: '#637CEF',
-    color: '#637CEF',
-    borderColor: '#637CEF',
+    backgroundColor: '#e45b5b',
+    color: '#e45b5b',
+    borderColor: '#e45b5b',
     tension: 0.3
     }]
 },

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./styles/ambiente2.css">
+</head>
+<body>
+    
+    <header>
+        <div class="container_logo">
+            <a href="./index.html"><img src="./Assets/logo_ecolight_transparente_branca.png" alt=""></a>
+        </div>
+        <div class="container_title">
+            <h1>Dashboard - Ambiente 2</h1>
+        </div>
+        <div class="container_perfil">
+            <img onclick="buttonPerfilMenu()" src="./Assets/account.png" alt="">
+            <img class="menuHamburguer" onclick="buttonPerfilMenu()" src="./Assets/menu.png" alt="">
+            <!-- <span>
+            </span> -->
+            <div id="dropdownPerfil" style="display: none;">
+                <span>
+                    <a href="#">Perfil</a>
+                </span>
+                <span>
+                    <a href="./pageCadastro.html">Cadastrar novo Usuário</a>
+                </span>
+                <span>
+                    <a href="#">Configurações</a>
+                </span>
+                <span>
+                    <a href="./index.html" class="exit">Sair</a>
+                </span>
+            </div>
+        </div>
+        
+    </header>
+
+    <main>
+        <div class="container_dashboard">
+            <div class="filtros">
+                <div class="tittleEmpresa">
+                    <h2>EcoLight</h2>
+                </div>
+                <div class="container_filtros container_filtrosAmbientes">
+                    <span class="tittleFiltro">Ambientes</span>
+                    <span class="conteudo_filtro filtro_geral"><a href="./dashboard.html">Visão geral <img src="./Assets/filtro_geral.png" alt=""></a></span>
+                    <span class="conteudo_filtro filtro_ambiente1"><a href="./ambiente1.html">Ambiente 1 <img src="./Assets/filtro_check.png" alt=""></a></span>
+                    <span class="conteudo_filtro filtro_ambiente2"><a href="#">Ambiente 2 <img src="./Assets/filtro_alertaInferior.png" alt=""></a></span>
+                    <span class="conteudo_filtro filtro_ambiente3"><a href="./ambiente3.html">Ambiente 3  <img src="./Assets/filtro_alertaElevado.png" alt=""></a></span>
+                </div>
+                <div class="container_filtros container_filtrosSensores">
+                    <span class="tittleFiltro">Sensores</span>
+                    <span class="filtro_sensor1">002-NOR</span>
+                    <span class="filtro_sensor2">012-NOR</span>
+                    <span class="filtro_sensor3">022-NOR</span>
+                    <span class="filtro_sensor4">032-NOR</span>
+                    <span class="filtro_sensor5">042-NOR</span>
+                    <span class="filtro_sensor6">052-NOR</span>
+                    <span class="filtro_sensor7">062-NOR</span>
+                    <span class="filtro_sensor8">072-NOR</span>
+                    <span class="filtro_sensor9">082-NOR</span>
+                    <span class="filtro_sensor10">092-NOR</span>
+                </div>
+            </div>
+            <div class="tabelas">
+                <div class="container_myChart">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div class="textMetrica">
+                    <span><span class="titleMetrica">Como ler as nomenclaturas dos sensores:</span> As tags dos sensores são formadas por 6 caracteres, como '002-NOR'. Os dois primeiros dígitos significam a unidade quantitativa daquele sensor. O terceiro dígito significa o andar. E os últimos 3 significam a região da empresa em que o sensor se localiza.</span>
+                </div>
+                <div class="container_myChart">
+                    <canvas id="myChart2"></canvas>
+                </div>
+            </div>
+            <div class="kpis">
+                <div class="kpi metricaIdeal">
+                    <div class="container_kpi">
+                        <span class="tittleKpi">Métrica de luminosidade Ideal:</span>
+                        <span class="conteudoKpi">20% a 26%</span>
+                    </div>
+                </div>
+                <div class="kpi">
+                    <div class="container_kpi">
+                        <span class="tittleKpi">Quantidade de alertas no Ambiente 2:</span>
+                        <span class="conteudoKpi">10</span>
+                    </div>
+                </div>
+                <div class="kpi">
+                    <div class="container_kpi">
+                        <span class="tittleKpi">Média dos sensores do Ambiente 2:</span>
+                        <span class="conteudoKpi mediaSensores">8,5%</span>
+                        <div class="topMin">
+                            <span class="pico">Pico: 11%</span>
+                            <span class="minimo">Mínimo: 6%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="kpi kpiIdeal">
+                    <div class="container_kpi">
+                        <span class="tittleKpi tittleKpiIdeal">Sensores com Incidência de luz ideal:</span>
+                        <span class="conteudoKpi conteudoKpiIdeal">0</span>
+                    </div>
+                </div>
+                <div class="kpi kpiElevada">
+                    <div class="container_kpi">
+                        <span class="tittleKpi tittleKpiElevada">Sensores com incidência de luz acima do ideal:</span>
+                        <span class="conteudoKpi conteudoKpiElevada">0</span>
+                    </div>
+                </div>
+                <div class="kpi kpiInferior">
+                    <div class="container_kpi">
+                        <span class="tittleKpi tittleKpiInferior">Sensores com incidência de luz abaixo do ideal:</span>
+                        <span class="conteudoKpi conteudoKpiInferior">10</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./ambiente2.js"></script>
+    <script src="./menuDropdown.js"></script>
+</body>
+</html>
