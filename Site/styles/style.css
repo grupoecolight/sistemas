@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -705,7 +709,7 @@ main .boxSides .side2 .side2Two {
 }
 
 .entreContato .contato .mensagem input {
-    width: 95%;
+    width: 100%;
     margin-bottom: 1rem;
     padding: .5rem;
     border-radius: .5rem;
@@ -717,11 +721,11 @@ main .boxSides .side2 .side2Two {
 .entreContato .contato .mensagem .container_doisInput {
     display: flex;
     justify-content: space-between;
-    width: 96.5%;
+    width: 100%;
 }
 
 .entreContato .contato .mensagem .container_doisInput input {
-    width: 45%;
+    width: 48%;
 }
 
 .entreContato .contato .mensagem .input_button {
@@ -739,7 +743,7 @@ main .boxSides .side2 .side2Two {
 }
 
 .entreContato .contato .mensagem textarea {
-    width: 95%;
+    width: 100%;
     height: 100px;
     /* margin-bottom: 1rem; */
     padding: .5rem;
