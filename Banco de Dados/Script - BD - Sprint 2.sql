@@ -1,6 +1,9 @@
 CREATE DATABASE Ecolight;
 USE Ecolight;
 
+alter table regsensor rename to regSensor;
+alter table regSensor modify column intensidadeLuz DECIMAL(4,1);
+
 CREATE TABLE empresa (
     idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     razaoSocial VARCHAR(255),
@@ -52,6 +55,15 @@ CREATE TABLE usuario (
         REFERENCES empresa(idEmpresa)
 );
 
+CREATE TABLE ambiente (
+idAmbiente INT PRIMARY KEY AUTO_INCREMENT,
+andar INT,
+nome VARCHAR(45),
+fkEmpresa INT,
+	CONSTRAINT fkambiente_empresa
+		FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa)
+);
+
 
 INSERT INTO usuario (areaEmpresa, email, senha, fkOrganizacao, userAdmin) VALUES
 ('Administração', 'admin@empresa1.com', 'admin123', 1, 0),
@@ -90,6 +102,12 @@ CREATE TABLE Sensor (
     CONSTRAINT fkSensorEmpresa FOREIGN KEY (fkEmpresa)
         REFERENCES empresa(idEmpresa)
 );
+
+ALTER TABLE Sensor DROP CONSTRAINT fkSensorEmpresa;
+ALTER TABLE Sensor DROP COLUMN fkEmpresa;
+ALTER TABLE Sensor DROP COLUMN area;
+ALTER TABLE Sensor ADD COLUMN fkAmbiente INT, ADD CONSTRAINT fkAmbiente_sensor FOREIGN KEY (fkAmbiente) REFERENCES ambiente(idAmbiente);
+
 
 -- Empresa 1
 INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
