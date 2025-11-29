@@ -72,6 +72,12 @@
                     <br>
                     <input type="text" id="input_quantidade_kwh">
                 </label>
+
+                <label for="ipt_adicao" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    Adição de bandeira por Kwh
+                    <br>
+                <input type="number" id="ipt_adicao">
+                </label>
     
                 <div id="caixa_selects">
                     <label>
@@ -82,10 +88,9 @@
                             <option value="option_85">R$0,85</option>
                             <option value="option_95">R$0,95</option>
                             <option value="option_100">R$1,00</option>
-    
                         </select>
                     </label>
-    
+
                     <label>
                         Plano à calcular
                         <br>
@@ -98,6 +103,12 @@
                         </select>
                     </label>
                 </div>
+
+                    <label for="resulBandeira" class="cardAddBandeira">
+                        Adição na conta por bandeira tarifária
+                        <br>
+                        <div id="resulBandeira" class="resulBandeira"></div>
+                    </label>
     
             </div>
     
@@ -112,10 +123,12 @@
             </div>
     
             <button onclick="calcular()">Calcular economia</button>
+
         </div>
     
         <div id="secao_cards">
             <div class="teste">
+
                 <div class="card">
                     <h2>Sem a Ecolight, você gastaria:</h2>
                     <span id="sem_ecolight_span" class="texto_card"></span>
@@ -124,8 +137,8 @@
                 <div class="card">
                     <h2>Com a Ecolight, você gastaria:</h2>
                     <span id="com_ecolight_span" class="texto_card"></span>
-    
                 </div>
+
             </div>
 
             <div id="entreContato" style="display: none;">
@@ -147,10 +160,12 @@
 </html>
 
 <script>
+
     function calcular() {
         var quantidadeKwh = Number(input_quantidade_kwh.value);
         var plano = select_plano.value;
         var preçoKwh = select_preçoKwh.value
+
 
         if (plano == 'mensal') {
             plano = 1
@@ -174,10 +189,17 @@
             preçoKwh = 1
         }
 
+        //Formula da bandeira tarifaria
+        var tarifaAdicional = Number(ipt_adicao.value.replaceAll(';', '.'));
+        var adicional = quantidadeKwh * tarifaAdicional
+
         var valorPorKwh = quantidadeKwh * preçoKwh
-        var semProduto = valorPorKwh * plano;
-        var comProduto = semProduto - semProduto * 0.05;
-        var valorPoupado = semProduto - comProduto;
+        var semProduto = valorPorKwh + adicional * plano  ;
+        var comProduto = (semProduto - semProduto * 0.05)
+        var valorPoupado =  semProduto - comProduto
+
+
+        resulBandeira.innerHTML = `${adicional.toLocaleString('pt-br', {style: "currency", currency: 'BRL'})}`
 
         sem_ecolight_span.innerHTML = `${semProduto.toLocaleString('pt-BR', {
             style: "currency",

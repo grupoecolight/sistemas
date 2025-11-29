@@ -409,3 +409,22 @@ h2 {
 #economia_span {
     color: green;
 }
+
+/*Adiçã de bandeira tarifária*/
+.resulBandeira{
+    width: 150px; 
+    height: 25px;
+    background-color: white; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    box-shadow: 4px 4px 4px 0 rgb(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+.cardAddBandeira{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
