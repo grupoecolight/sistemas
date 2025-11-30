@@ -1,9 +1,6 @@
 CREATE DATABASE Ecolight;
 USE Ecolight;
 
-alter table regsensor rename to regSensor;
-alter table regSensor modify column intensidadeLuz DECIMAL(4,1);
-
 CREATE TABLE empresa (
     idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     razaoSocial VARCHAR(255),
@@ -15,15 +12,6 @@ CREATE TABLE empresa (
     senha VARCHAR(45)
 );
 
-INSERT INTO empresa (razaoSocial, cnpj, cep, responsavel, telefone, dtCadastro, senha) VALUES
-('XPTO Technology LTDA', '10276849534012', '01310000', 'Maria Silva', 11987654321, '2025-01-15 10:30:00', 'senha123'),
-('Eco Buzziness LTDA', '40345976786543', '01310940', 'João Pereira', 11956433478, '2025-02-10 14:00:00', 'empresa2025'),
-('Seguradora de veículos LTDA', '54367891235409', '01310200', 'Ana Lima', 11956422465, '2025-03-05 09:15:00', 'segura@456');
-
-
-SELECT * FROM empresa;
-
-
 CREATE TABLE mensagem (
 idMensagem INT PRIMARY KEY AUTO_INCREMENT,
 nomeEmpresa VARCHAR (45),
@@ -32,13 +20,6 @@ nomeRepresentante VARCHAR (45),
 contatoTel CHAR(11),
 mensagem VARCHAR(500)
 );
-
-INSERT INTO mensagem VALUES
-(DEFAULT, 'XPTO Technology LTDA', 'xptotechnology@ecolight.com', 'Friedrich Nietzsche', '11985540981', 'Prezados, informamos a ocorrência de um erro no sistema de monitoramento de intensidade luminosa, no dia 16/20. 
-O problema gerou leituras incorretas em alguns pontos de medição. Solicitamos uma revisão para a solução do problema. Esperamos um retorno. Obrigado!! '),
-
-(DEFAULT, 'Eco Buzziness LTDA', 'ecobuzziness@gmail.com', 'Guy Fawkes', '11940028922', 'Prezados, identificamos um erro no sistema de monitoramento de intensidade luminosa em nossa empresa. Solicitamos o suporte técnico para verificação e correção do problema. 
-Por favor, agendem uma visita o mais breve possível para realizar a manutenção necessária.');
 
 CREATE TABLE usuario (
     idUsuario INT AUTO_INCREMENT,
@@ -64,49 +45,43 @@ fkEmpresa INT,
 		FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa)
 );
 
+CREATE TABLE Sensor (
+    idSensor INT PRIMARY KEY AUTO_INCREMENT,
+    tagSensor CHAR(7),
+    area VARCHAR(25),
+    fkAmbiente INT,
+    CONSTRAINT fkSensorEmpresa FOREIGN KEY (fkAmbiente)
+        REFERENCES ambiente(idAmbiente)
+);
+
+CREATE TABLE regSensor (
+    idRegSensor INT AUTO_INCREMENT,
+    intensidadeLuz INT,
+    fkSensor INT,
+    dtHora DATETIME DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT pkRegSensor PRIMARY KEY (idRegSensor, fkSensor),
+    CONSTRAINT fkRegSensor FOREIGN KEY (fkSensor)
+        REFERENCES Sensor(idSensor)
+);
+
+
+INSERT INTO empresa (razaoSocial, cnpj, cep, responsavel, telefone, dtCadastro, senha) VALUES
+('XPTO Technology LTDA', '10276849534012', '01310000', 'Maria Silva', 11987654321, '2025-01-15 10:30:00', 'senha123'),
+('Eco Buzziness LTDA', '40345976786543', '01310940', 'João Pereira', 11956433478, '2025-02-10 14:00:00', 'empresa2025'),
+('Seguradora de veículos LTDA', '54367891235409', '01310200', 'Ana Lima', 11956422465, '2025-03-05 09:15:00', 'segura@456');
+
+
+INSERT INTO mensagem VALUES
+(DEFAULT, 'XPTO Technology LTDA', 'xptotechnology@ecolight.com', 'Friedrich Nietzsche', '11985540981', 'Prezados, informamos a ocorrência de um erro no sistema de monitoramento de intensidade luminosa, no dia 16/20. 
+O problema gerou leituras incorretas em alguns pontos de medição. Solicitamos uma revisão para a solução do problema. Esperamos um retorno. Obrigado!! '),
+(DEFAULT, 'Eco Buzziness LTDA', 'ecobuzziness@gmail.com', 'Guy Fawkes', '11940028922', 'Prezados, identificamos um erro no sistema de monitoramento de intensidade luminosa em nossa empresa. Solicitamos o suporte técnico para verificação e correção do problema. 
+Por favor, agendem uma visita o mais breve possível para realizar a manutenção necessária.');
+
 
 INSERT INTO usuario (areaEmpresa, email, senha, fkOrganizacao, userAdmin) VALUES
 ('Administração', 'admin@empresa1.com', 'admin123', 1, 0),
 ('Recursos Humanos', 'rh@empresa1.com', 'rh2025', 2, 1),
 ('Gerência', 'gerente@empresa2.com', 'ger@XPTO', 3, 0);
-
-SELECT * FROM usuario;
-
-
--- Configuração das FK
--- UPDATE usuario SET fkOrganizacao = 1 WHERE idUsuario = 1;
--- UPDATE usuario SET fkOrganizacao = 2 WHERE idUsuario = 2;
--- UPDATE usuario SET fkOrganizacao = 3 WHERE idUsuario = 3;
-
-
--- JOIN das FK com as PK
-SELECT e.razaoSocial AS 'Nome da Empresa',
-e.cnpj AS 'CNPJ',
-e.cep AS 'CEP',
-e.responsavel AS 'Responsável da empresa',
-e.telefone AS 'Telefone para contato',
-e.dtCadastro AS 'Data de Cadastro',
-e.senha AS 'Senha da Empresa',
-u.areaEmpresa AS 'Função do Usuário',
-u.email AS 'Email para contato',
-u.senha AS 'Senha do Usuário'
-FROM empresa e JOIN usuario u
-ON e.idEmpresa = u.fkOrganizacao;
-
--- 
-CREATE TABLE Sensor (
-    idSensor INT PRIMARY KEY AUTO_INCREMENT,
-    tagSensor CHAR(7),
-    area VARCHAR(25),
-    fkEmpresa INT,
-    CONSTRAINT fkSensorEmpresa FOREIGN KEY (fkEmpresa)
-        REFERENCES empresa(idEmpresa)
-);
-
-ALTER TABLE Sensor DROP CONSTRAINT fkSensorEmpresa;
-ALTER TABLE Sensor DROP COLUMN fkEmpresa;
-ALTER TABLE Sensor DROP COLUMN area;
-ALTER TABLE Sensor ADD COLUMN fkAmbiente INT, ADD CONSTRAINT fkAmbiente_sensor FOREIGN KEY (fkAmbiente) REFERENCES ambiente(idAmbiente);
 
 
 -- Empresa 1
@@ -120,7 +95,6 @@ INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
 (default, '062-SUL', 'Sala de reuniões', 1),
 (default, '072-SUL', 'Sala de reuniões', 1);
 
-
 -- Empresa 2
 INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
 (default, '007-LES', 'Sala de conferência', 2),
@@ -131,7 +105,6 @@ INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
 (default, '057-OES', 'Sala de conferência', 2),
 (default, '067-OES', 'Sala de conferência', 2),
 (default, '077-OES', 'Sala de conferência', 2);
-
 
 -- Empresa 3
 INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
@@ -148,34 +121,6 @@ INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
 (default, '021-LES', 'Recepção', 3),
 (default, '031-LES', 'Recepção', 3);
 
-SELECT * FROM Sensor;
-
--- UPDATE Sensor SET fkEmpresa = 1 WHERE idSensor = 1;
--- UPDATE Sensor SET fkEmpresa = 2 WHERE idSensor = 2;
--- UPDATE Sensor SET fkEmpresa = 3 WHERE idSensor = 3;
-
-SELECT e.razaoSocial AS 'Nome da Empresa',
-e.cnpj AS 'CNPJ',
-e.cep AS 'CEP',
-e.responsavel AS 'Responsável da empresa',
-e.telefone AS 'Telefone para contato',
-e.dtCadastro AS 'Data de Cadastro',
-e.senha AS 'Senha da Empresa',
-s.tagSensor AS 'Tag do Sensor',
-s.area AS 'Setor onde está localizado'
-FROM empresa e JOIN Sensor s
-ON e.idEmpresa = s.fkEmpresa; 
-
-
-CREATE TABLE regSensor (
-    idRegSensor INT AUTO_INCREMENT,
-    intensidadeLuz INT,
-    fkSensor INT,
-    dtHora DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT pkRegSensor PRIMARY KEY (idRegSensor, fkSensor),
-    CONSTRAINT fkRegSensor FOREIGN KEY (fkSensor)
-        REFERENCES Sensor(idSensor)
-);
 
 -- Empresa 1
 INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
@@ -188,6 +133,7 @@ INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
 (330, 1),
 (320, 1);
 
+
 -- Empresa 1
 INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
 (380, 2),
@@ -198,6 +144,7 @@ INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
 (330, 2),
 (330, 2),
 (320, 2);
+
 
 -- Empresa 1
 INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
@@ -263,6 +210,7 @@ INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
 (460, 9),
 (460, 9);
 
+
 -- Empresa 2
 INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
 (450, 10),
@@ -279,6 +227,7 @@ INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
 (440, 12),
 (450, 12),
 (450, 12);
+
 
 -- Empresa 2
 INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
@@ -353,8 +302,70 @@ INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
 (350, 28),
 (350, 28);
 
-select * from regSensor;
 
+-- Dados de cada empresa
+CREATE VIEW dados_das_empresas AS
+SELECT e.razaoSocial AS 'Nome da Empresa',
+e.cnpj AS 'CNPJ',
+e.cep AS 'CEP',
+e.responsavel AS 'Responsável da empresa',
+e.telefone AS 'Telefone para contato',
+e.dtCadastro AS 'Data de Cadastro',
+e.senha AS 'Senha da Empresa',
+u.areaEmpresa AS 'Função do Usuário',
+u.email AS 'Email para contato',
+u.senha AS 'Senha do Usuário'
+FROM empresa e JOIN usuario u
+ON e.idEmpresa = u.fkOrganizacao;
+
+-- UPDATE Sensor SET fkEmpresa = 1 WHERE idSensor = 1;
+-- UPDATE Sensor SET fkEmpresa = 2 WHERE idSensor = 2;
+-- UPDATE Sensor SET fkEmpresa = 3 WHERE idSensor = 3;
+
+CREATE VIEW empresa_sensor_ambiente AS
+SELECT e.razaoSocial AS 'Nome da Empresa',
+e.cnpj AS 'CNPJ',
+e.cep AS 'CEP',
+e.responsavel AS 'Responsável da empresa',
+e.telefone AS 'Telefone para contato',
+e.dtCadastro AS 'Data de Cadastro',
+e.senha AS 'Senha da Empresa',
+a.andar,
+a.nome,
+s.tagSensor AS 'Tag do Sensor'
+FROM empresa e JOIN ambiente a
+on e.idEmpresa = a.fkEmpresa
+JOIN Sensor s
+on s.idSensor = a.fkEmpresa;
+
+/* Consultar dados da empresa e seus sensores da view empresa_sensor_ambiente */
+select * from empresa_sensor_ambiente;
+
+
+/*Consultar nome da empresa, andar, nome do ambiente e tag do sensor da view empresa_sensor_ambiente*/
+select 'Nome da Empresa', andar, nome, 'Tag do Sensor' FROM empresa_sensor_ambiente;  
+
+
+/* Consultar registros de cada sensor */
+CREATE VIEW registro_sensor AS
+Select e.razaoSocial as Empresa, a.nome as Nome ,intensidadeLuz as Lux, tagSensor as Sensor, dtHora as 'Data' 
+FROM Sensor s JOIN regSensor r
+on s.idSensor = r.fkSensor
+JOIN ambiente a
+on a.idAmbiente = s.fkAmbiente
+JOIN empresa e
+on e.idEmpresa = a.fkEmpresa;
+
+/* Consultar registros de cada sensor e de cada empresa*/
+select * from registro_sensor;
+
+insert into ambiente values 
+(default, 2, 'Sala de reunião', 2),
+(default, 2, 'Sala de reunião', 2),
+(default, 2, 'Sala de reunião', 2),
+(default, 2, 'Sala de reunião', 2),
+(default, 2, 'Sala de reunião', 2),
+(default, 2, 'Sala de reunião', 2);
 
 
 SELECT e.razaoSocial AS 'Nome da Empresa',
