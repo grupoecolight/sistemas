@@ -64,6 +64,14 @@ CREATE TABLE regSensor (
         REFERENCES Sensor(idSensor)
 );
 
+insert into ambiente values 
+(default, 2, 'Sala de reunião', 2),
+(default, 2, 'Sala de reunião', 2),
+(default, 2, 'Sala de reunião', 2),
+(default, 2, 'Sala de reunião', 2),
+(default, 2, 'Sala de reunião', 2),
+(default, 2, 'Sala de reunião', 2);
+
 
 INSERT INTO empresa (razaoSocial, cnpj, cep, responsavel, telefone, dtCadastro, senha) VALUES
 ('XPTO Technology LTDA', '10276849534012', '01310000', 'Maria Silva', 11987654321, '2025-01-15 10:30:00', 'senha123'),
@@ -318,9 +326,6 @@ u.senha AS 'Senha do Usuário'
 FROM empresa e JOIN usuario u
 ON e.idEmpresa = u.fkOrganizacao;
 
--- UPDATE Sensor SET fkEmpresa = 1 WHERE idSensor = 1;
--- UPDATE Sensor SET fkEmpresa = 2 WHERE idSensor = 2;
--- UPDATE Sensor SET fkEmpresa = 3 WHERE idSensor = 3;
 
 CREATE VIEW empresa_sensor_ambiente AS
 SELECT e.razaoSocial AS 'Nome da Empresa',
@@ -348,7 +353,7 @@ select 'Nome da Empresa', andar, nome, 'Tag do Sensor' FROM empresa_sensor_ambie
 
 /* Consultar registros de cada sensor */
 CREATE VIEW registro_sensor AS
-Select e.razaoSocial as Empresa, a.nome as Nome ,intensidadeLuz as Lux, tagSensor as Sensor, dtHora as 'Data' 
+Select e.razaoSocial as Empresa, a.nome as Ambiente ,intensidadeLuz as Lux, tagSensor as Sensor, dtHora as 'Data' 
 FROM Sensor s JOIN regSensor r
 on s.idSensor = r.fkSensor
 JOIN ambiente a
@@ -356,17 +361,8 @@ on a.idAmbiente = s.fkAmbiente
 JOIN empresa e
 on e.idEmpresa = a.fkEmpresa;
 
-/* Consultar registros de cada sensor e de cada empresa*/
+/* Consultar registros de cada sensor e de cada empresa - View*/
 select * from registro_sensor;
-
-insert into ambiente values 
-(default, 2, 'Sala de reunião', 2),
-(default, 2, 'Sala de reunião', 2),
-(default, 2, 'Sala de reunião', 2),
-(default, 2, 'Sala de reunião', 2),
-(default, 2, 'Sala de reunião', 2),
-(default, 2, 'Sala de reunião', 2);
-
 
 SELECT e.razaoSocial AS 'Nome da Empresa',
 e.responsavel AS 'Responsável',
@@ -399,5 +395,5 @@ JOIN Sensor s ON e.idEmpresa = s.fkEmpresa
 LEFT JOIN regSensor r ON s.idSensor = r.fkSensor
 ORDER BY e.idEmpresa, s.idSensor, r.dtHora;
 
-SELECT nomeEmpresa AS Empresa, emailEmpresa AS Empresa, mensagem AS Mensagem
+SELECT nomeEmpresa AS Empresa, emailEmpresa AS Email, mensagem AS Mensagem
 FROM mensagem;
