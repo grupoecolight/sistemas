@@ -13,19 +13,25 @@ function buttonSubmitForm () {
 
     if (nomeEmpresa == "" || email == "" || nomeRepresentante == "" || tellContato == "" || mensagem == ""){
         div_mensagemMensagem.innerHTML = `Preencha todos os campos para continuar`
+        return
     } else if (cont > 500){
         div_mensagemMensagem.innerHTML = `Erro! A mensagem ultrapassou os 500 caracters`
+        return
     } else if (email.length > 255) { // Não pode ter mais de 255 caracteres
         div_mensagemMensagem.innerHTML = ''
         div_mensagemEmail.innerHTML += `Não pode ter mais de 255 caracteres`
+        return
     } else if (email.endsWith('.')) { // Não pode terminar com ponto
         div_mensagemMensagem.innerHTML = ''
         div_mensagemEmail.innerHTML += `Não pode terminar com ponto`
+        return
     } else if (email.includes('@') == false) { // Tem que ter pelo menos 1 '@'
         div_mensagemMensagem.innerHTML = ''
         div_mensagemEmail.innerHTML += `Tem que ter pelo menos 1 '@'`
+        return
     } else if (tellContato.length < 15) {
         div_mensagemMensagem.innerHTML = 'Preencha o Campo Telefone corretamente.'
+        return
     } else {
         div_mensagemMensagem.innerHTML = ``
         alert(`Mensagem enviada`)
@@ -35,6 +41,47 @@ function buttonSubmitForm () {
         input_telefoneContato.value = ''
         textarea_mensagem.value = ''
     }
+
+    var nomeEmpresaVar = nomeEmpresa
+    var emailVar = email
+    var nomeRepresentanteVar = nomeRepresentante
+    var tellContatoVar = tellContato
+    var mensagemVar = mensagem
+
+    if (
+        nomeEmpresaVar == '' ||
+        emailVar == '' ||
+        nomeRepresentanteVar == '' ||
+        tellContatoVar == '' ||
+        mensagemVar == ''
+    ) {
+        div_mensagemMensagem.innerHTML = `Preencha todos os campos para continuar`
+        return
+    }
+
+    fetch('/mensagem/cadastrarMsg', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            nomeEmpresaServer: nomeEmpresaVar,
+            emailServer: emailVar,
+            nomeRepresentanteServer: nomeRepresentanteVar,
+            tellContatoServer: tellContatoVar,
+            mensagemServer: mensagemVar
+        })
+    })
+        .then(function (resposta) {
+            if (resposta.ok) {
+                alert('Mensagem enviada com sucesso.')
+            } else {
+                alert('Houve um erro ao tentar armazenar')
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`ERRO: ${resposta}`)
+        })
 }
 
 function valEmail() {

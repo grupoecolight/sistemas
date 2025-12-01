@@ -18,7 +18,8 @@ nomeEmpresa VARCHAR (45),
 emailEmpresa VARCHAR (255),
 nomeRepresentante VARCHAR (45),
 contatoTel CHAR(11),
-mensagem VARCHAR(500)
+mensagem VARCHAR(500),
+dtEnvio DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE usuario (
