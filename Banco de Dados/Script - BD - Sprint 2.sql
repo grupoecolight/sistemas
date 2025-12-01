@@ -17,7 +17,7 @@ idMensagem INT PRIMARY KEY AUTO_INCREMENT,
 nomeEmpresa VARCHAR (45),
 emailEmpresa VARCHAR (255),
 nomeRepresentante VARCHAR (45),
-contatoTel CHAR(11),
+contatoTel CHAR(15),
 mensagem VARCHAR(500),
 dtEnvio DATETIME DEFAULT CURRENT_TIMESTAMP
 );
@@ -130,6 +130,7 @@ INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
 (default, '021-LES', 'Recepção', 3),
 (default, '031-LES', 'Recepção', 3);
 
+SELECT * FROM mensagem;
 
 -- Empresa 1
 INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
