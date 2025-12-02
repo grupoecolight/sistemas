@@ -19,6 +19,9 @@
         <div class="container_links">
             <nav class="nav_1">
                 <span>
+                    <a href="./suporte.html">Suporte</a>
+                </span>
+                <span>
                     <a href="./index.html">Home</a>
                 </span>
                 <span>
@@ -30,12 +33,12 @@
                 <span>
                     <a href="#idEntreContato">Contato</a>
                 </span>
-                <span>
-                    <a href="./simuladorFinanceiro.html">Simulador financeiro</a>
-                </span>
                 <!-- <span>
                     <a href="./dashboard.html">Dashboard</a>
                 </span> -->
+                <span>
+                    <a href="./simuladorFinanceiro.html">Simulador financeiro</a>
+                </span>
             </nav>
             <nav class="nav_2">
                 <span onclick="buttonMenu()" id="buttonMenu_dropdown">Menu <img src="./Assets/arrow_bottom.png"
@@ -273,8 +276,41 @@
         </div>
     </footer>
 
+    <div class="container_bobia">
+        <div class="forms_bobia">
+            <h2>Bob IA</h2>
+            <textarea id="pergunta"></textarea>
+            <br><br>
+            <button onclick="gerarResposta()" class="bobIa_button">Gerar resposta</button>
+            <h3>Resposta da IA</h3>
+            <div id="resposta"></div>
+        </div>
+    </div>
+
     <script src="./JS/formEmpresa.js"></script>
     <script src="./JS/menuDropdown.js"></script>
+
+    
+
+    <script>
+    async function gerarResposta() {
+        const pergunta = document.getElementById('pergunta').value
+
+        const response = await fetch('/perguntar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({pergunta})
+        })
+        const data = await response.json();
+
+        resposta.style.display = 'block'
+        document.getElementById('resposta').innerHTML = data.resultado
+
+    }
+</script>
+
 </body>
 
 </html>

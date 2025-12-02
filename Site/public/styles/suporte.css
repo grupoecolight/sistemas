@@ -1,0 +1,228 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #EBEBEB;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* color: #0072C4; */
+}
+
+/* Começo Header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    height: 90px;
+    width: 100%;
+    background-color: #16578d;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+}
+
+/* Começo Container Logo */
+
+header .container_logo {
+    height: 100%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .container_logo a {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+}
+
+header .container_logo img {
+    width: 68px;
+    height: 68px;
+    transition: .5s;
+}
+
+/* Fim Container Logo */
+
+/* Começo Container Title */
+
+header .container_title {
+    color: #ffffff;
+}
+
+/* Fim Container Tittle */
+
+/* Começo Container Links */
+
+/* header .container_links {
+    height: 90%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .container_links a {
+    display: flex;
+    align-items: center;
+    margin: .05rem;
+    height: 50%;
+    padding: 0 1rem;
+    transition: .5s;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header .container_links a:hover {
+    background-color: #08365c9c;
+    transform: scale(1.1);
+} */
+
+/* Fim Container Link */
+
+/* Começo Container Perfil */
+
+header .container_perfil {
+    height: 100%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* header .container_perfil span {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+} */
+
+header .container_perfil img {
+    width: 68px;
+    height: 68px;
+    transition: .5s;
+}
+
+header .container_perfil .menuHamburguer {
+    margin: 0 1.5rem;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+header .container_perfil #dropdownPerfil {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 90px;
+    z-index: 1;
+}
+
+header .container_perfil #dropdownPerfil span {
+    width: 100%;
+    display: flex;
+    background-color: #16578d;
+}
+
+header .container_perfil #dropdownPerfil span a {
+    width: 100%;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    color: #ffffff;
+    transition: .5s;
+}
+
+header .container_perfil #dropdownPerfil span a:hover {
+    background-color: #60b1d1b2;
+}
+
+header .container_perfil #dropdownPerfil span .exit:hover {
+    background-color: #7c0707e1;
+}
+
+/* Fim Container Perfil */
+
+/* Fim Header */
+
+.container_bobia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+}
+
+#container {
+    width: 100%;
+    /* Altura total da tela MENOS a altura da header (90px) */
+    height: calc(100vh - 90px); 
+    margin-top: 90px; /* Empurra para baixo da header fixa */
+    background-color: #D9D9D9; /* Cinza da imagem */
+    border-top-left-radius: 40px; /* Arredondado superior esquerdo */
+    border-top-right-radius: 40px; /* Arredondado superior direito */
+    
+    /* Flexbox para alinhar itens */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Joga o conteúdo para o final (fundo) */
+    align-items: center;
+    padding-bottom: 40px; /* Espaço na parte de baixo */
+    box-sizing: border-box;
+    overflow: hidden; /* Evita rolagem dupla indesejada */
+}
+
+/* Área que agrupa o Input e o Botão */
+.input-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 800px; /* Limite para não ficar gigante em telas grandes */
+    gap: 15px; /* Espaço entre a barra e o botão */
+}
+
+/* Estilo da barra de texto */
+#pergunta {
+    width: 1200px;
+    padding: 15px 25px;
+    font-size: 16px;
+    border-radius: 50px; 
+    border: none;
+    outline: none;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Estilo do Botão de Enviar */
+.botaoResposta {
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+    border-radius: 50%; 
+    padding: 12px; 
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.botaoResposta:hover {
+    transform: scale(1.05);
+}
+
+#resposta {
+    width: 80%;
+    max-height: 60%;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    display: none; 
+    background-color: transparent;
+    text-align: left;
+    color: #333;
+}
