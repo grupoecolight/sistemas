@@ -49,20 +49,19 @@ fkEmpresa INT,
 CREATE TABLE Sensor (
     idSensor INT PRIMARY KEY AUTO_INCREMENT,
     tagSensor CHAR(7),
-    area VARCHAR(25),
-    fkAmbiente INT,
-    CONSTRAINT fkSensorEmpresa FOREIGN KEY (fkAmbiente)
-        REFERENCES ambiente(idAmbiente)
+    area VARCHAR(25)
 );
 
 CREATE TABLE regSensor (
     idRegSensor INT AUTO_INCREMENT,
-    intensidadeLuz INT,
+    fkAmbiente INT,
     fkSensor INT,
+    intensidadeLuz INT,
     dtHora DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT pkRegSensor PRIMARY KEY (idRegSensor, fkSensor),
-    CONSTRAINT fkRegSensor FOREIGN KEY (fkSensor)
-        REFERENCES Sensor(idSensor)
+    
+    CONSTRAINT pkRegSensor PRIMARY KEY (idRegSensor, fkSensor, fkAmbiente),
+    CONSTRAINT fkRegSensor FOREIGN KEY (fkSensor) REFERENCES Sensor(idSensor),
+    CONSTRAINT fkRegAmbiente FOREIGN KEY (fkAmbiente) REFERENCES ambiente(idAmbiente)
 );
 
 
@@ -94,224 +93,235 @@ INSERT INTO usuario (areaEmpresa, email, senha, fkOrganizacao, userAdmin) VALUES
 
 
 -- Empresa 1
-INSERT INTO Sensor (idSensor, tagSensor, area, fkAmbiente) VALUES
-(default, '002-NOR', 'Sala de reuniões', 1),
-(default, '012-NOR', 'Sala de reuniões', 1),
-(default, '022-NOR', 'Sala de reuniões', 1),
-(default, '032-NOR', 'Sala de reuniões', 1),
-(default, '042-SUL', 'Sala de reuniões', 1),
-(default, '052-SUL', 'Sala de reuniões', 1),
-(default, '062-SUL', 'Sala de reuniões', 1),
-(default, '072-SUL', 'Sala de reuniões', 1);
+INSERT INTO Sensor (idSensor, tagSensor, area) VALUES
+(default, '002-NOR', 'Sala de reuniões'),
+(default, '012-NOR', 'Sala de reuniões'),
+(default, '022-NOR', 'Sala de reuniões'),
+(default, '032-NOR', 'Sala de reuniões'),
+(default, '042-SUL', 'Sala de reuniões'),
+(default, '052-SUL', 'Sala de reuniões'),
+(default, '062-SUL', 'Sala de reuniões'),
+(default, '072-SUL', 'Sala de reuniões');
 
 -- Empresa 2
-INSERT INTO Sensor (idSensor, tagSensor, area, fkAmbiente) VALUES
-(default, '007-LES', 'Sala de conferência', 2),
-(default, '017-LES', 'Sala de conferência', 2),
-(default, '027-LES', 'Sala de conferência', 2),
-(default, '037-LES', 'Sala de conferência', 2),
-(default, '047-OES', 'Sala de conferência', 2),
-(default, '057-OES', 'Sala de conferência', 2),
-(default, '067-OES', 'Sala de conferência', 2),
-(default, '077-OES', 'Sala de conferência', 2);
+INSERT INTO Sensor (idSensor, tagSensor, area) VALUES
+(default, '007-LES', 'Sala de conferência'),
+(default, '017-LES', 'Sala de conferência'),
+(default, '027-LES', 'Sala de conferência'),
+(default, '037-LES', 'Sala de conferência'),
+(default, '047-OES', 'Sala de conferência'),
+(default, '057-OES', 'Sala de conferência'),
+(default, '067-OES', 'Sala de conferência'),
+(default, '077-OES', 'Sala de conferência');
 
 -- Empresa 3
-INSERT INTO Sensor (idSensor, tagSensor, area, fkAmbiente) VALUES
-(default, '001-OES', 'Recepção', 3), -- dois primeiros dígitos numericos = andar / último dígito numerico = andar
-(default, '011-OES', 'Recepção', 3),
-(default, '021-OES', 'Recepção', 3),
-(default, '031-OES', 'Recepção', 3),
-(default, '001-SUL', 'Recepção', 3),
-(default, '021-SUL', 'Recepção', 3),
-(default, '031-SUL', 'Recepção', 3),
-(default, '041-SUL', 'Recepção', 3),
-(default, '001-LES', 'Recepção', 3),
-(default, '011-LES', 'Recepção', 3),
-(default, '021-LES', 'Recepção', 3),
-(default, '031-LES', 'Recepção', 3);
+INSERT INTO Sensor (idSensor, tagSensor, area) VALUES
+(default, '001-OES', 'Recepção'), -- dois primeiros dígitos numericos = andar / último dígito numerico = andar
+(default, '011-OES', 'Recepção'),
+(default, '021-OES', 'Recepção'),
+(default, '031-OES', 'Recepção'),
+(default, '001-SUL', 'Recepção'),
+(default, '021-SUL', 'Recepção'),
+(default, '031-SUL', 'Recepção'),
+(default, '041-SUL', 'Recepção'),
+(default, '001-LES', 'Recepção'),
+(default, '011-LES', 'Recepção'),
+(default, '021-LES', 'Recepção'),
+(default, '031-LES', 'Recepção');
 
 SELECT * FROM mensagem;
 
--- Empresa 1
-INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
-(380, 1),
-(380, 1),
-(360, 1),
-(360, 1),
-(350, 1),
-(330, 1),
-(330, 1),
-(320, 1);
+-- Empresa 1 (Sensores 1-8 no Ambiente 1)
+INSERT INTO regSensor (intensidadeLuz, fkSensor, fkAmbiente) VALUES
+(380, 1, 1), 
+(380, 1, 1), 
+(360, 1, 1), 
+(360, 1, 1), 
+(350, 1, 1), 
+(330, 1, 1), 
+(330, 1, 1), 
+(320, 1, 1),
 
 
--- Empresa 1
-INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
-(380, 2),
-(380, 2),
-(360, 2),
-(360, 2),
-(350, 2),
-(330, 2),
-(330, 2),
-(320, 2);
+(380, 2, 1), 
+(380, 2, 1), 
+(360, 2, 1), 
+(360, 2, 1), 
+(350, 2, 1), 
+(330, 2, 1), 
+(330, 2, 1), 
+(320, 2, 1),
 
 
--- Empresa 1
-INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
-(370, 3),
-(370, 3),
-(350, 3),
-(350, 3),
-(340, 3),
-(320, 3),
-(320, 3),
-(310, 3),
-
-(370, 4),
-(370, 4),
-(350, 4),
-(350, 4),
-(340, 4),
-(320, 4),
-(320, 4),
-(310, 4),
-
-(330, 5),
-(330, 5),
-(320, 5),
-(320, 5),
-(310, 5),
-(300, 5),
-(290, 5),
-(290, 5),
-
-(330, 6),
-(330, 6),
-(320, 6),
-(320, 6),
-(310, 6),
-(300, 6),
-(290, 6),
-(290, 6),
-
-(320, 7),
-(320, 7),
-(310, 7),
-(310, 7),
-(300, 7),
-(290, 7),
-(280, 7),
-(280, 7),
-
-(320, 8),
-(320, 8),
-(310, 8),
-(310, 8),
-(300, 8),
-(290, 8),
-(280, 8),
-(280, 8);
+(370, 3, 1), 
+(370, 3, 1), 
+(350, 3, 1), 
+(350, 3, 1), 
+(340, 3, 1), 
+(320, 3, 1), 
+(320, 3, 1), 
+(310, 3, 1),
 
 
--- Empresa 2
-INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
-(450, 9),
-(450, 9),
-(460, 9),
-(460, 9);
+(370, 4, 1), 
+(370, 4, 1), 
+(350, 4, 1), 
+(350, 4, 1), 
+(340, 4, 1), 
+(320, 4, 1), 
+(320, 4, 1), 
+(310, 4, 1),
 
 
--- Empresa 2
-INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
-(450, 10),
-(450, 10),
-(460, 10),
-(460, 10),
-
-(440, 11),
-(440, 11),
-(450, 11),
-(450, 11),
-
-(440, 12),
-(440, 12),
-(450, 12),
-(450, 12);
+(330, 5, 1), 
+(330, 5, 1), 
+(320, 5, 1), 
+(320, 5, 1), 
+(310, 5, 1), 
+(300, 5, 1), 
+(290, 5, 1), 
+(290, 5, 1),
 
 
--- Empresa 2
-INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
-(400, 13),
-(400, 13),
-(390, 13),
-(390, 13),
-
-(400, 14),
-(400, 14),
-(390, 14),
-(390, 14),
-
-(390, 15),
-(390, 15),
-(380, 15),
-(380, 15),
-
-(390, 16),
-(390, 16),
-(380, 16),
-(380, 16);
+(330, 6, 1), 
+(330, 6, 1), 
+(320, 6, 1), 
+(320, 6, 1), 
+(310, 6, 1), 
+(300, 6, 1), 
+(290, 6, 1), 
+(290, 6, 1),
 
 
--- Empresa 3
-INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
-(370, 17),
-(370, 17),
-(390, 17),
+(320, 7, 1), 
+(320, 7, 1), 
+(310, 7, 1), 
+(310, 7, 1), 
+(300, 7, 1), 
+(290, 7, 1), 
+(280, 7, 1), 
+(280, 7, 1),
 
-(370, 18),
-(370, 18),
-(390, 18),
 
-(380, 19),
-(380, 19),
-(400, 19),
+(320, 8, 1), 
+(320, 8, 1), 
+(310, 8, 1), 
+(310, 8, 1), 
+(300, 8, 1), 
+(290, 8, 1), 
+(280, 8, 1), 
+(280, 8, 1);
 
-(380, 20),
-(380, 20),
-(400, 20),
 
-(410, 21),
-(410, 21),
-(410, 21),
+-- Empresa 2 (Sensores 9-16 no Ambiente 2)
+INSERT INTO regSensor (intensidadeLuz, fkSensor, fkAmbiente) VALUES
+(450, 9, 2), 
+(450, 9, 2), 
+(460, 9, 2), 
+(460, 9, 2),
 
-(410, 22),
-(410, 22),
-(410, 22),
 
-(410, 23),
-(410, 23),
-(410, 23),
+(450, 10, 2), 
+(450, 10, 2), 
+(460, 10, 2), 
+(460, 10, 2), 
 
-(390, 24),
-(390, 24),
-(390, 24),
 
-(370, 25),
-(370, 25),
-(360, 25),
+(440, 11, 2), 
+(440, 11, 2), 
+(450, 11, 2), 
+(450, 11, 2),
 
-(360, 26),
-(360, 26),
-(360, 26),
 
-(360, 27),
-(360, 27),
-(360, 27),
+(440, 12, 2), 
+(440, 12, 2), 
+(450, 12, 2), 
+(450, 12, 2),
 
-(350, 28),
-(350, 28),
-(350, 28);
 
+(400, 13, 2), 
+(400, 13, 2), 
+(390, 13, 2), 
+(390, 13, 2),
+
+
+(400, 14, 2), 
+(400, 14, 2), 
+(390, 14, 2), 
+(390, 14, 2),
+
+
+(390, 15, 2), 
+(390, 15, 2), 
+(380, 15, 2), 
+(380, 15, 2),
+
+
+(390, 16, 2), 
+(390, 16, 2), 
+(380, 16, 2), 
+(380, 16, 2);
+
+-- Empresa 3 (Sensores 17-28 no Ambiente 3)
+INSERT INTO regSensor (intensidadeLuz, fkSensor, fkAmbiente) VALUES
+(370, 17, 3),
+(370, 17, 3), 
+(390, 17, 3),
+
+
+(370, 18, 3), 
+(370, 18, 3), 
+(390, 18, 3),
+
+
+(380, 19, 3), 
+(380, 19, 3), 
+(400, 19, 3),
+
+
+(380, 20, 3), 
+(380, 20, 3), 
+(400, 20, 3),
+
+
+(410, 21, 3), 
+(410, 21, 3), 
+(410, 21, 3),
+
+
+(410, 22, 3), 
+(410, 22, 3), 
+(410, 22, 3),
+
+
+(410, 23, 3), 
+(410, 23, 3), 
+(410, 23, 3),
+
+
+(390, 24, 3), 
+(390, 24, 3), 
+(390, 24, 3),
+
+
+(370, 25, 3), 
+(370, 25, 3), 
+(360, 25, 3),
+
+
+(360, 26, 3), 
+(360, 26, 3), 
+(360, 26, 3),
+
+
+(360, 27, 3), 
+(360, 27, 3), 
+(360, 27, 3),
+
+
+(350, 28, 3), 
+(350, 28, 3), 
+(350, 28, 3);
 
 -- Dados de cada empresa
 
@@ -331,9 +341,10 @@ u.senha AS 'Senha do Usuário'
 FROM empresa e JOIN usuario u
 ON e.idEmpresa = u.fkOrganizacao;
 
-
+-- view atualizada
 CREATE VIEW empresa_sensor_ambiente AS
-SELECT e.razaoSocial AS 'Nome da Empresa',
+SELECT DISTINCT 
+e.razaoSocial AS 'Nome da Empresa',
 e.cnpj AS 'CNPJ',
 e.cep AS 'CEP',
 e.responsavel AS 'Responsável da empresa',
@@ -343,13 +354,14 @@ e.senha AS 'Senha da Empresa',
 a.andar,
 a.nome,
 s.tagSensor AS 'Tag do Sensor'
-FROM empresa e JOIN ambiente a
-on e.idEmpresa = a.fkEmpresa
-JOIN Sensor s
-on s.idSensor = a.fkEmpresa;
+FROM empresa e 
+JOIN ambiente a ON e.idEmpresa = a.fkEmpresa
+JOIN regSensor r ON a.idAmbiente = r.fkAmbiente
+JOIN Sensor s ON s.idSensor = r.fkSensor;
 
 /* Consultar dados da empresa e seus sensores da view empresa_sensor_ambiente */
 select * from empresa_sensor_ambiente;
+select * from dados_das_empresas;
 
 
 /*Consultar nome da empresa, andar, nome do ambiente e tag do sensor da view empresa_sensor_ambiente*/
@@ -369,35 +381,43 @@ on e.idEmpresa = a.fkEmpresa;
 /* Consultar registros de cada sensor e de cada empresa - View*/
 select * from registro_sensor;
 
-SELECT e.razaoSocial AS 'Nome da Empresa',
-e.responsavel AS 'Responsável',
-u.areaEmpresa AS 'Função do Usuário',
-u.email AS 'Email para contato',
-s.tagSensor AS 'Tag do Sensor',
-s.area AS 'Local do Sensor',
-s.idSensor AS 'ID Sensor'
-FROM empresa e JOIN usuario u 
-ON e.idEmpresa = u.fkOrganizacao
-JOIN Sensor s ON e.idEmpresa = s.fkEmpresa
-ORDER BY e.idEmpresa;
+-- select atualizado
+SELECT 
+    e.razaoSocial AS 'Nome da Empresa',
+    e.responsavel AS 'Responsável',
+    u.areaEmpresa AS 'Função do Usuário',
+    u.email AS 'Email para contato',
+    s.tagSensor AS 'Tag do Sensor',
+    s.area AS 'Local do Sensor',
+    s.idSensor AS 'ID Sensor'
+FROM empresa e 
+JOIN usuario u ON e.idEmpresa = u.fkOrganizacao
+JOIN ambiente a ON a.fkEmpresa = e.idEmpresa
+JOIN regSensor r ON r.fkAmbiente = a.idAmbiente
+JOIN Sensor s ON s.idSensor = r.fkSensor
+GROUP BY s.idSensor, e.razaoSocial, e.responsavel, u.areaEmpresa, u.email, s.tagSensor, s.area;
 
-SELECT e.razaoSocial AS 'Nome da Empresa',
-e.cnpj AS 'CNPJ',
-e.cep AS 'CEP',
-e.responsavel AS 'Responsável',
-e.telefone AS 'Telefone',
-e.dtCadastro AS 'Data de Cadastro',
-u.areaEmpresa AS 'Área do Usuário',
-u.email AS 'E-mail do Usuário',
-u.senha AS 'Senha do Usuário',
-s.tagSensor AS 'Tag do Sensor',
-s.area AS 'Local do Sensor',
-r.intensidadeLuz AS 'Intensidade da Luz',
-r.dtHora AS 'Data e Hora da Leitura'
-FROM empresa e JOIN usuario u 
-ON e.idEmpresa = u.fkOrganizacao
-JOIN Sensor s ON e.idEmpresa = s.fkEmpresa
-LEFT JOIN regSensor r ON s.idSensor = r.fkSensor
+
+-- select atualizado
+SELECT 
+    e.razaoSocial AS 'Nome da Empresa',
+    e.cnpj AS 'CNPJ',
+    e.cep AS 'CEP',
+    e.responsavel AS 'Responsável',
+    e.telefone AS 'Telefone',
+    e.dtCadastro AS 'Data de Cadastro',
+    u.areaEmpresa AS 'Área do Usuário',
+    u.email AS 'E-mail do Usuário',
+    u.senha AS 'Senha do Usuário',
+    s.tagSensor AS 'Tag do Sensor',
+    s.area AS 'Local do Sensor',
+    r.intensidadeLuz AS 'Intensidade da Luz',
+    r.dtHora AS 'Data e Hora da Leitura'
+FROM empresa e 
+JOIN usuario u ON e.idEmpresa = u.fkOrganizacao
+JOIN ambiente a ON e.idEmpresa = a.fkEmpresa      
+JOIN regSensor r ON a.idAmbiente = r.fkAmbiente    
+JOIN Sensor s ON r.fkSensor = s.idSensor        
 ORDER BY e.idEmpresa, s.idSensor, r.dtHora;
 
 SELECT nomeEmpresa AS Empresa, emailEmpresa AS Email, mensagem AS Mensagem
@@ -416,7 +436,13 @@ SELECT * FROM regSensor;
 SELECT COUNT(fkEmpresa) AS quantidadeAmbientes FROM ambiente WHERE fkEmpresa = 1;
 
 -- Nome dos ambientes e quantidade de sensores para cada ambiente
-SELECT nome, COUNT(fkAmbiente) AS quantidadeSensores FROM ambiente LEFT JOIN Sensor ON fkAmbiente = idAmbiente WHERE fkEmpresa = 1 GROUP BY nome;
+SELECT 
+    a.nome, 
+    COUNT(DISTINCT r.fkSensor) AS quantidadeSensores 
+FROM ambiente a 
+LEFT JOIN regSensor r ON a.idAmbiente = r.fkAmbiente 
+WHERE a.fkEmpresa = 1 
+GROUP BY a.nome;
 
 -- Hora dos Registros desse ambiente e últimos registros de cada sensor
 SELECT reg.idRegSensor, reg.fkSensor, reg.intensidadeLuz, MAX(reg.dtHora) AS dtRegistro 
