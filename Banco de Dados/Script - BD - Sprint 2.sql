@@ -413,10 +413,36 @@ SELECT * FROM Sensor;
 SELECT * FROM regSensor;
 
 -- Quantidade de ambientes na empresa
-SELECT COUNT(fkEmpresa) FROM ambiente WHERE fkEmpresa = 1;
+SELECT COUNT(fkEmpresa) AS quantidadeAmbientes FROM ambiente WHERE fkEmpresa = 1;
 
 -- Nome dos ambientes e quantidade de sensores para cada ambiente
-SELECT nome, COUNT(fkAmbiente) FROM ambiente LEFT JOIN Sensor ON fkAmbiente = idAmbiente WHERE fkEmpresa = 1 GROUP BY nome;
+SELECT nome, COUNT(fkAmbiente) AS quantidadeSensores FROM ambiente LEFT JOIN Sensor ON fkAmbiente = idAmbiente WHERE fkEmpresa = 1 GROUP BY nome;
 
 -- Hora dos Registros desse ambiente e últimos registros de cada sensor
-SELECT intensidadeLuz, dtHora FROM regSensor JOIN Sensor ON idSensor = fkSensor JOIN ambiente ON idAmbiente = fkAmbiente WHERE ambiente.fkEmpresa = 1;
+SELECT reg.idRegSensor, reg.fkSensor, reg.intensidadeLuz, MAX(reg.dtHora) AS dtRegistro 
+	FROM regSensor AS reg
+    JOIN Sensor ON idSensor = fkSensor 
+    JOIN ambiente ON idAmbiente = fkAmbiente 
+		WHERE ambiente.fkEmpresa = 1 AND reg.dtHora = (SELECT MAX(reg2.dtHora) FROM regSensor AS reg2 WHERE reg.fkSensor = reg2.fkSensor) 
+			GROUP BY reg.intensidadeLuz, reg.fkSensor, reg.idRegSensor
+            ORDER BY Max(dtHora) DESC;
+            
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 1;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 5;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 10;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 15;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 20;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 25;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 30;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 40;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 45;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 50;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 55;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 60;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 65;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 70;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 75;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 80;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 85;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 90;
+UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 95;
