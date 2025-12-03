@@ -65,25 +65,25 @@ CREATE TABLE regSensor (
         REFERENCES Sensor(idSensor)
 );
 
-insert into ambiente values 
-(default, 2, 'Sala de reunião', 2),
-(default, 2, 'Sala de reunião', 2),
-(default, 2, 'Sala de reunião', 2),
-(default, 2, 'Sala de reunião', 2),
-(default, 2, 'Sala de reunião', 2),
-(default, 2, 'Sala de reunião', 2);
-
 
 INSERT INTO empresa (razaoSocial, cnpj, cep, responsavel, telefone, dtCadastro, senha) VALUES
 ('XPTO Technology LTDA', '10276849534012', '01310000', 'Maria Silva', 11987654321, '2025-01-15 10:30:00', 'senha123'),
 ('Eco Buzziness LTDA', '40345976786543', '01310940', 'João Pereira', 11956433478, '2025-02-10 14:00:00', 'empresa2025'),
 ('Seguradora de veículos LTDA', '54367891235409', '01310200', 'Ana Lima', 11956422465, '2025-03-05 09:15:00', 'segura@456');
 
+insert into ambiente values 
+(default, 2, 'Sala de reunião', 1),
+(default, 2, 'Sala de reunião', 1),
+(default, 2, 'Sala de reunião', 1),
+(default, 2, 'Sala de reunião', 1),
+(default, 2, 'Sala de reunião', 1),
+(default, 2, 'Sala de reunião', 1);
 
-INSERT INTO mensagem VALUES
-(DEFAULT, 'XPTO Technology LTDA', 'xptotechnology@ecolight.com', 'Friedrich Nietzsche', '11985540981', 'Prezados, informamos a ocorrência de um erro no sistema de monitoramento de intensidade luminosa, no dia 16/20. 
+
+INSERT INTO mensagem (nomeEmpresa, emailEmpresa, nomeRepresentante, contatoTel, mensagem) VALUES
+('XPTO Technology LTDA', 'xptotechnology@ecolight.com', 'Friedrich Nietzsche', '11985540981', 'Prezados, informamos a ocorrência de um erro no sistema de monitoramento de intensidade luminosa, no dia 16/20. 
 O problema gerou leituras incorretas em alguns pontos de medição. Solicitamos uma revisão para a solução do problema. Esperamos um retorno. Obrigado!! '),
-(DEFAULT, 'Eco Buzziness LTDA', 'ecobuzziness@gmail.com', 'Guy Fawkes', '11940028922', 'Prezados, identificamos um erro no sistema de monitoramento de intensidade luminosa em nossa empresa. Solicitamos o suporte técnico para verificação e correção do problema. 
+('Eco Buzziness LTDA', 'ecobuzziness@gmail.com', 'Guy Fawkes', '11940028922', 'Prezados, identificamos um erro no sistema de monitoramento de intensidade luminosa em nossa empresa. Solicitamos o suporte técnico para verificação e correção do problema. 
 Por favor, agendem uma visita o mais breve possível para realizar a manutenção necessária.');
 
 
@@ -94,7 +94,7 @@ INSERT INTO usuario (areaEmpresa, email, senha, fkOrganizacao, userAdmin) VALUES
 
 
 -- Empresa 1
-INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
+INSERT INTO Sensor (idSensor, tagSensor, area, fkAmbiente) VALUES
 (default, '002-NOR', 'Sala de reuniões', 1),
 (default, '012-NOR', 'Sala de reuniões', 1),
 (default, '022-NOR', 'Sala de reuniões', 1),
@@ -105,7 +105,7 @@ INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
 (default, '072-SUL', 'Sala de reuniões', 1);
 
 -- Empresa 2
-INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
+INSERT INTO Sensor (idSensor, tagSensor, area, fkAmbiente) VALUES
 (default, '007-LES', 'Sala de conferência', 2),
 (default, '017-LES', 'Sala de conferência', 2),
 (default, '027-LES', 'Sala de conferência', 2),
@@ -116,7 +116,7 @@ INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
 (default, '077-OES', 'Sala de conferência', 2);
 
 -- Empresa 3
-INSERT INTO Sensor (idSensor, tagSensor, area, fkEmpresa) VALUES
+INSERT INTO Sensor (idSensor, tagSensor, area, fkAmbiente) VALUES
 (default, '001-OES', 'Recepção', 3), -- dois primeiros dígitos numericos = andar / último dígito numerico = andar
 (default, '011-OES', 'Recepção', 3),
 (default, '021-OES', 'Recepção', 3),
@@ -314,6 +314,9 @@ INSERT INTO regSensor (intensidadeLuz, fkSensor) VALUES
 
 
 -- Dados de cada empresa
+
+
+-- ----------------------
 CREATE VIEW dados_das_empresas AS
 SELECT e.razaoSocial AS 'Nome da Empresa',
 e.cnpj AS 'CNPJ',
@@ -399,3 +402,21 @@ ORDER BY e.idEmpresa, s.idSensor, r.dtHora;
 
 SELECT nomeEmpresa AS Empresa, emailEmpresa AS Email, mensagem AS Mensagem
 FROM mensagem;
+
+
+-- SELECTS GERAIS BÁSICOS
+SELECT * FROM empresa;
+SELECT * FROM usuario;
+SELECT * FROM mensagem;
+SELECT * FROM ambiente;
+SELECT * FROM Sensor;
+SELECT * FROM regSensor;
+
+-- Quantidade de ambientes na empresa
+SELECT COUNT(fkEmpresa) FROM ambiente WHERE fkEmpresa = 1;
+
+-- Nome dos ambientes e quantidade de sensores para cada ambiente
+SELECT nome, COUNT(fkAmbiente) FROM ambiente LEFT JOIN Sensor ON fkAmbiente = idAmbiente WHERE fkEmpresa = 1 GROUP BY nome;
+
+-- Hora dos Registros desse ambiente e últimos registros de cada sensor
+SELECT intensidadeLuz, dtHora FROM regSensor JOIN Sensor ON idSensor = fkSensor JOIN ambiente ON idAmbiente = fkAmbiente WHERE ambiente.fkEmpresa = 1;
