@@ -98,16 +98,22 @@ function RegistrosEHora(req, res) {
                         console.log(resultadoAutenticar);
 
                         var arrayNome = []
-                        var arrayQtdSensores = []
+                        var arrayTagSensores = []
+                        var arrayIntensidade = []
+                        var arraydtRegistros = []
                         for (var i = 0; i < resultadoAutenticar.length; i++) {
                             arrayNome.push(resultadoAutenticar[i].nome)
-                            arrayQtdSensores.push(resultadoAutenticar[i].quantidadeSensores)
+                            arrayTagSensores.push(resultadoAutenticar[i].tagSensor)
+                            arrayIntensidade.push(resultadoAutenticar[i].intensidadeLuz)
+                            arraydtRegistros.push(resultadoAutenticar[i].dtRegistro)
                         }
                         
 
                         res.json({
                             nome: arrayNome,
-                            quantidadeSensores: arrayQtdSensores
+                            quantidadeSensores: arrayTagSensores,
+                            intensidade: arrayIntensidade,
+                            dtRegistros: arraydtRegistros
                         });
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Nenhum ambiente encontrado!");

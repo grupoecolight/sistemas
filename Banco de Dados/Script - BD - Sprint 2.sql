@@ -71,12 +71,12 @@ INSERT INTO empresa (razaoSocial, cnpj, cep, responsavel, telefone, dtCadastro, 
 ('Seguradora de veículos LTDA', '54367891235409', '01310200', 'Ana Lima', 11956422465, '2025-03-05 09:15:00', 'segura@456');
 
 insert into ambiente values 
-(default, 2, 'Sala de reunião', 1),
-(default, 2, 'Sala de reunião', 1),
-(default, 2, 'Sala de reunião', 1),
-(default, 2, 'Sala de reunião', 1),
-(default, 2, 'Sala de reunião', 1),
-(default, 2, 'Sala de reunião', 1);
+(default, 2, 'Berlim', 1),
+(default, 2, 'Tokyo', 1),
+(default, 2, 'Rio', 1),
+(default, 2, 'São Paulo', 1),
+(default, 2, 'Nova York', 1),
+(default, 2, 'Gramado', 1);
 
 
 INSERT INTO mensagem (nomeEmpresa, emailEmpresa, nomeRepresentante, contatoTel, mensagem) VALUES
@@ -445,30 +445,52 @@ WHERE a.fkEmpresa = 1
 GROUP BY a.nome;
 
 -- Hora dos Registros desse ambiente e últimos registros de cada sensor
-SELECT reg.idRegSensor, reg.fkSensor, reg.intensidadeLuz, MAX(reg.dtHora) AS dtRegistro 
+SELECT reg.idRegSensor, reg.fkAmbiente, reg.fkSensor, ambiente.nome, Sensor.tagSensor, reg.intensidadeLuz, MAX(reg.dtHora) AS dtRegistro 
 	FROM regSensor AS reg
     JOIN Sensor ON idSensor = fkSensor 
     JOIN ambiente ON idAmbiente = fkAmbiente 
 		WHERE ambiente.fkEmpresa = 1 AND reg.dtHora = (SELECT MAX(reg2.dtHora) FROM regSensor AS reg2 WHERE reg.fkSensor = reg2.fkSensor) 
-			GROUP BY reg.intensidadeLuz, reg.fkSensor, reg.idRegSensor
-            ORDER BY Max(dtHora) DESC;
+			GROUP BY reg.intensidadeLuz, reg.fkSensor, reg.idRegSensor, fkAmbiente;
             
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 1;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 5;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 10;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 15;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 20;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 25;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 30;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 40;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 45;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 50;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 55;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 60;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 65;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 70;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 75;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 80;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 85;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 90;
-UPDATE regSensor SET dtHora = '2025-12-02 20:05:00' WHERE idRegSensor = 95;
+-- Últimos 10 Registros de cada Sensor SLA SLA SLA
+-- SELECT fkSensor, intensidadeLuz, dtHora 
+-- 	FROM regSensor
+--    JOIN Sensor ON idSensor = fkSensor 
+--    JOIN ambiente ON idAmbiente = fkAmbiente 
+-- 	   	WHERE dtHora < '2025-12-03 23:20:00' AND dtHora > '2025-12-03 18:20:00' AND fkEmpresa = 1; 
+
+INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES 
+	(1, 1, 400, '2025-12-03 18:50:00'),
+	(1, 1, 440, '2025-12-03 18:51:00'),
+	(1, 1, 480, '2025-12-03 18:52:00'),
+	(1, 1, 520, '2025-12-03 18:53:00');
+            
+INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES 
+	(1, 1, 340, '2025-12-03 19:00:00'),
+	(1, 2, 320, '2025-12-03 19:00:00'),
+	(1, 3, 310, '2025-12-03 19:00:00'),
+	(1, 4, 360, '2025-12-03 19:00:00'),
+	(1, 5, 260, '2025-12-03 19:00:00'),
+	(1, 6, 380, '2025-12-03 19:00:00'),
+	(1, 7, 390, '2025-12-03 19:00:00'),
+	(1, 8, 330, '2025-12-03 19:00:00'),
+    (2, 9, 400, '2025-12-03 19:05:00'),
+    (2, 10, 430, '2025-12-03 19:05:00'),
+    (2, 11, 420, '2025-12-03 19:05:00'),
+    (2, 12, 450, '2025-12-03 19:05:00'),
+    (2, 13, 410, '2025-12-03 19:05:00'),
+    (2, 14, 370, '2025-12-03 19:05:00'),
+    (2, 15, 360, '2025-12-03 19:05:00'),
+    (2, 16, 390, '2025-12-03 19:05:00'),
+    (3, 17, 340, '2025-12-03 19:10:00'),
+    (3, 18, 350, '2025-12-03 19:10:00'),
+    (3, 19, 360, '2025-12-03 19:10:00'),
+    (3, 20, 400, '2025-12-03 19:10:00'),
+    (3, 21, 400, '2025-12-03 19:10:00'),
+    (3, 22, 420, '2025-12-03 19:10:00'),
+    (3, 23, 410, '2025-12-03 19:10:00'),
+    (3, 24, 380, '2025-12-03 19:10:00'),
+    (3, 25, 440, '2025-12-03 19:10:00'),
+    (3, 26, 430, '2025-12-03 19:10:00'),
+    (3, 27, 420, '2025-12-03 19:10:00'),
+    (3, 28, 410, '2025-12-03 19:10:00');

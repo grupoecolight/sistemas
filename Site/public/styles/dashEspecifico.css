@@ -221,31 +221,23 @@ main .filtros .container_filtros .filtro_geral a {
 main .filtros .container_filtros span {
     margin-bottom: 1rem;
     color: #64ADE0;
+    cursor: pointer;
 }
 
-main .filtros .container_filtros .filtro_ambiente1 {
-    color: #64ADE0;
+main .filtros .container_filtros .filtro_ambienteSelecionado {
     font-size: 1.2rem;
 }
 
-main .filtros .container_filtros .filtro_ambiente2 {
+main .filtros .container_filtros .filtro_ambienteOk {
+    color: #64ADE0;
+}
+
+main .filtros .container_filtros .filtro_ambienteMuitoAbaixo {
     color: #C41D00;
 }
 
-main .filtros .container_filtros .filtro_ambiente3 {
+main .filtros .container_filtros .filtro_ambienteMuitoAcima {
     color: #FFD535;
-}
-
-main .filtros .container_filtros .filtro_ambiente4 {
-    color: #64ADE0;
-}
-
-main .filtros .container_filtros .filtro_ambiente5 {
-    color: #64ADE0;
-}
-
-main .filtros .container_filtros .filtro_ambiente6 {
-    color: #64ADE0;
 }
 
 main .filtros .container_filtros a {
@@ -253,7 +245,8 @@ main .filtros .container_filtros a {
     color: unset;
 }
 
-main .filtros .container_filtros .conteudo_filtro, .conteudo_filtro a {
+main .filtros .container_filtros .conteudo_filtro, a,
+main .filtros .container_filtros .conteudo_filtro, span {
     display: flex;
     align-items: center;
 }

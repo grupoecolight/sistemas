@@ -44,12 +44,12 @@
                 <div class="tittleEmpresa">
                     <h2>EcoLight</h2>
                 </div>
-                <div class="container_filtros container_filtrosAmbientes">
+                <div id="idContainerFiltros" class="container_filtros container_filtrosAmbientes">
                     <span class="tittleFiltro">Ambientes</span>
                     <span class="conteudo_filtro filtro_geral"><a href="./dashboard.html">Visão geral <img src="./Assets/filtro_geral.png" alt=""></a></span>
-                    <span class="conteudo_filtro filtro_ambiente1"><a href="#">Ambiente 1 <img src="./Assets/filtro_check.png" alt=""></a></span>
-                    <span class="conteudo_filtro filtro_ambiente2"><a href="./ambiente2.html">Ambiente 2 <img src="./Assets/filtro_alertaInferior.png" alt=""></a></span>
-                    <span class="conteudo_filtro filtro_ambiente3"><a href="./ambiente3.html">Ambiente 3  <img src="./Assets/filtro_alertaElevado.png" alt=""></a></span>
+                    <span class="conteudo_filtro filtro_ambienteSelecionado filtro_ambienteOk"><a href="#">Ambiente 1 <img src="./Assets/filtro_check.png" alt=""></a></span>
+                    <span class="conteudo_filtro filtro_ambienteMuitoAbaixo"><a href="./ambiente2.html">Ambiente 2 <img src="./Assets/filtro_alertaInferior.png" alt=""></a></span>
+                    <span class="conteudo_filtro filtro_ambienteMuitoAcima"><a href="./ambiente3.html">Ambiente 3  <img src="./Assets/filtro_alertaElevado.png" alt=""></a></span>
                 </div>
                 <div class="container_filtros container_filtrosSensores">
                     <span class="tittleFiltro">Sensores</span>
@@ -80,41 +80,41 @@
                 <div class="kpi metricaIdeal">
                     <div class="container_kpi">
                         <span class="tittleKpi">Métrica de luminosidade Ideal:</span>
-                        <span class="conteudoKpi">20% a 26%</span>
+                        <span class="conteudoKpi">450 lux a 550 lux</span>
                     </div>
                 </div>
                 <div class="kpi">
                     <div class="container_kpi">
                         <span class="tittleKpi">Quantidade de alertas no Ambiente 2:</span>
-                        <span class="conteudoKpi">0</span>
+                        <span id="idQtdAlertas" class="conteudoKpi">0</span>
                     </div>
                 </div>
                 <div class="kpi">
                     <div class="container_kpi">
                         <span class="tittleKpi">Média dos sensores do Ambiente 2:</span>
-                        <span class="conteudoKpi mediaSensores">22,4%</span>
+                        <span id="idMediaSensores" class="conteudoKpi mediaSensores">22,4%</span>
                         <div class="topMin">
-                            <span class="pico">Pico: 25%</span>
-                            <span class="minimo">Mínimo: 20%</span>
+                            <span id="idPico" class="pico">Pico: 25%</span>
+                            <span id="idMinimo" class="minimo">Mínimo: 20%</span>
                         </div>
                     </div>
                 </div>
                 <div class="kpi kpiIdeal">
                     <div class="container_kpi">
                         <span class="tittleKpi tittleKpiIdeal">Sensores com Incidência de luz ideal:</span>
-                        <span class="conteudoKpi conteudoKpiIdeal">10</span>
+                        <span id="idIdeal" class="conteudoKpi conteudoKpiIdeal">10</span>
                     </div>
                 </div>
                 <div class="kpi kpiElevada">
                     <div class="container_kpi">
                         <span class="tittleKpi tittleKpiElevada">Sensores com incidência de luz acima do ideal:</span>
-                        <span class="conteudoKpi conteudoKpiElevada">0</span>
+                        <span id="idElevado" class="conteudoKpi conteudoKpiElevada">0</span>
                     </div>
                 </div>
                 <div class="kpi kpiInferior">
                     <div class="container_kpi">
                         <span class="tittleKpi tittleKpiInferior">Sensores com incidência de luz abaixo do ideal:</span>
-                        <span class="conteudoKpi conteudoKpiInferior">0</span>
+                        <span id="idInferior" class="conteudoKpi conteudoKpiInferior">0</span>
                     </div>
                 </div>
             </div>
