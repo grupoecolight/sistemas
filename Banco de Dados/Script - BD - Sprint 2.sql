@@ -94,10 +94,10 @@ O problema gerou leituras incorretas em alguns pontos de medição. Solicitamos 
 Por favor, agendem uma visita o mais breve possível para realizar a manutenção necessária.');
 
 
-INSERT INTO usuario (areaEmpresa, email, senha, userAdmin, empresaAdmin, fkOrganizacao, userAdmin) VALUES
-('Administração', 'admin@empresa1.com', 'admin123', 0, 1, 1, 0),
-('Recursos Humanos', 'rh@empresa1.com', 'rh2025', 0, 1, 2, 1),
-('Gerência', 'gerente@empresa2.com', 'ger@XPTO', 0, 1, 3, 0);
+INSERT INTO usuario (areaEmpresa, email, senha, userAdmin, empresaAdmin, fkOrganizacao) VALUES
+('Administração', 'admin@empresa1.com', 'admin123', 0, 1, 1),
+('Recursos Humanos', 'rh@empresa1.com', 'rh2025', 0, 1, 2),
+('Gerência', 'gerente@empresa2.com', 'ger@XPTO', 0, 1, 3);
 
 -- EMPRESA 1:
 INSERT INTO Sensor (tagSensor, area, descricao) VALUES
@@ -461,6 +461,7 @@ GROUP BY reg.intensidadeLuz , reg.fkSensor , reg.idRegSensor , fkAmbiente;
             
 -- Últimos 10 Registros de cada Sensor 
 SELECT 
+	ambiente.nome as ambiente,
     fkSensor, 
     intensidadeLuz, 
     dtHora 
@@ -468,8 +469,19 @@ FROM regSensor
 JOIN Sensor ON idSensor = fkSensor 
 JOIN ambiente ON idAmbiente = fkAmbiente 
 WHERE dtHora > '2025-12-03 08:00:00' 
-  AND dtHora < '2025-12-03 10:00:00'  
+  AND dtHora <= '2025-12-03 10:00:00'  
   AND fkEmpresa = 1;
+  
+-- Identificar quantos ambientes tem a empresa e a média de cada ambiente
+-- SELECT ambiente.nome, Sensor.tagSensor, reg.intensidadeLuz, MAX(reg.dtHora) AS dtRegistro
+-- 	FROM regSensor AS reg 
+-- 	JOIN Sensor ON idSensor = fkSensor
+-- 	JOIN ambiente ON idAmbiente = fkAmbiente
+-- 		WHERE ambiente.fkEmpresa = 1
+-- 			AND reg.dtHora = (SELECT MAX(reg2.dtHora) 
+-- 				FROM regSensor AS reg2
+-- 					WHERE reg.fkSensor = reg2.fkSensor)
+-- 		GROUP BY reg.intensidadeLuz , reg.fkSensor , reg.idRegSensor , fkAmbiente;
 
 -- INSERT INTO regSensor (fkAmbiente,  fkSensor, intensidadeLuz, dtHora) VALUES 
 -- 	(1, 1, 400, '2025-12-03 18:50:00'),
