@@ -1,4 +1,5 @@
 CREATE DATABASE Ecolight;
+
 USE Ecolight;
 
 CREATE TABLE empresa (
@@ -9,18 +10,20 @@ CREATE TABLE empresa (
     responsavel VARCHAR(255),
     telefone CHAR(11),
     dtCadastro DATETIME,
-    senha VARCHAR(45)
+    senha VARCHAR(45) 
 );
 
+
 CREATE TABLE mensagem (
-idMensagem INT PRIMARY KEY AUTO_INCREMENT,
-nomeEmpresa VARCHAR (45),
-emailEmpresa VARCHAR (255),
-nomeRepresentante VARCHAR (45),
-contatoTel CHAR(15),
-mensagem VARCHAR(500),
-dtEnvio DATETIME DEFAULT CURRENT_TIMESTAMP
+    idMensagem INT PRIMARY KEY AUTO_INCREMENT,
+    nomeEmpresa VARCHAR(45),
+    emailEmpresa VARCHAR(255),
+    nomeRepresentante VARCHAR(45),
+    contatoTel CHAR(15),
+    mensagem VARCHAR(500),
+    dtEnvio DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
 
 CREATE TABLE usuario (
     idUsuario INT AUTO_INCREMENT,
@@ -30,45 +33,49 @@ CREATE TABLE usuario (
     senha VARCHAR(45),
     userAdmin INT,
     CONSTRAINT chkUserAdmin CHECK (userAdmin IN (0,1)),
-    
     fkOrganizacao INT,
     CONSTRAINT pkUsuario PRIMARY KEY (idUsuario, fkOrganizacao),
     CONSTRAINT fkUsuarioEmpresa FOREIGN KEY (fkOrganizacao)
         REFERENCES empresa(idEmpresa)
 );
 
+
 CREATE TABLE ambiente (
-idAmbiente INT PRIMARY KEY AUTO_INCREMENT,
-andar INT,
-nome VARCHAR(45),
-fkEmpresa INT,
-	CONSTRAINT fkambiente_empresa
-		FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa)
+    idAmbiente INT PRIMARY KEY AUTO_INCREMENT,
+    andar INT,
+    nome VARCHAR(45),
+    fkEmpresa INT,
+    CONSTRAINT fkambiente_empresa
+        FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa)
 );
+
 
 CREATE TABLE Sensor (
     idSensor INT PRIMARY KEY AUTO_INCREMENT,
-    tagSensor CHAR(7),
-    area VARCHAR(25)
+    tagSensor VARCHAR(20), -- Aumentado para caber '002-NOR-01' etc.
+    area VARCHAR(25),
+    descricao VARCHAR(255)
 );
+
 
 CREATE TABLE regSensor (
     idRegSensor INT AUTO_INCREMENT,
-    fkAmbiente INT,
-    fkSensor INT,
     intensidadeLuz INT,
     dtHora DATETIME DEFAULT CURRENT_TIMESTAMP,
+    fkSensor INT,
+    fkAmbiente INT, -- Nova coluna para vincular a leitura ao local
     
-    CONSTRAINT pkRegSensor PRIMARY KEY (idRegSensor, fkSensor, fkAmbiente),
-    CONSTRAINT fkRegSensor FOREIGN KEY (fkSensor) REFERENCES Sensor(idSensor),
-    CONSTRAINT fkRegAmbiente FOREIGN KEY (fkAmbiente) REFERENCES ambiente(idAmbiente)
+    CONSTRAINT pkRegSensor PRIMARY KEY (idRegSensor),
+    CONSTRAINT fkRegSensor FOREIGN KEY (fkSensor)
+        REFERENCES Sensor(idSensor),
+    CONSTRAINT fkRegAmbiente FOREIGN KEY (fkAmbiente)
+        REFERENCES ambiente(idAmbiente)
 );
 
-
-INSERT INTO empresa (razaoSocial, cnpj, cep, responsavel, telefone, dtCadastro, senha) VALUES
-('XPTO Technology LTDA', '10276849534012', '01310000', 'Maria Silva', 11987654321, '2025-01-15 10:30:00', 'senha123'),
-('Eco Buzziness LTDA', '40345976786543', '01310940', 'João Pereira', 11956433478, '2025-02-10 14:00:00', 'empresa2025'),
-('Seguradora de veículos LTDA', '54367891235409', '01310200', 'Ana Lima', 11956422465, '2025-03-05 09:15:00', 'segura@456');
+INSERT INTO empresa (razaoSocial, cnpj, cep, responsavel, telefone, dtCadastro) VALUES
+('XPTO Technology LTDA', '10276849534012', '01310000', 'Maria Silva', 11987654321, '2025-01-15 10:30:00'),
+('Eco Buzziness LTDA', '40345976786543', '01310940', 'João Pereira', 11956433478, '2025-02-10 14:00:00'),
+('Seguradora de veículos LTDA', '54367891235409', '01310200', 'Ana Lima', 11956422465, '2025-03-05 09:15:00');
 
 insert into ambiente values 
 (default, 2, 'Berlim', 1),
@@ -91,43 +98,40 @@ INSERT INTO usuario (areaEmpresa, email, senha, fkOrganizacao, userAdmin) VALUES
 ('Recursos Humanos', 'rh@empresa1.com', 'rh2025', 2, 1),
 ('Gerência', 'gerente@empresa2.com', 'ger@XPTO', 3, 0);
 
+-- EMPRESA 1:
+INSERT INTO Sensor (tagSensor, area, descricao) VALUES
+('A-02-BERLIM-01', 'Sala Berlim', 'Sensor instalado na esquadria norte, primeira secção envidraçada adjacente à coluna estrutural A1.'),
+('A-02-BERLIM-02', 'Sala Berlim', 'Dispositivo fixado na segunda janela a partir do acesso principal, com monitoramento de incidência direta.'),
+('A-02-BERLIM-03', 'Sala Berlim', 'Módulo posicionado na região central da parede envidraçada, equidistante das extremidades.'),
+('A-02-BERLIM-04', 'Sala Berlim', 'Sensor localizado na quarta janela, próximo ao sistema de climatização VRF.'),
+('A-02-BERLIM-05', 'Sala Berlim', 'Instalação realizada na primeira janela da sala, monitorando a luminosidade difusa refletida.'),
+('A-02-BERLIM-06', 'Sala Berlim', 'Sensor fixado na segunda secção, posicionado para evitar sombreamento por mobiliário alto.'),
+('A-02-BERLIM-07', 'Sala Berlim', 'Dispositivo na terceira janela, adjacente à saída de emergência secundária.'),
+('A-02-BERLIM-08', 'Sala Berlim', 'Módulo monitorando a extremidade oposta ao hall, focado em compensação de luz artificial.');
 
--- Empresa 1
-INSERT INTO Sensor (idSensor, tagSensor, area) VALUES
-(default, '002-NOR', 'Sala de reuniões'),
-(default, '012-NOR', 'Sala de reuniões'),
-(default, '022-NOR', 'Sala de reuniões'),
-(default, '032-NOR', 'Sala de reuniões'),
-(default, '042-SUL', 'Sala de reuniões'),
-(default, '052-SUL', 'Sala de reuniões'),
-(default, '062-SUL', 'Sala de reuniões'),
-(default, '072-SUL', 'Sala de reuniões');
 
--- Empresa 2
-INSERT INTO Sensor (idSensor, tagSensor, area) VALUES
-(default, '007-LES', 'Sala de conferência'),
-(default, '017-LES', 'Sala de conferência'),
-(default, '027-LES', 'Sala de conferência'),
-(default, '037-LES', 'Sala de conferência'),
-(default, '047-OES', 'Sala de conferência'),
-(default, '057-OES', 'Sala de conferência'),
-(default, '067-OES', 'Sala de conferência'),
-(default, '077-OES', 'Sala de conferência');
+-- EMPRESA 2:
+INSERT INTO Sensor (tagSensor, area, descricao) VALUES
+('B-02-TOKYO-01', 'Sala Tokyo', 'Sensor posicionado na direita da sala a partir da porta, recebendo incidência solar matinal direta, próximo ao projetor.'),
+('B-02-TOKYO-02', 'Sala Tokyo', 'Dispositivo na segunda folha de vidro, calibrado para alta intensidade de lux.'),
+('B-02-TOKYO-03', 'Sala Tokyo', 'Módulo central da fachada esquerda da sala a partir da porta, monitorando a zona de reunião principal e mesa de conferência.'),
+('B-02-TOKYO-04', 'Sala Tokyo', 'Instalação na extremidade direita da fachada, próximo ao painel de automação.'),
+('B-02-TOKYO-05', 'Sala Tokyo', 'Sensor na fachada oeste, captando luminosidade vespertina, posicionado no canto superior esquerdo.'),
+('B-02-TOKYO-06', 'Sala Tokyo', 'Dispositivo na zona intermediária, minimizando reflexos em monitores adjacentes.'),
+('B-02-TOKYO-07', 'Sala Tokyo', 'Módulo na direita a partir da porta, alinhado com a segunda fileira de assentos da conferência.'),
+('B-02-TOKYO-08', 'Sala Tokyo', 'Sensor na extremidade inferior da direita a partir da porta, monitorando entrada de luz residual.');
 
--- Empresa 3
-INSERT INTO Sensor (idSensor, tagSensor, area) VALUES
-(default, '001-OES', 'Recepção'), -- dois primeiros dígitos numericos = andar / último dígito numerico = andar
-(default, '011-OES', 'Recepção'),
-(default, '021-OES', 'Recepção'),
-(default, '031-OES', 'Recepção'),
-(default, '001-SUL', 'Recepção'),
-(default, '021-SUL', 'Recepção'),
-(default, '031-SUL', 'Recepção'),
-(default, '041-SUL', 'Recepção'),
-(default, '001-LES', 'Recepção'),
-(default, '011-LES', 'Recepção'),
-(default, '021-LES', 'Recepção'),
-(default, '031-LES', 'Recepção');
+
+-- EMPRESA 3
+INSERT INTO Sensor (tagSensor, area, descricao) VALUES
+('C-02-RIO-01', 'Sala Rio', 'Sensor fixado ao lado esquerdo da recepção a partir da entrada, primeira janela próxima ao balcão de atendimento.'),
+('C-02-RIO-02', 'Sala Rio', 'Dispositivo na segunda janela da direita a partir da porta, monitorando a área de espera de visitantes.'),
+('C-02-RIO-03', 'Sala Rio', 'Módulo na terceira janela da direita a partir da porta, posicionado acima das plantas ornamentais para evitar obstrução.'),
+('C-02-RIO-04', 'Sala Rio', 'Instalação na quarta janela da direita a partir da porta, cobrindo o corredor de acesso aos elevadores.'),
+('C-02-RIO-05', 'Sala Rio', 'Sensor nos fundos da sala, monitorando a iluminação indireta próxima à área do café.'),
+('C-02-RIO-06', 'Sala Rio', 'Dispositivo na face sul, zona central da parede envidraçada, focado em luz natural constante.'),
+('C-02-RIO-07', 'Sala Rio', 'Módulo na face sul, adjacente à porta de acesso à escada de incêndio.'),
+('C-02-RIO-08', 'Sala Rio', 'Sensor na extremidade da face sul, calibrado para detectar variações bruscas de luminosidade.');
 
 SELECT * FROM mensagem;
 
@@ -437,27 +441,34 @@ SELECT COUNT(fkEmpresa) AS quantidadeAmbientes FROM ambiente WHERE fkEmpresa = 1
 
 -- Nome dos ambientes e quantidade de sensores para cada ambiente
 SELECT 
-    a.nome, 
-    COUNT(DISTINCT r.fkSensor) AS quantidadeSensores 
+    a.nome AS 'Nome do Ambiente', 
+    COUNT(DISTINCT r.fkSensor) AS 'Qtd. Sensores' 
 FROM ambiente a 
 LEFT JOIN regSensor r ON a.idAmbiente = r.fkAmbiente 
-WHERE a.fkEmpresa = 1 
-GROUP BY a.nome;
+WHERE a.fkEmpresa = 1
+GROUP BY a.idAmbiente, a.nome;
 
 -- Hora dos Registros desse ambiente e últimos registros de cada sensor
-SELECT reg.idRegSensor, reg.fkAmbiente, reg.fkSensor, ambiente.nome, Sensor.tagSensor, reg.intensidadeLuz, MAX(reg.dtHora) AS dtRegistro 
-	FROM regSensor AS reg
-    JOIN Sensor ON idSensor = fkSensor 
-    JOIN ambiente ON idAmbiente = fkAmbiente 
-		WHERE ambiente.fkEmpresa = 1 AND reg.dtHora = (SELECT MAX(reg2.dtHora) FROM regSensor AS reg2 WHERE reg.fkSensor = reg2.fkSensor) 
-			GROUP BY reg.intensidadeLuz, reg.fkSensor, reg.idRegSensor, fkAmbiente;
+SELECT reg.idRegSensor, reg.fkAmbiente, reg.fkSensor, ambiente.nome, Sensor.tagSensor, reg.intensidadeLuz, MAX(reg.dtHora) AS dtRegistro
+FROM regSensor AS reg JOIN Sensor ON idSensor = fkSensor
+JOIN ambiente ON idAmbiente = fkAmbiente
+WHERE ambiente.fkEmpresa = 1
+AND reg.dtHora = (SELECT MAX(reg2.dtHora) 
+FROM regSensor AS reg2
+WHERE reg.fkSensor = reg2.fkSensor)
+GROUP BY reg.intensidadeLuz , reg.fkSensor , reg.idRegSensor , fkAmbiente;
             
--- Últimos 10 Registros de cada Sensor SLA SLA SLA
-SELECT fkSensor, intensidadeLuz, dtHora 
-	FROM regSensor
-	JOIN Sensor ON idSensor = fkSensor 
-    JOIN ambiente ON idAmbiente = fkAmbiente 
- 	   	WHERE dtHora < '2025-12-03 23:20:00' AND dtHora > '2025-12-03 18:20:00' AND fkEmpresa = 1; 
+-- Últimos 10 Registros de cada Sensor 
+SELECT 
+    fkSensor, 
+    intensidadeLuz, 
+    dtHora 
+FROM regSensor
+JOIN Sensor ON idSensor = fkSensor 
+JOIN ambiente ON idAmbiente = fkAmbiente 
+WHERE dtHora > '2025-12-03 08:00:00' 
+  AND dtHora < '2025-12-03 10:00:00'  
+  AND fkEmpresa = 1;
 
 -- INSERT INTO regSensor (fkAmbiente,  fkSensor, intensidadeLuz, dtHora) VALUES 
 -- 	(1, 1, 400, '2025-12-03 18:50:00'),
