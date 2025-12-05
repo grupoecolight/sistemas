@@ -16,4 +16,8 @@ router.post("/RegistrosEHora", function (req, res) {
     dashEspecificaController.RegistrosEHora(req, res);
 });
 
+router.post("/ultimosDezRegistros", function (req, res) {
+    dashEspecificaController.ultimosDezRegistros(req, res);
+});
+
 module.exports = router;

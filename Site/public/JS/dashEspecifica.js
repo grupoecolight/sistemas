@@ -8,6 +8,14 @@ var arrayNome_ultimoReg = []
 var arrayQtdSensores_ultimoReg = []
 var arrayIntensidade_ultimoReg = []
 var arrayDtRegistro_ultimoReg = []
+var arrayAmbiente_historico = []
+var arraytagSensor_historico = []
+var arrayIntensidade_historico = []
+var arrayDtRegistro_historico = []
+
+// variáveis globais
+var grafico_1 = 0
+var grafico_2 = 0
 
 functionPuxarAsFunctionsIniciais()
 
@@ -15,6 +23,7 @@ function functionPuxarAsFunctionsIniciais() {
     functionPuxarQtdAmbientes()
     functionPuxarNomeAmbienteEQtdSensor()
     functionRegistrosEHora()
+    functionUltimosDezRegistros()
     console.log('testando')
     arrayNomeAmbientes_empresa = functionTransformarSessionEmArray(sessionStorage.NOMEAMBIENTES_EMPRESA)
     console.log(arrayNomeAmbientes_empresa)
@@ -29,7 +38,18 @@ function functionPuxarAsFunctionsIniciais() {
     arrayIntensidade_ultimoReg = functionTransformarSessionEmArray(sessionStorage.INTENSIDADE_ULTIMOREG)
     console.log(arrayIntensidade_ultimoReg)
     arrayDtRegistro_ultimoReg = functionTransformarSessionEmArray(sessionStorage.DTREGISTROS_ULTIMOREG)
+    arrayDtRegistro_ultimoReg = functionTransformarDatas(arrayDtRegistro_ultimoReg)
     console.log(arrayDtRegistro_ultimoReg)
+    
+    arrayAmbiente_historico = functionTransformarSessionEmArray(sessionStorage.AMBIENTE_HISTORICO)
+    console.log(arrayAmbiente_historico)
+    arraytagSensor_historico = functionTransformarSessionEmArray(sessionStorage.TAGSENSOR_HISTORICO)
+    console.log(arraytagSensor_historico)
+    arrayIntensidade_historico = functionTransformarSessionEmArray(sessionStorage.INTENSIDADE_HISTORICO)
+    console.log(arrayIntensidade_historico)
+    arrayDtRegistro_historico = functionTransformarSessionEmArray(sessionStorage.DTREGISTROS_HISTORICO)
+    arrayDtRegistro_historico = functionTransformarDatas(arrayDtRegistro_historico)
+    console.log(arrayDtRegistro_historico)
 
     functionOrganizarTudo()
 
@@ -133,6 +153,49 @@ function functionRegistrosEHora() {
     return false
 }
 
+function functionUltimosDezRegistros() {
+    // pegar a Empresa do sessionStorage
+    var idEmpresaVar = 1
+
+    if (idEmpresaVar == '') {
+        alert('Seu idEmpresa está vazio.')
+    }
+
+    fetch('/dashEspecifica/ultimosDezRegistros', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            idEmpresaServer: idEmpresaVar
+        })
+    })
+        .then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(json => {
+                    sessionStorage.AMBIENTE_HISTORICO = json.ambiente
+                    sessionStorage.TAGSENSOR_HISTORICO = json.tagSensor
+                    sessionStorage.INTENSIDADE_HISTORICO = json.intensidadeLuz
+                    sessionStorage.DTREGISTROS_HISTORICO = json.dtRegistros
+                })
+            } else {
+                alert('Deu erro (resposta não veio ok) - Últimos 10 registros.')
+            }
+        }).catch(function (erro) {
+            console.log(erro)
+        })
+    return false
+}
+
+function functionTransformarDatas(arrayFunction) {
+    var arrayTemp = []
+    for (var i = 0; i < arrayFunction.length; i++) {
+        arrayTemp.push(arrayFunction[i].slice(0, 10) + ' ' + arrayFunction[i].slice(11, 19))
+    }
+
+    return arrayTemp
+}
+
 function functionTransformarSessionEmArray(stringSessionStorage) {
     var newArray = []
     var auxiliar = ''
@@ -162,7 +225,7 @@ function functionOrganizarTudo() {
         }
         // caso não exista, adiciona um novo array com o ambiente
         if (!ambienteExiste) {
-            listaGeralAmbientes.push([arrayNomeAmbientes_empresa[i], [], [], [], []])
+            listaGeralAmbientes.push([arrayNomeAmbientes_empresa[i], [], [], [], [], [ [], [], [] ]])
         }
         
         // verificar e adicionar os indices do mesmo ambiente
@@ -202,16 +265,28 @@ function functionOrganizarTudo() {
             quant ++
         }
         media = (soma / quant).toFixed(0)
-        listaGeralAmbientes[i][5] = media
+        listaGeralAmbientes[i][6] = media
     }
+
+    // adicionar o histórico de tags
+    for (var i = 0; i < arraytagSensor_historico.length; i++) {
+        for (var j = 0; j < listaGeralAmbientes.length; j++) {
+            if (listaGeralAmbientes[j][0] == arrayAmbiente_historico[i]) {
+                listaGeralAmbientes[j][5][0].push(arraytagSensor_historico[i])
+                listaGeralAmbientes[j][5][1].push(arrayIntensidade_historico[i])
+                listaGeralAmbientes[j][5][2].push(arrayDtRegistro_historico[i])
+            }
+        }
+    }
+
     console.log(listaGeralAmbientes)
 }
 
 // como está ficando a Matriz gigante
 // listaGeralAmbientes = [ 
-    // [nomeAmbiente, [indicesAparece], [tagsSensores], [intensidade], [horário], média ], 
-    // [nomeAmbiente, [indicesAparece], [tagsSensores], [intensidade], [horário], média ], 
-    // [nomeAmbiente, [indicesAparece], [tagsSensores], [intensidade], [horário], média ] 
+    // [nomeAmbiente, [indicesAparece], [tagsSensores], [intensidade], [horário], média, [ [tagSensorHistorico], [intensidadeHistorico], [dtRegistroHistorico] ] ], 
+    // [nomeAmbiente, [indicesAparece], [tagsSensores], [intensidade], [horário], média, [ [tagSensorHistorico], [intensidadeHistorico], [dtRegistroHistorico] ] ], 
+    // [nomeAmbiente, [indicesAparece], [tagsSensores], [intensidade], [horário], média, [ [tagSensorHistorico], [intensidadeHistorico], [dtRegistroHistorico] ] ] 
 // ]
 
 function functionMatrizParaTelaAmbientes() {
@@ -220,6 +295,7 @@ function functionMatrizParaTelaAmbientes() {
     var listaAuxiliarAmbientes = []
     var listaAuxiliarIndices = []
 
+    // Criação dos Filtros de Ambiente
     for (var i = 0; i < listaGeralAmbientes.length; i++ ) {
         if (listaGeralAmbientes[i][1].length == 0) {
             stop
@@ -228,41 +304,52 @@ function functionMatrizParaTelaAmbientes() {
             listaAuxiliarIndices.push(i)
         }
     }
-    for (var i = 0; i < listaAuxiliarAmbientes.length; i++) {
+    for (let i = 0; i < listaAuxiliarAmbientes.length; i++) {
         listaAuxiliarAmbientes[i].textContent = `${listaGeralAmbientes[listaAuxiliarIndices[i]][0]}`
-        if (listaGeralAmbientes[i][5] > 600) {
-            listaAuxiliarAmbientes[i].innerHTML += '<img src="./Assets/filtro_alertaElevado.png" alt=""></img>'
+        if (listaGeralAmbientes[listaAuxiliarIndices[i]][6] > 600) {
+            listaAuxiliarAmbientes[i].innerHTML += '<img src="./Assets/filtro_alertaElevado.png" alt="">'
             listaAuxiliarAmbientes[i].classList.add('filtro_ambienteMuitoAcima')
-            listaAuxiliarAmbientes[i].addEventListener('click', (event) => {
+            listaAuxiliarAmbientes[i].addEventListener('click', () => {
                 // listaGeralAmbientes[listaAuxiliarIndices[i]]
                 // slaDoido
                 console.log('')
                 functionMatrizParaTelaKpisGrafico(listaGeralAmbientes[listaAuxiliarIndices[i]])
                 console.log(listaGeralAmbientes[listaAuxiliarIndices[i]])
             })
-        } else if (listaGeralAmbientes[i][5] < 400) {
-            listaAuxiliarAmbientes[i].innerHTML += '<img src="./Assets/filtro_alertaInferior.png" alt=""></img>'
+        } else if (listaGeralAmbientes[listaAuxiliarIndices[i]][6] < 400) {
+            console.log(listaGeralAmbientes[listaAuxiliarIndices[i]])
+            listaAuxiliarAmbientes[i].innerHTML += '<img src="./Assets/filtro_alertaInferior.png" alt="">'
             listaAuxiliarAmbientes[i].classList.add('filtro_ambienteMuitoAbaixo')
-            listaAuxiliarAmbientes[i].addEventListener('click', (event) => {
+            listaAuxiliarAmbientes[i].addEventListener('click', () => {
                 // slaDoido
                 functionMatrizParaTelaKpisGrafico(listaGeralAmbientes[listaAuxiliarIndices[i]])
             })
         } else {
-            listaAuxiliarAmbientes[i].innerHTML += '<img src="./Assets/filtro_check.png" alt=""></img>'
+            listaAuxiliarAmbientes[i].innerHTML += '<img src="./Assets/filtro_check.png" alt="">'
             listaAuxiliarAmbientes[i].classList.add('filtro_ambienteOk')
-            listaAuxiliarAmbientes[i].addEventListener('click', (event) => {
+            listaAuxiliarAmbientes[i].addEventListener('click', () => {
                 // slaDoido
                 functionMatrizParaTelaKpisGrafico(listaGeralAmbientes[listaAuxiliarIndices[i]])
             })
         }
         
     }
-    for (var i = 0; i < listaAuxiliarAmbientes.length; i++ ) {
+    for (let i = 0; i < listaAuxiliarAmbientes.length; i++ ) {
         containerFiltros.appendChild(listaAuxiliarAmbientes[i])
     }
+
 }
 
 function functionMatrizParaTelaKpisGrafico(arrayTotal) {
+    // Variáveis dos títulos das KPIs
+    var titlePagina = document.getElementById('idTitlePagina')
+    var TitleKpiAlertas = document.getElementById('idTitleKpiAlertas')
+    var TitleKpiMedia = document.getElementById('idTitleKpiMedia')
+    // var TitleKpiIdeal = document.getElementById('idTitleKpiIdeal')
+    // var TitleKpiAcima = document.getElementById('idTitleKpiAcima')
+    // var TitleKpiAbaixo = document.getElementById('idTitleKpiAbaixo')
+    
+    // Variáveis dos conteúdos das KPIs
     var qtdAlertas = document.getElementById('idQtdAlertas')
     var mediaSensores = document.getElementById('idMediaSensores')
     var pico = document.getElementById('idPico')
@@ -271,9 +358,50 @@ function functionMatrizParaTelaKpisGrafico(arrayTotal) {
     var elevado = document.getElementById('idElevado')
     var inferior = document.getElementById('idInferior')
 
+    // Criação dos Filtros de Sensores
+
+    // var listaAuxiliarSensores = []
+    // var listaAuxiliarIndicesSensores = []
+    // var auxiliarVar = ''
+    // for (var i = 0; i < arrayTotal[1].length; i++ ) {
+    //     auxiliarVar = 
+    //     listaAuxiliarSensores.push(document.createElement('span'))
+    //     listaAuxiliarIndicesSensores.push(i)
+    //     listaAuxiliarSensores[i].textContent = `${arrayTotal[2][i]}`
+
+    //     if (arrayTotal[i][6] > 600) {
+    //         listaAuxiliarAmbientes[i].innerHTML += '<img src="./Assets/filtro_alertaElevado.png" alt="">'
+    //         listaAuxiliarAmbientes[i].classList.add('filtro_ambienteMuitoAcima')
+    //         listaAuxiliarAmbientes[i].addEventListener('click', () => {
+    //             // listaGeralAmbientes[listaAuxiliarIndices[i]]
+    //             // slaDoido
+    //             console.log('')
+    //             functionMatrizParaTelaKpisGrafico(listaGeralAmbientes[listaAuxiliarIndices[i]])
+    //             console.log(listaGeralAmbientes[listaAuxiliarIndices[i]])
+    //         })
+    //     } else if (listaGeralAmbientes[listaAuxiliarIndices[i]][6] < 400) {
+    //         console.log(listaGeralAmbientes[listaAuxiliarIndices[i]])
+    //         listaAuxiliarAmbientes[i].innerHTML += '<img src="./Assets/filtro_alertaInferior.png" alt="">'
+    //         listaAuxiliarAmbientes[i].classList.add('filtro_ambienteMuitoAbaixo')
+    //         listaAuxiliarAmbientes[i].addEventListener('click', () => {
+    //             // slaDoido
+    //             functionMatrizParaTelaKpisGrafico(listaGeralAmbientes[listaAuxiliarIndices[i]])
+    //         })
+    //     } else {
+    //         listaAuxiliarAmbientes[i].innerHTML += '<img src="./Assets/filtro_check.png" alt="">'
+    //         listaAuxiliarAmbientes[i].classList.add('filtro_ambienteOk')
+    //         listaAuxiliarAmbientes[i].addEventListener('click', () => {
+    //             // slaDoido
+    //             functionMatrizParaTelaKpisGrafico(listaGeralAmbientes[listaAuxiliarIndices[i]])
+    //         })
+    //     }
+        
+    // }
+
+    
     var alertas = 0
     var max = 0
-    var min = 0
+    var min = 5000
     var alertasAcima = 0
     var alertasInferior = 0
     console.log(arrayTotal)
@@ -293,7 +421,143 @@ function functionMatrizParaTelaKpisGrafico(arrayTotal) {
         }
     }
 
-    // qtdAlertas = alertas
-    qtdAlertas.innerText = alertas
-    mediaSensores.textContent = arrayTotal[5]
+    // Títulos
+    titlePagina.textContent = `Dashboard - ${arrayTotal[0]}`
+    TitleKpiAlertas.textContent = `Quantidade de alertas no Ambiente ${arrayTotal[0]}:`
+    TitleKpiMedia.textContent = `Média dos sensores do Ambiente ${arrayTotal[0]}:`
+    // TitleKpiIdeal.textContent = `Dashboard - ${arrayTotal[0]}`
+    // TitleKpiAcima.textContent = `Dashboard - ${arrayTotal[0]}`
+    // TitleKpiAbaixo.textContent = `Dashboard - ${arrayTotal[0]}`
+
+    // Conteúdos
+    qtdAlertas.textContent = alertas
+    mediaSensores.textContent = `${arrayTotal[6]} lux`
+    pico.textContent = `Pico: ${max} lux`
+    minimo.textContent = `Mínimo: ${min} lux`
+    ideal.textContent = arrayTotal[2].length - alertas
+    elevado.textContent = alertasAcima
+    inferior.textContent = alertasInferior
+
+    var arrayGraficos = functionCriarGraficos(arrayTotal)
+
+    grafico_1 = arrayGraficos[0]
+    grafico_2 = arrayGraficos[1]
+}
+
+
+
+
+
+
+function functionCriarGraficos(arrayTotal) {
+    const ctx = document.getElementById('myChart');
+    const ctx2 = document.getElementById('myChart2');
+
+    var cor = ''
+    if (arrayTotal[6] > 600) {
+        cor = '#FFD535'
+    } else if (arrayTotal[6] < 400) {
+        cor = '#e45b5b'
+    } else {
+        cor = '#637CEF'
+    }
+
+    var hora = arrayTotal[4][0].slice(11, 19)
+
+    if (grafico_1) {
+        grafico_1.data.labels = arrayTotal[2]
+        grafico_1.data.datasets[0].label = `Horário: ${hora}`
+        grafico_1.data.datasets[0].data = arrayTotal[3]
+        grafico_1.options.plugins.title.text = `Últimos Registros do Ambiente ${arrayTotal[0]}`
+        grafico_1.data.datasets[0].backgroundColor = cor
+        grafico_1.data.datasets[0].color = cor
+        grafico_1.data.datasets[0].borderColor = cor
+        grafico_1.update()
+    } else {
+        var grafico1 = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: arrayTotal[2],
+            datasets: [{
+                // label: '18:00:00 PM',
+                label: `Horário: ${hora}`,
+                data: arrayTotal[3],
+                borderWidth: 5,
+                backgroundColor: cor,
+                color: cor,
+                borderColor: cor,
+                barPercentage: 0.4
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: `Últimos Registros do Ambiente ${arrayTotal[0]}`,
+                    font: {
+                        size: 30
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    min: 0,
+                    max: 1000,
+                    title: {
+                        display: true,
+                        // text: '(%)'
+                    },
+                    ticks: {
+                        stepSize: 50
+                    }
+                }
+            }
+        }
+        })
+    }
+    
+
+    var grafico2 = new Chart(ctx2, {
+    type: 'line',
+    data: {
+        labels: ['08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30'],
+        datasets: [{
+        label: '13/10/2025',
+        data: [21, 22, 25, 24, 28, 36, 39, 44, 45, 47],
+        borderWidth: 5,
+        backgroundColor: '#FFD535',
+        color: '#FFD535',
+        borderColor: '#FFD535',
+        tension: 0.3
+        }]
+    },
+    options: {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Histórico de Registros do Sensor 052-SUL',
+                font: {
+                    size: 30
+                }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                min: 0,
+                max: 60,
+                title: {
+                    display: true,
+                    text: '(%)'
+                },
+                ticks: {
+                    stepSize: 10
+                }
+            }
+        }
+    }
+    })
+
+    return [grafico1, grafico2]
 }

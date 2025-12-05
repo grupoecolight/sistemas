@@ -29,20 +29,58 @@ function RegistrosEHora(idEmpresa) {
     return database.executar(instrucaoSql);
 }
 
-function RegistrosEHora(idEmpresa) {
+async function ultimosDezRegistros(idEmpresa) {
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+
     var instrucaoSql = `
-        SELECT fkSensor, intensidadeLuz, dtHora 
+        SELECT dtHora FROM regSensor
+            JOIN Sensor ON idSensor = fkSensor 
+            JOIN ambiente ON idAmbiente = fkAmbiente 
+                WHERE fkEmpresa = '${idEmpresa}' ORDER BY dtHora DESC LIMIT 1;
+    `
+    
+    var result = await database.executar(instrucaoSql)
+    
+    console.log(result)
+    
+    var resultDate = new Date(result[0].dtHora)
+    var antesHorasDate = new Date(resultDate)
+    antesHorasDate.setHours(resultDate.getHours() - 1)
+    antesHorasDate.setMinutes(resultDate.getMinutes() - 40)
+
+    console.log(resultDate)
+    console.log(antesHorasDate)
+
+    var formatedResultDate = functionFormatarData(resultDate)
+    var formatedAntesHorasDate = functionFormatarData(antesHorasDate)
+    
+
+    var instrucaoSql = `
+        SELECT ambiente.nome as ambiente, tagSensor, intensidadeLuz, dtHora 
             FROM regSensor
             JOIN Sensor ON idSensor = fkSensor 
             JOIN ambiente ON idAmbiente = fkAmbiente 
-                WHERE dtHora < '2025-12-03 23:20:00' AND dtHora > '2025-12-03 18:20:00' AND fkEmpresa = '${idEmpresa}';
+                WHERE dtHora > '${formatedAntesHorasDate}' AND dtHora <= '${formatedResultDate}' AND fkEmpresa = '${idEmpresa}'; 
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
+function functionFormatarData(date) {
+    var ano = date.getFullYear()
+    var mes = String(date.getMonth() + 1).padStart(2, '0')
+    var dia = String(date.getDate()).padStart(2, '0')
+
+    var hora = String(date.getHours()).padStart(2, '0')
+    var min = String(date.getMinutes()).padStart(2, '0')
+    var seg = String(date.getSeconds()).padStart(2, '0')
+
+    return `${ano}-${mes}-${dia} ${hora}:${min}:${seg}`
+}
+
 module.exports = {
     puxarQtdAmbientes,
     puxarNomeAmbienteEQtdSensor,
-    RegistrosEHora
+    RegistrosEHora,
+    ultimosDezRegistros
 };

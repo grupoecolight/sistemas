@@ -261,46 +261,23 @@ main .filtros .container_filtros .tittleFiltro {
     font-size: 1.5rem;
     color: #16578d;
 }
+/* aa */
 
-main .filtros .container_filtros .filtro_sensor1 {
-    color: #64ADE0;
-}
 
-main .filtros .container_filtros .filtro_sensor2 {
-    color: #64ADE0;
-}
-
-main .filtros .container_filtros .filtro_sensor3 {
-    color: #64ADE0;
-}
-
-main .filtros .container_filtros .filtro_sensor4 {
-    color: #0086e6;
+main .filtros .container_filtros .filtro_sensorSelecionado {
     font-size: 1.2rem;
 }
 
-main .filtros .container_filtros .filtro_sensor5 {
+main .filtros .container_filtros .filtro_sensorOk {
     color: #64ADE0;
 }
 
-main .filtros .container_filtros .filtro_sensor6 {
-    color: #64ADE0;
+main .filtros .container_filtros .filtro_sensorMuitoAbaixo {
+    color: #C41D00;
 }
 
-main .filtros .container_filtros .filtro_sensor7 {
-    color: #64ADE0;
-}
-
-main .filtros .container_filtros .filtro_sensor8 {
-    color: #64ADE0;
-}
-
-main .filtros .container_filtros .filtro_sensor9 {
-    color: #64ADE0;
-}
-
-main .filtros .container_filtros .filtro_sensor10 {
-    color: #64ADE0;
+main .filtros .container_filtros .filtro_sensorMuitoAcima {
+    color: #FFD535;
 }
 
 /* Fim Filtros */
