@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Específica</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="./styles/dashEspecifico.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
 </head>
 <body>
     
@@ -13,7 +14,7 @@
             <a href="./index.html"><img src="./Assets/logo_ecolight_transparente_branca.png" alt=""></a>
         </div>
         <div class="container_title">
-            <h1 id="idTitlePagina">Dashboard - Ambiente 1</h1>
+            <h1 id="idTitlePagina">Dashboard Geral</h1>
         </div>
         <div class="container_perfil">
             <img onclick="buttonPerfilMenu()" src="./Assets/account.png" alt="">
@@ -38,7 +39,90 @@
         
     </header>
 
-    <main>
+    <section id="idTelaGeral">
+        <div class="dashboard-container">
+            
+            <div class="indicators-row">
+                <div class="indicator-badge bg-muito-abaixo">
+                    <span>Muito Abaixo:<br> < 400 LUX</span>
+                </div>
+                <div class="indicator-badge bg-abaixo">
+                    <span>Abaixo:<br>≥400 e <450 LUX</span>
+                </div>
+                <div class="indicator-badge bg-ideal">
+                    <span>Ideal:<br>≥ 450 ≤550 LUX</span>
+                </div>
+                <div class="indicator-badge bg-acima">
+                    <span>Acima:<br>>550 e ≤600 LUX</span>
+                </div>
+                <div class="indicator-badge bg-muito-acima">
+                    <span>Muito Acima:<br>> 600 LUX</span>
+                </div>
+            </div>
+
+            <div class="main-content-split">
+                
+                <div id="idContainerAmbientes" class="environment-grid">
+                    
+                    <!-- <a href="./dashEspecifico.html" class="env-card status-ideal">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 1</h3>
+                    </a>
+
+                    <a href="./ambiente2.html" class="env-card status-muito-acima">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 2</h3>
+                    </a>
+
+                    <a href="./ambiente3.html" class="env-card status-acima">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 3</h3>
+                    </a>
+
+                    <a href="./dashEspecifico.html" class="env-card status-abaixo">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 4</h3>
+                    </a>
+
+                    <a href="#" class="env-card status-muito-abaixo">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 5</h3>
+                    </a>
+
+                    <a href="#" class="env-card status-ideal">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 6</h3>
+                    </a>
+
+                    <a href="#" class="env-card status-abaixo">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 7</h3>
+                    </a>
+
+                    <a href="#" class="env-card status-ideal">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 8</h3>
+                    </a> -->
+
+                </div>
+
+                <div class="sidebar-kpis">
+                    <div class="kpi-box">
+                        <span class="kpi-label">Quantidade de ambientes monitorados:</span>
+                        <span id="idGeralMonitorados" class="kpi-number">8</span>
+                    </div>
+                    
+                    <div class="kpi-box">
+                        <span class="kpi-label">Quantidade total de alertas:</span>
+                        <span id="idGeralAlertas" class="kpi-number">5</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <main style="display: none;" id="idTelaEspecifica">
         <div class="container_dashboard">
             <div class="filtros">
                 <div class="tittleEmpresa">
@@ -46,7 +130,7 @@
                 </div>
                 <div id="idContainerFiltros" class="container_filtros container_filtrosAmbientes">
                     <span class="tittleFiltro">Ambientes</span>
-                    <span class="conteudo_filtro filtro_geral"><a href="./dashboard.html">Visão geral <img src="./Assets/filtro_geral.png" alt=""></a></span>
+                    <span class="conteudo_filtro filtro_geral" onclick="visaoGeral()">Visão geral <img src="./Assets/filtro_geral.png" alt=""></span>
                     <!-- <span class="conteudo_filtro filtro_ambienteSelecionado filtro_ambienteOk"><a href="#">Ambiente 1 <img src="./Assets/filtro_check.png" alt=""></a></span>
                     <span class="conteudo_filtro filtro_ambienteMuitoAbaixo"><a href="./ambiente2.html">Ambiente 2 <img src="./Assets/filtro_alertaInferior.png" alt=""></a></span>
                     <span class="conteudo_filtro filtro_ambienteMuitoAcima"><a href="./ambiente3.html">Ambiente 3  <img src="./Assets/filtro_alertaElevado.png" alt=""></a></span> -->

@@ -293,8 +293,10 @@ function functionOrganizarTudo() {
 
 function functionMatrizParaTelaAmbientes() {
     var containerFiltros = document.getElementById('idContainerFiltros')
+    var containerFiltrosAmbientes = document.getElementById('idContainerAmbientes')
 
     var listaAuxiliarAmbientes = []
+    var listaAuxiliarAmbientesGeral = []
     var listaAuxiliarIndices = []
 
     // Criação dos Filtros de Ambiente
@@ -303,11 +305,30 @@ function functionMatrizParaTelaAmbientes() {
             stop
         } else {
             listaAuxiliarAmbientes.push(document.createElement('span'))
+            listaAuxiliarAmbientesGeral.push(document.createElement('span'))
             listaAuxiliarIndices.push(i)
         }
     }
     for (let i = 0; i < listaAuxiliarAmbientes.length; i++) {
+        listaAuxiliarAmbientesGeral[i].innerHTML = '<img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">'
+        listaAuxiliarAmbientesGeral[i].classList.add('env-card')
+        listaAuxiliarAmbientesGeral[i].innerHTML += `${listaGeralAmbientes[listaAuxiliarIndices[i]][0]}`
+        
         listaAuxiliarAmbientes[i].textContent = `${listaGeralAmbientes[listaAuxiliarIndices[i]][0]}`
+
+        // DASHGERAL
+        if (listaGeralAmbientes[listaAuxiliarIndices[i]][6] > 600) {
+            listaAuxiliarAmbientesGeral[i].classList.add('status-muito-acima')
+        } else if (listaGeralAmbientes[listaAuxiliarIndices[i]][6] > 550) {
+            listaAuxiliarAmbientesGeral[i].classList.add('status-acima')
+        } else if (listaGeralAmbientes[listaAuxiliarIndices[i]][6] < 400) {
+            listaAuxiliarAmbientesGeral[i].classList.add('status-muito-abaixo')
+        } else if (listaGeralAmbientes[listaAuxiliarIndices[i]][6] < 450) {
+            listaAuxiliarAmbientesGeral[i].classList.add('status-abaixo')
+        } else {
+            listaAuxiliarAmbientesGeral[i].classList.add('status-ideal')
+        }
+        
         if (listaGeralAmbientes[listaAuxiliarIndices[i]][6] > 600) {
             listaAuxiliarAmbientes[i].innerHTML += '<img src="./Assets/filtro_alertaElevado.png" alt="">'
             listaAuxiliarAmbientes[i].classList.add('filtro_ambienteMuitoAcima')
@@ -335,14 +356,40 @@ function functionMatrizParaTelaAmbientes() {
             })
         }
         
+        listaAuxiliarAmbientesGeral[i].addEventListener('click', () => {
+            // slaDoido
+            functionMatrizParaTelaKpisGrafico(listaGeralAmbientes[listaAuxiliarIndices[i]])
+        })
     }
     for (let i = 0; i < listaAuxiliarAmbientes.length; i++ ) {
         containerFiltros.appendChild(listaAuxiliarAmbientes[i])
     }
+    for (let i = 0; i < listaAuxiliarAmbientesGeral.length; i++ ) {
+        containerFiltrosAmbientes.appendChild(listaAuxiliarAmbientesGeral[i])
+    }
 
+    // DashGeral
+    var GeralMonitorados = document.getElementById('idGeralMonitorados')
+    GeralMonitorados.textContent = listaAuxiliarAmbientesGeral.length
+
+    var GeralAlertas = document.getElementById('idGeralAlertas')
+
+    var alertas = 0
+    for (var i = 0; i < listaAuxiliarAmbientesGeral.length; i++) {
+        if (listaAuxiliarAmbientesGeral[i][6] > 600 || listaAuxiliarAmbientesGeral[i][6] < 400) {
+            alertas ++
+        }
+    }
+    
+    GeralAlertas.textContent = alertas
 }
 
 function functionMatrizParaTelaKpisGrafico(arrayTotal) {
+    if (idTelaEspecifica.style.display == 'none') {
+        idTelaEspecifica.style.display = 'block'
+        idTelaGeral.style.display = 'none'
+    } 
+
     // Variáveis dos títulos das KPIs
     var titlePagina = document.getElementById('idTitlePagina')
     var TitleKpiAlertas = document.getElementById('idTitleKpiAlertas')
@@ -607,4 +654,12 @@ function functionCriarGraficos(arrayTotal) {
     })
 
     return [grafico1, grafico2]
+}
+
+function visaoGeral() {
+    if (idTelaGeral.style.display == 'none') {
+        idTelaGeral.style.display = 'block'
+        idTelaEspecifica.style.display = 'none'
+        idTitlePagina.textContent = 'Dashboard Geral'
+    } 
 }

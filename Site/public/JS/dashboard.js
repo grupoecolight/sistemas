@@ -89,7 +89,7 @@ function functionOrganizarTudo() {
         ambienteExiste = false 
         // for para verificar se o ambiente já existe
         for (var j = 0; j < listaTodosAmbientes.length; j++) {
-            if (listaTodosAmbientes[i][0] == arrayAmbientesGeral[j]) {
+            if (listaTodosAmbientes[j][0] == arrayAmbientesGeral[i]) {
                 ambienteExiste = true
             }
         }

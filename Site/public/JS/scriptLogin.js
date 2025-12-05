@@ -94,7 +94,7 @@ function entrar() {
                 sessionStorage.IDEMPRESA_USUARIO = json.idEmpresa
 
                 setTimeout(function () {
-                  window.location = "./dashboard.html";
+                  window.location = "./dashEspecifico.html";
                 }, 1000); // apenas para exibir o loading
               });
             } else {
