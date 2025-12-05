@@ -180,9 +180,9 @@ function entrar() {
             input_senhaUsuario.value = "";
             input_repetirSenhaUsuario.value = "";
 
-            setTimeout(() => {
-              window.location = "dashboard.html";
-            }, "2000");
+            // setTimeout(() => {
+            //   window.location = "dashboard.html";
+            // }, "2000");
 
           } else {
             throw "Houve um erro ao tentar realizar o cadastro!";
