@@ -3,317 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Dashboard - Visão Geral</title>
     <link rel="stylesheet" href="./styles/dashboard.css">
 </head>
 <body>
     
     <header>
         <div class="container_logo">
-            <a href="./index.html"><img src="./Assets/logo_ecolight_transparente_branca.png" alt=""></a>
+            <a href="./index.html"><img src="./Assets/logo_ecolight_transparente_branca.png" alt="Logo Ecolight"></a>
         </div>
         <div class="container_title">
             <h1>Dashboard - Visão Geral</h1>
         </div>
         <div class="container_perfil">
-            <img src="./Assets/account.png" alt="">
-            <img class="menuHamburguer" onclick="buttonPerfilMenu()" src="./Assets/menu.png" alt="">
-            <!-- <span>
-            </span> -->
+            <img src="./Assets/account.png" alt="Perfil">
+            <img class="menuHamburguer" onclick="buttonPerfilMenu()" src="./Assets/menu.png" alt="Menu">
             <div id="dropdownPerfil" style="display: none;">
-                <span>
-                    <a href="#">Perfil</a>
-                </span>
-                <span>
-                    <a href="./pageCadastro.html">Cadastrar novo Usuário</a>
-                </span>
-                <span>
-                    <a href="#">Configurações</a>
-                </span>
-                <span>
-                    <a href="./index.html" class="exit">Sair</a>
-                </span>
+                <!-- <span><a href="#">Perfil</a></span> -->
+                <span><a href="./pageCadastro.html">Cadastrar Usuário</a></span>
+                <!-- <span><a href="#">Configurações</a></span> -->
+                <span><a href="./index.html" class="exit">Sair</a></span>
             </div>
         </div>
-        
     </header>
 
     <main>
-        <div class="container_dashboard">
-            <div class="filtros">
-                <div class="tittleEmpresa">
-                    <h2>EcoLight</h2>
+        <div class="dashboard-container">
+            
+            <div class="indicators-row">
+                <div class="indicator-badge bg-muito-abaixo">
+                    <span>Muito Abaixo:<br> < 400 LUX</span>
                 </div>
-                <div class="container_filtros">
-                    <span class="tittleFiltro">Ambientes</span>
-                    <span class="conteudo_filtro filtro_geral"><a href="#">Visão geral</a> <img src="./Assets/filtro_geral.png" alt=""></span>
-                    <span class="conteudo_filtro filtro_ambiente1"><a href="./ambiente1.html">Ambiente 1</a><img src="./Assets/filtro_check.png" alt=""></span>
-                    <span class="conteudo_filtro filtro_ambiente2"><a href="./ambiente2.html">Ambiente 2</a><img src="./Assets/filtro_alertaInferior.png" alt=""></span>
-                    <span class="conteudo_filtro filtro_ambiente3"><a href="./ambiente3.html">Ambiente 3</a><img src="./Assets/filtro_alertaElevado.png" alt=""></span>
-                    <span class="conteudo_filtro filtro_ambiente3"><a href="./dashEspecifico.html">Test</a><img src="./Assets/filtro_alertaElevado.png" alt=""></span>
+                <div class="indicator-badge bg-abaixo">
+                    <span>Abaixo:<br>≥400 e <450 LUX</span>
                 </div>
-            </div>
-            <div class="tabelas">
-                <div class="bemVindo">
-                    <div class="container_bemVindo">
-                        <div class="mensagem">
-                            <span>Bem vindo,</span>
-                            <h2>Claudio Frizzarini.</h2>
-                        </div>
-                        <span class="local">SP, BR</span>
-                    </div>
-                    <div class="lampadaFundo"></div>
+                <div class="indicator-badge bg-ideal">
+                    <span>Ideal:<br>≥ 450 ≤550 LUX</span>
                 </div>
-                <div class="tabela">
-                    <div class="container_tabela">
-                        <div class="tittleTabela">
-                            <span>Sensores e Alertas</span>
-                        </div>
-                        <div class="conteudoTabela">
-                            <section class="data">
-                                <span class="miniTittleTabela">Data</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                                <span class="miniConteudo">03/10/2025</span>
-                            </section>
-                            <section class="hora">
-                                <span class="miniTittleTabela">Hora</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                                <span class="miniConteudo">18:00</span>
-                            </section>
-                            <section class="sensor">
-                                <span class="miniTittleTabela">Sensor</span>
-                                <span class="miniConteudo">001-OES</span>
-                                <span class="miniConteudo">011-OES</span>
-                                <span class="miniConteudo">021-OES</span>
-                                <span class="miniConteudo">031-OES</span>
-                                <span class="miniConteudo">041-OES</span>
-                                <span class="miniConteudo">051-OES</span>
-                                <span class="miniConteudo">061-OES</span>
-                                <span class="miniConteudo">071-OES</span>
-                                <span class="miniConteudo">081-OES</span>
-                                <span class="miniConteudo">091-OES</span>
-                                <span class="miniConteudo">002-NOR</span>
-                                <span class="miniConteudo">012-NOR</span>
-                                <span class="miniConteudo">022-NOR</span>
-                                <span class="miniConteudo">032-NOR</span>
-                                <span class="miniConteudo">042-NOR</span>
-                                <span class="miniConteudo">052-NOR</span>
-                                <span class="miniConteudo">062-NOR</span>
-                                <span class="miniConteudo">072-NOR</span>
-                                <span class="miniConteudo">082-NOR</span>
-                                <span class="miniConteudo">092-NOR</span>
-                                <span class="miniConteudo">003-SUL</span>
-                                <span class="miniConteudo">013-SUL</span>
-                                <span class="miniConteudo">023-SUL</span>
-                                <span class="miniConteudo">033-SUL</span>
-                                <span class="miniConteudo">043-SUL</span>
-                                <span class="miniConteudo">053-SUL</span>
-                                <span class="miniConteudo">063-SUL</span>
-                                <span class="miniConteudo">073-SUL</span>
-                                <span class="miniConteudo">083-SUL</span>
-                                <span class="miniConteudo">093-SUL</span>
-                            </section>
-                            <section class="ambiente">
-                                <span class="miniTittleTabela">Ambiente</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ambiente 1</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ambiente 1</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ambiente 1</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ambiente 1</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ambiente 1</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ambiente 1</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ambiente 1</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ambiente 1</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ambiente 1</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ambiente 1</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Ambiente 2</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Ambiente 2</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Ambiente 2</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Ambiente 2</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Ambiente 2</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Ambiente 2</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Ambiente 2</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Ambiente 2</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Ambiente 2</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Ambiente 2</span>
-                                <span class="miniConteudo linhaAlertaAlto">Ambiente 3</span>
-                                <span class="miniConteudo linhaAlertaAlto">Ambiente 3</span>
-                                <span class="miniConteudo linhaAlertaAlto">Ambiente 3</span>
-                                <span class="miniConteudo linhaAlertaAlto">Ambiente 3</span>
-                                <span class="miniConteudo linhaAlertaAlto">Ambiente 3</span>
-                                <span class="miniConteudo linhaAlertaAlto">Ambiente 3</span>
-                                <span class="miniConteudo linhaAlertaAlto">Ambiente 3</span>
-                                <span class="miniConteudo linhaAlertaAlto">Ambiente 3</span>
-                                <span class="miniConteudo linhaAlertaAlto">Ambiente 3</span>
-                                <span class="miniConteudo linhaAlertaAlto">Ambiente 3</span>
-                            </section>
-                            <section class="intensidade">
-                                <span class="miniTittleTabela">Intensidade</span>
-                                <span class="miniConteudo linhaAlertaIdeal">21%</span>
-                                <span class="miniConteudo linhaAlertaIdeal">20%</span>
-                                <span class="miniConteudo linhaAlertaIdeal">21%</span>
-                                <span class="miniConteudo linhaAlertaIdeal">20%</span>
-                                <span class="miniConteudo linhaAlertaIdeal">25%</span>
-                                <span class="miniConteudo linhaAlertaIdeal">24%</span>
-                                <span class="miniConteudo linhaAlertaIdeal">23%</span>
-                                <span class="miniConteudo linhaAlertaIdeal">22%</span>
-                                <span class="miniConteudo linhaAlertaIdeal">23%</span>
-                                <span class="miniConteudo linhaAlertaIdeal">25%</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">09%</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">10%</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">11%</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">10%</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">08%</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">07%</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">08%</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">08%</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">07%</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">06%</span>
-                                <span class="miniConteudo linhaAlertaAlto">41%</span>
-                                <span class="miniConteudo linhaAlertaAlto">44%</span>
-                                <span class="miniConteudo linhaAlertaAlto">49%</span>
-                                <span class="miniConteudo linhaAlertaAlto">45%</span>
-                                <span class="miniConteudo linhaAlertaAlto">46%</span>
-                                <span class="miniConteudo linhaAlertaAlto">41%</span>
-                                <span class="miniConteudo linhaAlertaAlto">43%</span>
-                                <span class="miniConteudo linhaAlertaAlto">42%</span>
-                                <span class="miniConteudo linhaAlertaAlto">44%</span>
-                                <span class="miniConteudo linhaAlertaAlto">46%</span>
-                            </section>
-                            <section class="alerta">
-                                <span class="miniTittleTabela">Alerta</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ideal</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ideal</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ideal</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ideal</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ideal</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ideal</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ideal</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ideal</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ideal</span>
-                                <span class="miniConteudo linhaAlertaIdeal">Ideal</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Abaixo</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Abaixo</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Abaixo</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Abaixo</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Abaixo</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Abaixo</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Abaixo</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Abaixo</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Abaixo</span>
-                                <span class="miniConteudo linhaAlertaAbaixo">Abaixo</span>
-                                <span class="miniConteudo linhaAlertaAlto">Acima</span>
-                                <span class="miniConteudo linhaAlertaAlto">Acima</span>
-                                <span class="miniConteudo linhaAlertaAlto">Acima</span>
-                                <span class="miniConteudo linhaAlertaAlto">Acima</span>
-                                <span class="miniConteudo linhaAlertaAlto">Acima</span>
-                                <span class="miniConteudo linhaAlertaAlto">Acima</span>
-                                <span class="miniConteudo linhaAlertaAlto">Acima</span>
-                                <span class="miniConteudo linhaAlertaAlto">Acima</span>
-                                <span class="miniConteudo linhaAlertaAlto">Acima</span>
-                                <span class="miniConteudo linhaAlertaAlto">Acima</span>
-                            </section>
-                        </div>
-                    </div>
+                <div class="indicator-badge bg-acima">
+                    <span>Acima:<br>>550 e ≤600 LUX</span>
+                </div>
+                <div class="indicator-badge bg-muito-acima">
+                    <span>Muito Acima:<br>> 600 LUX</span>
                 </div>
             </div>
-            <div class="kpis">
-                <div class="kpi metricaIdeal">
-                    <div class="container_kpi">
-                        <span class="tittleKpi">Métrica de luminosidade Ideal:</span>
-                        <span class="conteudoKpi">20% a 26%</span>
+
+            <div class="main-content-split">
+                
+                <div class="environment-grid">
+                    
+                    <a href="./dashEspecifico.html" class="env-card status-ideal">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 1</h3>
+                    </a>
+
+                    <a href="./ambiente2.html" class="env-card status-muito-acima">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 2</h3>
+                    </a>
+
+                    <a href="./ambiente3.html" class="env-card status-acima">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 3</h3>
+                    </a>
+
+                    <a href="./dashEspecifico.html" class="env-card status-abaixo">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 4</h3>
+                    </a>
+
+                    <a href="#" class="env-card status-muito-abaixo">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 5</h3>
+                    </a>
+
+                    <a href="#" class="env-card status-ideal">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 6</h3>
+                    </a>
+
+                    <a href="#" class="env-card status-abaixo">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 7</h3>
+                    </a>
+
+                    <a href="#" class="env-card status-ideal">
+                        <img src="./Assets/lampada_mensagem_tela_geral_dashboard.png" alt="" class="lamp-icon">
+                        <h3>Ambiente 8</h3>
+                    </a>
+
+                </div>
+
+                <div class="sidebar-kpis">
+                    <div class="kpi-box">
+                        <span class="kpi-label">Quantidade de ambientes monitorados:</span>
+                        <span class="kpi-number">8</span>
+                    </div>
+                    
+                    <div class="kpi-box">
+                        <span class="kpi-label">Quantidade total de alertas:</span>
+                        <span class="kpi-number">5</span>
                     </div>
                 </div>
-                <div class="kpi">
-                    <div class="container_kpi">
-                        <span class="tittleKpi">Quantidade de ambientes monitorados:</span>
-                        <span class="conteudoKpi">3</span>
-                    </div>
-                </div>
-                <div class="kpi">
-                    <div class="container_kpi">
-                        <span class="tittleKpi">Quantidade total de alertas:</span>
-                        <span class="conteudoKpi">2</span>
-                    </div>
-                </div>
-                <div class="kpi kpiIdeal">
-                    <div class="container_kpi">
-                        <span class="tittleKpi tittleKpiIdeal">Ambientes com a média de incidência de luz ideal:</span>
-                        <span class="conteudoKpi conteudoKpiIdeal">1</span>
-                    </div>
-                </div>
-                <div class="kpi kpiElevada">
-                    <div class="container_kpi">
-                        <span class="tittleKpi tittleKpiElevada">Ambientes com a média de incidência de luz acima do ideal:</span>
-                        <span class="conteudoKpi conteudoKpiElevada">1</span>
-                    </div>
-                </div>
-                <div class="kpi kpiInferior">
-                    <div class="container_kpi">
-                        <span class="tittleKpi tittleKpiInferior">Ambientes com a média de incidência de luz abaixo do ideal:</span>
-                        <span class="conteudoKpi conteudoKpiInferior">1</span>
-                    </div>
-                </div>
+
             </div>
         </div>
     </main>
 
-
     <script src="./JS/menuDropdown.js"></script>
+    <script src="./JS/dashboard.js"></script>
 </body>
 </html>

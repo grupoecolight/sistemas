@@ -1,3 +1,8 @@
+function resetarSession() {
+    sessionStorage.clear()
+}
+
+
 function buttonSubmitForm () {
     var mensagem = document.getElementById('textarea_mensagem').value;
     var nomeEmpresa = document.getElementById('input_nomeEmpresa').value;

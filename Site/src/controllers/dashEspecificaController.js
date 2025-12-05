@@ -158,8 +158,6 @@ function ultimosDezRegistros(req, res) {
                             arrayIntensidade.push(resultadoAutenticar[i].intensidadeLuz)
                             arraydtRegistros.push(resultadoAutenticar[i].dtHora)
                         }
-                        console.log('CCCCCCCCCCCCCCC')
-                        console.log(arrayTagSensores)
                         
 
                         res.json({

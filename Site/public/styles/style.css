@@ -819,6 +819,11 @@ footer .left .atalho_contato ul li {
     color: #ffffff;
 }
 
+footer .left .atalho_contato ul li a {
+    /* text-decoration: none; */
+    color: unset;
+}
+
 footer .left .copyright {
     color: #ffffff;
 }

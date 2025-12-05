@@ -9,7 +9,7 @@ var arrayQtdSensores_ultimoReg = []
 var arrayIntensidade_ultimoReg = []
 var arrayDtRegistro_ultimoReg = []
 var arrayAmbiente_historico = []
-var arraytagSensor_historico = []
+var arrayTagSensor_historico = []
 var arrayIntensidade_historico = []
 var arrayDtRegistro_historico = []
 
@@ -25,6 +25,8 @@ function functionPuxarAsFunctionsIniciais() {
     functionRegistrosEHora()
     functionUltimosDezRegistros()
     console.log('testando')
+
+    // Transformar sessionStorage / String em Array
     arrayNomeAmbientes_empresa = functionTransformarSessionEmArray(sessionStorage.NOMEAMBIENTES_EMPRESA)
     console.log(arrayNomeAmbientes_empresa)
     qtdAmbientes_empresa = sessionStorage.QTDAMBIENTES_EMPRESA
@@ -43,8 +45,8 @@ function functionPuxarAsFunctionsIniciais() {
     
     arrayAmbiente_historico = functionTransformarSessionEmArray(sessionStorage.AMBIENTE_HISTORICO)
     console.log(arrayAmbiente_historico)
-    arraytagSensor_historico = functionTransformarSessionEmArray(sessionStorage.TAGSENSOR_HISTORICO)
-    console.log(arraytagSensor_historico)
+    arrayTagSensor_historico = functionTransformarSessionEmArray(sessionStorage.TAGSENSOR_HISTORICO)
+    console.log(arrayTagSensor_historico)
     arrayIntensidade_historico = functionTransformarSessionEmArray(sessionStorage.INTENSIDADE_HISTORICO)
     console.log(arrayIntensidade_historico)
     arrayDtRegistro_historico = functionTransformarSessionEmArray(sessionStorage.DTREGISTROS_HISTORICO)
@@ -58,7 +60,7 @@ function functionPuxarAsFunctionsIniciais() {
 
 function functionPuxarQtdAmbientes() {
     // pegar a Empresa do sessionStorage
-    var idEmpresaVar = 1
+    var idEmpresaVar = sessionStorage.IDEMPRESA_USUARIO
 
     if (idEmpresaVar == '') {
         alert('Seu idEmpresa está vazio.')
@@ -89,7 +91,7 @@ function functionPuxarQtdAmbientes() {
 
 function functionPuxarNomeAmbienteEQtdSensor() {
     // pegar a Empresa do sessionStorage
-    var idEmpresaVar = 1
+    var idEmpresaVar = sessionStorage.IDEMPRESA_USUARIO
 
     if (idEmpresaVar == '') {
         alert('Seu idEmpresa está vazio.')
@@ -121,7 +123,7 @@ function functionPuxarNomeAmbienteEQtdSensor() {
 
 function functionRegistrosEHora() {
     // pegar a Empresa do sessionStorage
-    var idEmpresaVar = 1
+    var idEmpresaVar = sessionStorage.IDEMPRESA_USUARIO
 
     if (idEmpresaVar == '') {
         alert('Seu idEmpresa está vazio.')
@@ -155,7 +157,7 @@ function functionRegistrosEHora() {
 
 function functionUltimosDezRegistros() {
     // pegar a Empresa do sessionStorage
-    var idEmpresaVar = 1
+    var idEmpresaVar = sessionStorage.IDEMPRESA_USUARIO
 
     if (idEmpresaVar == '') {
         alert('Seu idEmpresa está vazio.')
@@ -269,10 +271,10 @@ function functionOrganizarTudo() {
     }
 
     // adicionar o histórico de tags
-    for (var i = 0; i < arraytagSensor_historico.length; i++) {
+    for (var i = 0; i < arrayTagSensor_historico.length; i++) {
         for (var j = 0; j < listaGeralAmbientes.length; j++) {
             if (listaGeralAmbientes[j][0] == arrayAmbiente_historico[i]) {
-                listaGeralAmbientes[j][5][0].push(arraytagSensor_historico[i])
+                listaGeralAmbientes[j][5][0].push(arrayTagSensor_historico[i])
                 listaGeralAmbientes[j][5][1].push(arrayIntensidade_historico[i])
                 listaGeralAmbientes[j][5][2].push(arrayDtRegistro_historico[i])
             }
@@ -360,43 +362,31 @@ function functionMatrizParaTelaKpisGrafico(arrayTotal) {
 
     // Criação dos Filtros de Sensores
 
-    // var listaAuxiliarSensores = []
-    // var listaAuxiliarIndicesSensores = []
-    // var auxiliarVar = ''
-    // for (var i = 0; i < arrayTotal[1].length; i++ ) {
-    //     auxiliarVar = 
-    //     listaAuxiliarSensores.push(document.createElement('span'))
-    //     listaAuxiliarIndicesSensores.push(i)
-    //     listaAuxiliarSensores[i].textContent = `${arrayTotal[2][i]}`
+    var containerFiltrosSensores = document.getElementById('idContainerFiltrosSensores')
+    
+    var listaAuxiliarSensores = []
+    for (let i = 0; i < arrayTotal[1].length; i++ ) {
+        listaAuxiliarSensores.push(document.createElement('span'))
+        listaAuxiliarSensores[i].textContent = `${arrayTotal[2][i]}`
 
-    //     if (arrayTotal[i][6] > 600) {
-    //         listaAuxiliarAmbientes[i].innerHTML += '<img src="./Assets/filtro_alertaElevado.png" alt="">'
-    //         listaAuxiliarAmbientes[i].classList.add('filtro_ambienteMuitoAcima')
-    //         listaAuxiliarAmbientes[i].addEventListener('click', () => {
-    //             // listaGeralAmbientes[listaAuxiliarIndices[i]]
-    //             // slaDoido
-    //             console.log('')
-    //             functionMatrizParaTelaKpisGrafico(listaGeralAmbientes[listaAuxiliarIndices[i]])
-    //             console.log(listaGeralAmbientes[listaAuxiliarIndices[i]])
-    //         })
-    //     } else if (listaGeralAmbientes[listaAuxiliarIndices[i]][6] < 400) {
-    //         console.log(listaGeralAmbientes[listaAuxiliarIndices[i]])
-    //         listaAuxiliarAmbientes[i].innerHTML += '<img src="./Assets/filtro_alertaInferior.png" alt="">'
-    //         listaAuxiliarAmbientes[i].classList.add('filtro_ambienteMuitoAbaixo')
-    //         listaAuxiliarAmbientes[i].addEventListener('click', () => {
-    //             // slaDoido
-    //             functionMatrizParaTelaKpisGrafico(listaGeralAmbientes[listaAuxiliarIndices[i]])
-    //         })
-    //     } else {
-    //         listaAuxiliarAmbientes[i].innerHTML += '<img src="./Assets/filtro_check.png" alt="">'
-    //         listaAuxiliarAmbientes[i].classList.add('filtro_ambienteOk')
-    //         listaAuxiliarAmbientes[i].addEventListener('click', () => {
-    //             // slaDoido
-    //             functionMatrizParaTelaKpisGrafico(listaGeralAmbientes[listaAuxiliarIndices[i]])
-    //         })
-    //     }
+        if (arrayTotal[3][i] > 600) {
+            listaAuxiliarSensores[i].classList.add('filtro_sensorMuitoAcima')
+        } else if (arrayTotal[3][i] < 400) {
+            listaAuxiliarSensores[i].classList.add('filtro_sensorMuitoAbaixo')
+        } else {
+            listaAuxiliarSensores[i].classList.add('filtro_sensorOk')
+        }
         
-    // }
+        listaAuxiliarSensores[i].addEventListener('click', () => {
+            // listaGeralAmbientes[listaAuxiliarIndices[i]]
+            // slaDoido
+            functionAttGrafico2(arrayTotal, arrayTotal[2][i])
+        })
+    }
+    containerFiltrosSensores.innerHTML = '<span class="tittleFiltro">Sensores</span>'
+    for (let i = 0; i < listaAuxiliarSensores.length; i++ ) {
+        containerFiltrosSensores.appendChild(listaAuxiliarSensores[i])
+    }
 
     
     var alertas = 0
@@ -447,7 +437,64 @@ function functionMatrizParaTelaKpisGrafico(arrayTotal) {
 
 
 
+function functionAttGrafico2(arrayTotal, nameTagSensor) {
+    var arrayIndicesSensores = []
 
+    for (let i = 0; i < arrayTotal[5][0].length; i++) {
+        if (arrayTotal[5][0][i] == nameTagSensor) {
+            arrayIndicesSensores.push(i)
+        }
+    }
+
+    var arrayTagsSensoresDez = []
+    var arrayIntensidadeSensoresDez = []
+    var arrayDtRegistroSensoresDez = []
+    for (let i = 0; i < arrayIndicesSensores.length; i++) {
+        arrayTagsSensoresDez.push(arrayTotal[5][0][arrayIndicesSensores[i]])
+        arrayIntensidadeSensoresDez.push(arrayTotal[5][1][arrayIndicesSensores[i]])
+        arrayDtRegistroSensoresDez.push(arrayTotal[5][2][arrayIndicesSensores[i]])
+    }
+    console.log(arrayDtRegistroSensoresDez)
+    var arrayHoraRegistro = []
+    for (let i = 0; i < arrayDtRegistroSensoresDez.length; i++) {
+        arrayHoraRegistro.push(arrayDtRegistroSensoresDez[i].slice(11, 16))
+    }
+    // console.log("arrayTotal:", arrayTotal)
+    // console.log("arrayTotal[5]:", arrayTotal[5])
+
+
+    // console.log("HISTÓRICO:", {
+    //     tags: arrayTotal[5][0],
+    //     intensidade: arrayTotal[5][1],
+    //     datas: arrayTotal[5][2]
+    // })
+
+    
+    let dia = arrayDtRegistroSensoresDez[0].slice(0, 10)
+    
+    // criação das cores
+    var cor = []
+    for (let i = 0; i < arrayIntensidadeSensoresDez.length; i++) {
+        if (arrayIntensidadeSensoresDez[i] > 600) {
+            cor.push('#FFD535')
+        } else if (arrayIntensidadeSensoresDez[i] < 400) {
+            cor.push('#e45b5b')
+        } else {
+            cor.push('#637CEF')
+        }    
+    }
+    
+    if (grafico_2) {
+        grafico_2.data.labels = arrayHoraRegistro
+        grafico_2.data.datasets[0].label = dia
+        grafico_2.data.datasets[0].data = arrayIntensidadeSensoresDez
+        grafico_2.options.plugins.title.text = `Histórico de Registros do Sensor ${nameTagSensor}`
+        grafico_2.data.datasets[0].backgroundColor = cor
+        grafico_2.data.datasets[0].color = cor
+        grafico_2.data.datasets[0].borderColor = cor
+        grafico_2.update()
+    }
+}
 
 function functionCriarGraficos(arrayTotal) {
     const ctx = document.getElementById('myChart');
@@ -536,7 +583,7 @@ function functionCriarGraficos(arrayTotal) {
         plugins: {
             title: {
                 display: true,
-                text: 'Histórico de Registros do Sensor 052-SUL',
+                text: 'Histórico de Registros do Sensor 000-XXX',
                 font: {
                     size: 30
                 }
@@ -546,13 +593,13 @@ function functionCriarGraficos(arrayTotal) {
             y: {
                 beginAtZero: true,
                 min: 0,
-                max: 60,
+                max: 1000,
                 title: {
                     display: true,
-                    text: '(%)'
+                    // text: '(%)'
                 },
                 ticks: {
-                    stepSize: 10
+                    stepSize: 50
                 }
             }
         }

@@ -22,13 +22,13 @@
             </span> -->
             <div id="dropdownPerfil" style="display: none;">
                 <span>
-                    <a href="#">Perfil</a>
+                    <!-- <a href="#">Perfil</a> -->
                 </span>
                 <span>
                     <a href="./pageCadastro.html">Cadastrar novo Usuário</a>
                 </span>
                 <span>
-                    <a href="#">Configurações</a>
+                    <!-- <a href="#">Configurações</a> -->
                 </span>
                 <span>
                     <a href="./index.html" class="exit">Sair</a>
@@ -47,13 +47,13 @@
                 <div id="idContainerFiltros" class="container_filtros container_filtrosAmbientes">
                     <span class="tittleFiltro">Ambientes</span>
                     <span class="conteudo_filtro filtro_geral"><a href="./dashboard.html">Visão geral <img src="./Assets/filtro_geral.png" alt=""></a></span>
-                    <span class="conteudo_filtro filtro_ambienteSelecionado filtro_ambienteOk"><a href="#">Ambiente 1 <img src="./Assets/filtro_check.png" alt=""></a></span>
+                    <!-- <span class="conteudo_filtro filtro_ambienteSelecionado filtro_ambienteOk"><a href="#">Ambiente 1 <img src="./Assets/filtro_check.png" alt=""></a></span>
                     <span class="conteudo_filtro filtro_ambienteMuitoAbaixo"><a href="./ambiente2.html">Ambiente 2 <img src="./Assets/filtro_alertaInferior.png" alt=""></a></span>
-                    <span class="conteudo_filtro filtro_ambienteMuitoAcima"><a href="./ambiente3.html">Ambiente 3  <img src="./Assets/filtro_alertaElevado.png" alt=""></a></span>
+                    <span class="conteudo_filtro filtro_ambienteMuitoAcima"><a href="./ambiente3.html">Ambiente 3  <img src="./Assets/filtro_alertaElevado.png" alt=""></a></span> -->
                 </div>
-                <div class="container_filtros container_filtrosSensores">
+                <div id="idContainerFiltrosSensores" class="container_filtros container_filtrosSensores">
                     <span class="tittleFiltro">Sensores</span>
-                    <span class="filtro_sensorOk">002-OES</span>
+                    <!-- <span class="filtro_sensorOk">002-OES</span>
                     <span class="filtro_sensorOk">012-OES</span>
                     <span class="filtro_sensorOk">022-OES</span>
                     <span class="filtro_sensorOk filtro_sensorSelecionado">032-OES</span>
@@ -62,15 +62,28 @@
                     <span class="filtro_sensorOk">062-OES</span>
                     <span class="filtro_sensorOk">072-OES</span>
                     <span class="filtro_sensorOk">082-OES</span>
-                    <span class="filtro_sensorOk">092-OES</span>
+                    <span class="filtro_sensorOk">092-OES</span> -->
                 </div>
             </div>
             <div class="tabelas">
                 <div class="container_myChart">
                     <canvas id="myChart"></canvas>
                 </div>
-                <div class="textMetrica">
-                    <span><span class="titleMetrica">Como ler as nomenclaturas dos sensores:</span> As tags dos sensores são formadas por 6 caracteres, como '002-NOR'. Os dois primeiros dígitos significam a unidade quantitativa daquele sensor. O terceiro dígito significa o andar. E os últimos 3 significam a região da empresa em que o sensor se localiza.</span>
+                <div class="textMetrica" title="Como ler as nomenclaturas dos sensores: As nomenclaturas dos sensores se baseiam em 4 parâmetros:
+
+                        [TORRE] - [ANDAR] - [SALA] - [ID]
+
+                        Torre, é a área do prédio em que o sensor está;
+
+                        Andar, é o andar em que o sensor se localiza;
+
+                        Sala, é a sala qual sensor está
+
+                        d, um id que diferencia um sensor do outro.
+
+                        EX: A-05-REUNIÂO2-01 OU A-06-AULA-16">
+
+                        <span>Sobre o sensor <img src="./Assets/Info_i.png" alt="informação"></span>
                 </div>
                 <div class="container_myChart">
                     <canvas id="myChart2"></canvas>
@@ -85,24 +98,24 @@
                 </div>
                 <div class="kpi">
                     <div class="container_kpi">
-                        <span id="idTitleKpiAlertas" class="tittleKpi">Quantidade de alertas no Ambiente 2:</span>
+                        <span id="idTitleKpiAlertas" class="tittleKpi">Quantidade de alertas no Ambiente X:</span>
                         <span id="idQtdAlertas" class="conteudoKpi">0</span>
                     </div>
                 </div>
                 <div class="kpi">
                     <div class="container_kpi">
-                        <span id="idTitleKpiMedia" class="tittleKpi">Média dos sensores do Ambiente 2:</span>
-                        <span id="idMediaSensores" class="conteudoKpi mediaSensores">22,4%</span>
+                        <span id="idTitleKpiMedia" class="tittleKpi">Média dos sensores do Ambiente X:</span>
+                        <span id="idMediaSensores" class="conteudoKpi mediaSensores">0</span>
                         <div class="topMin">
-                            <span id="idPico" class="pico">Pico: 25%</span>
-                            <span id="idMinimo" class="minimo">Mínimo: 20%</span>
+                            <span id="idPico" class="pico">Pico: 0</span>
+                            <span id="idMinimo" class="minimo">Mínimo: 0</span>
                         </div>
                     </div>
                 </div>
                 <div class="kpi kpiIdeal">
                     <div class="container_kpi">
                         <span id="idTitleKpiIdeal" class="tittleKpi tittleKpiIdeal">Sensores com Incidência de luz ideal:</span>
-                        <span id="idIdeal" class="conteudoKpi conteudoKpiIdeal">10</span>
+                        <span id="idIdeal" class="conteudoKpi conteudoKpiIdeal">0</span>
                     </div>
                 </div>
                 <div class="kpi kpiElevada">
