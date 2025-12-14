@@ -375,8 +375,8 @@ function functionMatrizParaTelaAmbientes() {
     var GeralAlertas = document.getElementById('idGeralAlertas')
 
     var alertas = 0
-    for (var i = 0; i < listaAuxiliarAmbientesGeral.length; i++) {
-        if (listaAuxiliarAmbientesGeral[i][6] > 600 || listaAuxiliarAmbientesGeral[i][6] < 400) {
+    for (var i = 0; i < listaGeralAmbientes.length; i++) {
+        if (Number(listaGeralAmbientes[i][6]) > 600 || Number(listaGeralAmbientes[i][6]) < 400) {
             alertas ++
         }
     }
@@ -386,7 +386,7 @@ function functionMatrizParaTelaAmbientes() {
 
 function functionMatrizParaTelaKpisGrafico(arrayTotal) {
     if (idTelaEspecifica.style.display == 'none') {
-        idTelaEspecifica.style.display = 'block'
+        idTelaEspecifica.style.display = 'flex'
         idTelaGeral.style.display = 'none'
     } 
 
@@ -524,10 +524,14 @@ function functionAttGrafico2(arrayTotal, nameTagSensor) {
     for (let i = 0; i < arrayIntensidadeSensoresDez.length; i++) {
         if (arrayIntensidadeSensoresDez[i] > 600) {
             cor.push('#FFD535')
-        } else if (arrayIntensidadeSensoresDez[i] < 400) {
-            cor.push('#e45b5b')
+        } else if (arrayIntensidadeSensoresDez[i] > 550) {
+            cor.push('#0072C4')
+        } else if (arrayIntensidadeSensoresDez[i] > 450) {
+            cor.push('#37BC61')
+        } else if (arrayIntensidadeSensoresDez[i] > 400) {
+            cor.push('#64ADE0')
         } else {
-            cor.push('#637CEF')
+            cor.push('#C0392B')
         }    
     }
     
@@ -658,7 +662,7 @@ function functionCriarGraficos(arrayTotal) {
 
 function visaoGeral() {
     if (idTelaGeral.style.display == 'none') {
-        idTelaGeral.style.display = 'block'
+        idTelaGeral.style.display = 'flex'
         idTelaEspecifica.style.display = 'none'
         idTitlePagina.textContent = 'Dashboard Geral'
     } 

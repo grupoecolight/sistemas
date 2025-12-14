@@ -76,7 +76,8 @@ CREATE TABLE regSensor (
 INSERT INTO empresa (razaoSocial, cnpj, cep, responsavel, telefone, dtCadastro) VALUES
 ('XPTO Technology LTDA', '10276849534012', '01310000', 'Maria Silva', 11987654321, '2025-01-15 10:30:00'),
 ('Eco Buzziness LTDA', '40345976786543', '01310940', 'João Pereira', 11956433478, '2025-02-10 14:00:00'),
-('Seguradora de veículos LTDA', '54367891235409', '01310200', 'Ana Lima', 11956422465, '2025-03-05 09:15:00');
+('Seguradora de veículos LTDA', '54367891235409', '01310200', 'Ana Lima', 11956422465, '2025-03-05 09:15:00'),
+('Ecolight', '01310200430006', '05594001', 'Eduardo Nascimento', 11925810212, '2025-03-10 09:00:00');
 
 insert into ambiente values 
 (default, 2, 'Berlim', 1),
@@ -95,13 +96,14 @@ Por favor, agendem uma visita o mais breve possível para realizar a manutençã
 
 
 INSERT INTO usuario (areaEmpresa, email, senha, userAdmin, empresaAdmin, fkOrganizacao) VALUES
-('Administração', 'admin@empresa1.com', 'admin123', 0, 1, 1),
-('Recursos Humanos', 'rh@empresa1.com', 'rh2025', 0, 1, 2),
-('Gerência', 'gerente@empresa2.com', 'ger@XPTO', 0, 1, 3);
+('Administração', 'admin@xptotech.com', 'Admin#123', 0, 1, 1),
+('Recursos Humanos', 'rh@empresa1.com', 'Rh#02025', 0, 1, 2),
+('Gerência', 'gerente@empresa2.com', 'Ger@XPTO', 0, 1, 3),
+('Ecolight-n3', 'admin@ecolight.com', 'Urubu#100', 1, 1, 1); 
 
--- EMPRESA 1:
+-- SENSORES:
 INSERT INTO Sensor (tagSensor, area, descricao) VALUES
-('A-02-BERLIM-01', 'Sala Berlim', 'Sensor instalado na esquadria norte, primeira secção envidraçada adjacente à coluna estrutural A1.'),
+('A-02-BERLIM-01', 'Sala Berlim', 'Sensor instalado na esquadra norte, primeira secção envidraçada adjacente à coluna estrutural A1.'),
 ('A-02-BERLIM-02', 'Sala Berlim', 'Dispositivo fixado na segunda janela a partir do acesso principal, com monitoramento de incidência direta.'),
 ('A-02-BERLIM-03', 'Sala Berlim', 'Módulo posicionado na região central da parede envidraçada, equidistante das extremidades.'),
 ('A-02-BERLIM-04', 'Sala Berlim', 'Sensor localizado na quarta janela, próximo ao sistema de climatização VRF.'),
@@ -111,7 +113,7 @@ INSERT INTO Sensor (tagSensor, area, descricao) VALUES
 ('A-02-BERLIM-08', 'Sala Berlim', 'Módulo monitorando a extremidade oposta ao hall, focado em compensação de luz artificial.');
 
 
--- EMPRESA 2:
+-- SENSORES:
 INSERT INTO Sensor (tagSensor, area, descricao) VALUES
 ('B-02-TOKYO-01', 'Sala Tokyo', 'Sensor posicionado na direita da sala a partir da porta, recebendo incidência solar matinal direta, próximo ao projetor.'),
 ('B-02-TOKYO-02', 'Sala Tokyo', 'Dispositivo na segunda folha de vidro, calibrado para alta intensidade de lux.'),
@@ -120,10 +122,14 @@ INSERT INTO Sensor (tagSensor, area, descricao) VALUES
 ('B-02-TOKYO-05', 'Sala Tokyo', 'Sensor na fachada oeste, captando luminosidade vespertina, posicionado no canto superior esquerdo.'),
 ('B-02-TOKYO-06', 'Sala Tokyo', 'Dispositivo na zona intermediária, minimizando reflexos em monitores adjacentes.'),
 ('B-02-TOKYO-07', 'Sala Tokyo', 'Módulo na direita a partir da porta, alinhado com a segunda fileira de assentos da conferência.'),
-('B-02-TOKYO-08', 'Sala Tokyo', 'Sensor na extremidade inferior da direita a partir da porta, monitorando entrada de luz residual.');
+('B-02-TOKYO-08', 'Sala Tokyo', 'Dispositivo fixado na segunda janela a partir do acesso principal, com monitoramento de incidência direta.'),
+('B-02-TOKYO-09', 'Sala Tokyo', 'Dispositivo na terceira folha de vidro, calibrado para alta intensidade de lux.'),
+('B-02-TOKYO-10', 'Sala Tokyo', 'Instalação realizada na primeira janela da sala, monitorando a luminosidade difusa refletida.'),
+('B-02-TOKYO-11', 'Sala Tokyo', 'Módulo monitorando a extremidade oposta ao hall, focado em compensação de luz artificial.'),
+('B-02-TOKYO-12', 'Sala Tokyo', 'Sensor localizado na quarta janela, próximo ao sistema de climatização VRF.');
 
 
--- EMPRESA 3
+-- SENSORES:
 INSERT INTO Sensor (tagSensor, area, descricao) VALUES
 ('C-02-RIO-01', 'Sala Rio', 'Sensor fixado ao lado esquerdo da recepção a partir da entrada, primeira janela próxima ao balcão de atendimento.'),
 ('C-02-RIO-02', 'Sala Rio', 'Dispositivo na segunda janela da direita a partir da porta, monitorando a área de espera de visitantes.'),
@@ -134,299 +140,32 @@ INSERT INTO Sensor (tagSensor, area, descricao) VALUES
 ('C-02-RIO-07', 'Sala Rio', 'Módulo na face sul, adjacente à porta de acesso à escada de incêndio.'),
 ('C-02-RIO-08', 'Sala Rio', 'Sensor na extremidade da face sul, calibrado para detectar variações bruscas de luminosidade.');
 
+
+-- SENSORES:
+INSERT INTO Sensor (tagSensor, area, descricao) VALUES
+('D-02-SÃO_PAULO-01', 'Sala São Paulo', 'Sensor posicionado na direita da sala a partir da porta, recebendo incidência solar matinal direta, próximo ao projetor.'),
+('D-02-SÃO_PAULO-02', 'Sala São Paulo', 'Dispositivo na segunda folha de vidro, calibrado para alta intensidade de lux.'),
+('D-02-SÃO_PAULO-03', 'Sala São Paulo', 'Módulo central da fachada esquerda da sala a partir da porta, monitorando a zona de reunião principal e mesa de conferência.'),
+('D-02-SÃO_PAULO-04', 'Sala São Paulo', 'Instalação na extremidade direita da fachada, próximo ao painel de automação.'),
+('D-02-SÃO_PAULO-05', 'Sala São Paulo', 'Sensor na fachada oeste, captando luminosidade vespertina, posicionado no canto superior esquerdo.'),
+('D-02-SÃO_PAULO-06', 'Sala São Paulo', 'Dispositivo na zona intermediária, minimizando reflexos em monitores adjacentes.'),
+('D-02-SÃO_PAULO-07', 'Sala São Paulo', 'Módulo na direita a partir da porta, alinhado com a segunda fileira de assentos da conferência.'),
+('D-02-SÃO_PAULO-08', 'Sala São Paulo', 'Sensor na extremidade inferior da direita a partir da porta, monitorando entrada de luz residual.');
+
+
+-- SENSORES:
+INSERT INTO Sensor (tagSensor, area, descricao) VALUES
+('E-02-NOVA_YORK-01', 'Sala Nova York', 'Sensor instalado na esquadria norte, primeira secção envidraçada adjacente à coluna estrutural E1.'),
+('E-02-NOVA_YORK-02', 'Sala Nova York', 'Dispositivo fixado na segunda janela a partir do acesso principal, com monitoramento de incidência direta.'),
+('E-02-NOVA_YORK-03', 'Sala Nova York', 'Módulo posicionado na região central da parede envidraçada, equidistante das extremidades.'),
+('E-02-NOVA_YORK-04', 'Sala Nova York', 'Sensor localizado na quarta janela, próximo ao sistema de climatização VRF.'),
+('E-02-NOVA_YORK-05', 'Sala Nova York', 'Instalação realizada na primeira janela da sala, monitorando a luminosidade difusa refletida.'),
+('E-02-NOVA_YORK-06', 'Sala Nova York', 'Sensor fixado na segunda secção, posicionado para evitar sombreamento por mobiliário alto.'),
+('E-02-NOVA_YORK-07', 'Sala Nova York', 'Dispositivo na terceira janela, adjacente à saída de emergência secundária.'),
+('E-02-NOVA_YORK-08', 'Sala Nova York', 'Módulo monitorando a extremidade oposta ao hall, focado em compensação de luz artificial.');
+
+
 SELECT * FROM mensagem;
-
--- Empresa 1 (Sensores 1-8 no Ambiente 1)
--- INSERT INTO regSen sor (intensidadeLuz, fkSensor, fkAmbiente) VALUES
--- (380, 1, 1), 
--- (380, 1, 1), 
--- (360, 1, 1), 
--- (360, 1, 1), 
--- (350, 1, 1), 
--- (330, 1, 1), 
--- (330, 1, 1), 
--- (320, 1, 1),
-
-
--- (380, 2, 1), 
--- (380, 2, 1), 
--- (360, 2, 1), 
--- (360, 2, 1), 
--- (350, 2, 1), 
--- (330, 2, 1), 
--- (330, 2, 1), 
--- (320, 2, 1),
-
-
--- (370, 3, 1), 
--- (370, 3, 1), 
--- (350, 3, 1), 
--- (350, 3, 1), 
--- (340, 3, 1), 
--- (320, 3, 1), 
--- (320, 3, 1), 
--- (310, 3, 1),
-
-
--- (370, 4, 1), 
--- (370, 4, 1), 
--- (350, 4, 1), 
--- (350, 4, 1), 
--- (340, 4, 1), 
--- (320, 4, 1), 
--- (320, 4, 1), 
--- (310, 4, 1),
-
-
--- (330, 5, 1), 
--- (330, 5, 1), 
--- (320, 5, 1), 
--- (320, 5, 1), 
--- (310, 5, 1), 
--- (300, 5, 1), 
--- (290, 5, 1), 
--- (290, 5, 1),
-
-
--- (330, 6, 1), 
--- (330, 6, 1), 
--- (320, 6, 1), 
--- (320, 6, 1), 
--- (310, 6, 1), 
--- (300, 6, 1), 
--- (290, 6, 1), 
--- (290, 6, 1),
-
-
--- (320, 7, 1), 
--- (320, 7, 1), 
--- (310, 7, 1), 
--- (310, 7, 1), 
--- (300, 7, 1), 
--- (290, 7, 1), 
--- (280, 7, 1), 
--- (280, 7, 1),
-
-
--- (320, 8, 1), 
--- (320, 8, 1), 
--- (310, 8, 1), 
--- (310, 8, 1), 
--- (300, 8, 1), 
--- (290, 8, 1), 
--- (280, 8, 1), 
--- (280, 8, 1);
-
-
--- -- Empresa 2 (Sensores 9-16 no Ambiente 2)
--- INSERT INTO regSensor (intensidadeLuz, fkSensor, fkAmbiente) VALUES
--- (450, 9, 2), 
--- (450, 9, 2), 
--- (460, 9, 2), 
--- (460, 9, 2),
-
-
--- (450, 10, 2), 
--- (450, 10, 2), 
--- (460, 10, 2), 
--- (460, 10, 2), 
-
-
--- (440, 11, 2), 
--- (440, 11, 2), 
--- (450, 11, 2), 
--- (450, 11, 2),
-
-
--- (440, 12, 2), 
--- (440, 12, 2), 
--- (450, 12, 2), 
--- (450, 12, 2),
-
-
--- (400, 13, 2), 
--- (400, 13, 2), 
--- (390, 13, 2), 
--- (390, 13, 2),
-
-
--- (400, 14, 2), 
--- (400, 14, 2), 
--- (390, 14, 2), 
--- (390, 14, 2),
-
-
--- (390, 15, 2), 
--- (390, 15, 2), 
--- (380, 15, 2), 
--- (380, 15, 2),
-
-
--- (390, 16, 2), 
--- (390, 16, 2), 
--- (380, 16, 2), 
--- (380, 16, 2);
-
--- -- Empresa 3 (Sensores 17-28 no Ambiente 3)
--- INSERT INTO regSensor (intensidadeLuz, fkSensor, fkAmbiente) VALUES
--- (370, 17, 3),
--- (370, 17, 3), 
--- (390, 17, 3),
-
-
--- (370, 18, 3), 
--- (370, 18, 3), 
--- (390, 18, 3),
-
-
--- (380, 19, 3), 
--- (380, 19, 3), 
--- (400, 19, 3),
-
-
--- (380, 20, 3), 
--- (380, 20, 3), 
--- (400, 20, 3),
-
-
--- (410, 21, 3), 
--- (410, 21, 3), 
--- (410, 21, 3),
-
-
--- (410, 22, 3), 
--- (410, 22, 3), 
--- (410, 22, 3),
-
-
--- (410, 23, 3), 
--- (410, 23, 3), 
--- (410, 23, 3),
-
-
--- (390, 24, 3), 
--- (390, 24, 3), 
--- (390, 24, 3),
-
-
--- (370, 25, 3), 
--- (370, 25, 3), 
--- (360, 25, 3),
-
-
--- (360, 26, 3), 
--- (360, 26, 3), 
--- (360, 26, 3),
-
-
--- (360, 27, 3), 
--- (360, 27, 3), 
--- (360, 27, 3),
-
-
--- (350, 28, 3), 
--- (350, 28, 3), 
--- (350, 28, 3);
-
--- Dados de cada empresa
-
-
--- ----------------------
--- CREATE VIEW dados_das_empresas AS
--- SELECT e.razaoSocial AS 'Nome da Empresa',
--- e.cnpj AS 'CNPJ',
--- e.cep AS 'CEP',
--- e.responsavel AS 'Responsável da empresa',
--- e.telefone AS 'Telefone para contato',
--- e.dtCadastro AS 'Data de Cadastro',
--- e.senha AS 'Senha da Empresa',
--- u.areaEmpresa AS 'Função do Usuário',
--- u.email AS 'Email para contato',
--- u.senha AS 'Senha do Usuário'
--- FROM empresa e JOIN usuario u
--- ON e.idEmpresa = u.fkOrganizacao;
-
--- view atualizada
--- CREATE VIEW empresa_sensor_ambiente AS
--- SELECT DISTINCT 
--- e.razaoSocial AS 'Nome da Empresa',
--- e.cnpj AS 'CNPJ',
--- e.cep AS 'CEP',
--- e.responsavel AS 'Responsável da empresa',
--- e.telefone AS 'Telefone para contato',
--- e.dtCadastro AS 'Data de Cadastro',
--- e.senha AS 'Senha da Empresa',
--- a.andar,
--- a.nome,
--- s.tagSensor AS 'Tag do Sensor'
--- FROM empresa e 
--- JOIN ambiente a ON e.idEmpresa = a.fkEmpresa
--- JOIN regSensor r ON a.idAmbiente = r.fkAmbiente
--- JOIN Sensor s ON s.idSensor = r.fkSensor;
-
-/* Consultar dados da empresa e seus sensores da view empresa_sensor_ambiente */
--- select * from empresa_sensor_ambiente;
--- select * from dados_das_empresas;
-
-
-/*Consultar nome da empresa, andar, nome do ambiente e tag do sensor da view empresa_sensor_ambiente*/
--- select 'Nome da Empresa', andar, nome, 'Tag do Sensor' FROM empresa_sensor_ambiente;  
-
-
-/* Consultar registros de cada sensor */
--- CREATE VIEW registro_sensor AS
--- Select e.razaoSocial as Empresa, a.nome as Ambiente ,intensidadeLuz as Lux, tagSensor as Sensor, dtHora as 'Data' 
--- FROM Sensor s JOIN regSensor r
--- on s.idSensor = r.fkSensor
--- JOIN ambiente a
--- on a.idAmbiente = s.fkAmbiente
--- JOIN empresa e
--- on e.idEmpresa = a.fkEmpresa;
-
-/* Consultar registros de cada sensor e de cada empresa - View*/
--- select * from registro_sensor;
-
--- select atualizado
--- SELECT 
---     e.razaoSocial AS 'Nome da Empresa',
---     e.responsavel AS 'Responsável',
---     u.areaEmpresa AS 'Função do Usuário',
---     u.email AS 'Email para contato',
---     s.tagSensor AS 'Tag do Sensor',
---     s.area AS 'Local do Sensor',
---     s.idSensor AS 'ID Sensor'
--- FROM empresa e 
--- JOIN usuario u ON e.idEmpresa = u.fkOrganizacao
--- JOIN ambiente a ON a.fkEmpresa = e.idEmpresa
--- JOIN regSensor r ON r.fkAmbiente = a.idAmbiente
--- JOIN Sensor s ON s.idSensor = r.fkSensor
--- GROUP BY s.idSensor, e.razaoSocial, e.responsavel, u.areaEmpresa, u.email, s.tagSensor, s.area;
-
-
--- select atualizado
--- SELECT 
---     e.razaoSocial AS 'Nome da Empresa',
---     e.cnpj AS 'CNPJ',
---     e.cep AS 'CEP',
---     e.responsavel AS 'Responsável',
---     e.telefone AS 'Telefone',
---     e.dtCadastro AS 'Data de Cadastro',
---     u.areaEmpresa AS 'Área do Usuário',
---     u.email AS 'E-mail do Usuário',
---     u.senha AS 'Senha do Usuário',
---     s.tagSensor AS 'Tag do Sensor',
---     s.area AS 'Local do Sensor',
---     r.intensidadeLuz AS 'Intensidade da Luz',
---     r.dtHora AS 'Data e Hora da Leitura'
--- FROM empresa e 
--- JOIN usuario u ON e.idEmpresa = u.fkOrganizacao
--- JOIN ambiente a ON e.idEmpresa = a.fkEmpresa      
--- JOIN regSensor r ON a.idAmbiente = r.fkAmbiente    
--- JOIN Sensor s ON r.fkSensor = s.idSensor        
--- ORDER BY e.idEmpresa, s.idSensor, r.dtHora;
-
--- SELECT nomeEmpresa AS Empresa, emailEmpresa AS Email, mensagem AS Mensagem
--- FROM mensagem;
 
 
 -- SELECTS GERAIS BÁSICOS
@@ -482,86 +221,6 @@ WHERE dtHora > '2025-12-03 08:00:00'
 -- 				FROM regSensor AS reg2
 -- 					WHERE reg.fkSensor = reg2.fkSensor)
 -- 		GROUP BY reg.intensidadeLuz , reg.fkSensor , reg.idRegSensor , fkAmbiente;
-
--- INSERT INTO regSensor (fkAmbiente,  fkSensor, intensidadeLuz, dtHora) VALUES 
--- 	(1, 1, 400, '2025-12-03 18:50:00'),
--- 	(1, 1, 440, '2025-12-03 18:51:00'),
--- 	(1, 1, 480, '2025-12-03 18:52:00'),
--- 	(1, 1, 520, '2025-12-03 18:53:00');
---             
--- INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES 
--- 	(1, 1, 340, '2025-12-03 19:00:00'),
--- 	(1, 2, 320, '2025-12-03 19:00:00'),
--- 	(1, 3, 310, '2025-12-03 19:00:00'),
--- 	(1, 4, 360, '2025-12-03 19:00:00'),
--- 	(1, 5, 260, '2025-12-03 19:00:00'),
--- 	(1, 6, 380, '2025-12-03 19:00:00'),
--- 	(1, 7, 390, '2025-12-03 19:00:00'),
--- 	(1, 8, 330, '2025-12-03 19:00:00'),
---     (2, 9, 400, '2025-12-03 19:05:00'),
---     (2, 10, 430, '2025-12-03 19:05:00'),
---     (2, 11, 420, '2025-12-03 19:05:00'),
---     (2, 12, 450, '2025-12-03 19:05:00'),
---     (2, 13, 410, '2025-12-03 19:05:00'),
---     (2, 14, 370, '2025-12-03 19:05:00'),
---     (2, 15, 360, '2025-12-03 19:05:00'),
---     (2, 16, 390, '2025-12-03 19:05:00'),
---     (3, 17, 340, '2025-12-03 19:10:00'),
---     (3, 18, 350, '2025-12-03 19:10:00'),
---     (3, 19, 360, '2025-12-03 19:10:00'),
---     (3, 20, 400, '2025-12-03 19:10:00'),
---     (3, 21, 400, '2025-12-03 19:10:00'),
---     (3, 22, 420, '2025-12-03 19:10:00'),
---     (3, 23, 410, '2025-12-03 19:10:00'),
---     (3, 24, 380, '2025-12-03 19:10:00'),
---     (3, 25, 440, '2025-12-03 19:10:00'),
---     (3, 26, 430, '2025-12-03 19:10:00'),
---     (3, 27, 420, '2025-12-03 19:10:00'),
---     (3, 28, 410, '2025-12-03 19:10:00');
---     
--- INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
--- (1, 1, 325, '2025-12-03 08:00:00'),
--- (1, 1, 350, '2025-12-03 08:10:00'),
--- (1, 1, 410, '2025-12-03 08:20:00'),
--- (1, 1, 390, '2025-12-03 08:30:00'),
--- (1, 1, 420, '2025-12-03 08:40:00'),
--- (1, 1, 455, '2025-12-03 08:50:00'),
--- (1, 1, 470, '2025-12-03 09:00:00'),
--- (1, 1, 480, '2025-12-03 09:10:00'),
--- (1, 1, 500, '2025-12-03 09:20:00'),
--- (1, 1, 520, '2025-12-03 09:30:00'),
--- (1, 1, 540, '2025-12-03 09:40:00'),
--- (1, 1, 560, '2025-12-03 09:50:00');
-
--- INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
--- (1, 2, 300, '2025-12-03 08:00:00'),
--- (1, 2, 315, '2025-12-03 08:10:00'),
--- (1, 2, 330, '2025-12-03 08:20:00'),
--- (1, 2, 340, '2025-12-03 08:30:00'),
--- (1, 2, 350, '2025-12-03 08:40:00'),
--- (1, 2, 365, '2025-12-03 08:50:00'),
--- (1, 2, 380, '2025-12-03 09:00:00'),
--- (1, 2, 395, '2025-12-03 09:10:00'),
--- (1, 2, 410, '2025-12-03 09:20:00'),
--- (1, 2, 420, '2025-12-03 09:30:00'),
--- (1, 2, 430, '2025-12-03 09:40:00'),
--- (1, 2, 450, '2025-12-03 09:50:00');
-
--- INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
--- (1, 3, 280, '2025-12-03 08:00:00'),
--- (1, 3, 295, '2025-12-03 08:10:00'),
--- (1, 3, 310, '2025-12-03 08:20:00'),
--- (1, 3, 320, '2025-12-03 08:30:00'),
--- (1, 3, 340, '2025-12-03 08:40:00'),
--- (1, 3, 355, '2025-12-03 08:50:00'),
--- (1, 3, 370, '2025-12-03 09:00:00'),
--- (1, 3, 385, '2025-12-03 09:10:00'),
--- (1, 3, 400, '2025-12-03 09:20:00'),
--- (1, 3, 420, '2025-12-03 09:30:00'),
--- (1, 3, 440, '2025-12-03 09:40:00'),
--- (1, 3, 465, '2025-12-03 09:50:00');
-
--- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 -- SENSOR 1 (ambiente 1)
 INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
@@ -807,69 +466,70 @@ INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
 (2, 16, 438, '2025-12-03 09:40:00'),
 (2, 16, 445, '2025-12-03 09:50:00');
 
----------------------------------------------------------
--- AMBIENTE 3 — Sensores 17 a 28
----------------------------------------------------------
-
 -- SENSOR 17 (ambiente 3)
 INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
-(3, 17, 580, '2025-12-03 08:00:00'),
-(3, 17, 586, '2025-12-03 08:10:00'),
-(3, 17, 593, '2025-12-03 08:20:00'),
-(3, 17, 600, '2025-12-03 08:30:00'),
-(3, 17, 597, '2025-12-03 08:40:00'),
-(3, 17, 603, '2025-12-03 08:50:00'),
-(3, 17, 609, '2025-12-03 09:00:00'),
-(3, 17, 615, '2025-12-03 09:10:00'),
-(3, 17, 621, '2025-12-03 09:20:00'),
-(3, 17, 618, '2025-12-03 09:30:00'),
-(3, 17, 624, '2025-12-03 09:40:00'),
-(3, 17, 631, '2025-12-03 09:50:00');
+(2, 17, 580, '2025-12-03 08:00:00'),
+(2, 17, 586, '2025-12-03 08:10:00'),
+(2, 17, 593, '2025-12-03 08:20:00'),
+(2, 17, 600, '2025-12-03 08:30:00'),
+(2, 17, 597, '2025-12-03 08:40:00'),
+(2, 17, 603, '2025-12-03 08:50:00'),
+(2, 17, 609, '2025-12-03 09:00:00'),
+(2, 17, 615, '2025-12-03 09:10:00'),
+(2, 17, 621, '2025-12-03 09:20:00'),
+(2, 17, 618, '2025-12-03 09:30:00'),
+(2, 17, 624, '2025-12-03 09:40:00'),
+(2, 17, 631, '2025-12-03 09:50:00');
 
 -- SENSOR 18 (ambiente 3)
 INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
-(3, 18, 460, '2025-12-03 08:00:00'),
-(3, 18, 468, '2025-12-03 08:10:00'),
-(3, 18, 474, '2025-12-03 08:20:00'),
-(3, 18, 480, '2025-12-03 08:30:00'),
-(3, 18, 476, '2025-12-03 08:40:00'),
-(3, 18, 483, '2025-12-03 08:50:00'),
-(3, 18, 490, '2025-12-03 09:00:00'),
-(3, 18, 495, '2025-12-03 09:10:00'),
-(3, 18, 502, '2025-12-03 09:20:00'),
-(3, 18, 499, '2025-12-03 09:30:00'),
-(3, 18, 505, '2025-12-03 09:40:00'),
-(3, 18, 512, '2025-12-03 09:50:00');
+(2, 18, 460, '2025-12-03 08:00:00'),
+(2, 18, 468, '2025-12-03 08:10:00'),
+(2, 18, 474, '2025-12-03 08:20:00'),
+(2, 18, 480, '2025-12-03 08:30:00'),
+(2, 18, 476, '2025-12-03 08:40:00'),
+(2, 18, 483, '2025-12-03 08:50:00'),
+(2, 18, 490, '2025-12-03 09:00:00'),
+(2, 18, 495, '2025-12-03 09:10:00'),
+(2, 18, 502, '2025-12-03 09:20:00'),
+(2, 18, 499, '2025-12-03 09:30:00'),
+(2, 18, 505, '2025-12-03 09:40:00'),
+(2, 18, 512, '2025-12-03 09:50:00');
 
 -- SENSOR 19 (ambiente 3)
 INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
-(3, 19, 350, '2025-12-03 08:00:00'),
-(3, 19, 358, '2025-12-03 08:10:00'),
-(3, 19, 365, '2025-12-03 08:20:00'),
-(3, 19, 372, '2025-12-03 08:30:00'),
-(3, 19, 368, '2025-12-03 08:40:00'),
-(3, 19, 375, '2025-12-03 08:50:00'),
-(3, 19, 381, '2025-12-03 09:00:00'),
-(3, 19, 387, '2025-12-03 09:10:00'),
-(3, 19, 393, '2025-12-03 09:20:00'),
-(3, 19, 390, '2025-12-03 09:30:00'),
-(3, 19, 396, '2025-12-03 09:40:00'),
-(3, 19, 402, '2025-12-03 09:50:00');
+(2, 19, 350, '2025-12-03 08:00:00'),
+(2, 19, 358, '2025-12-03 08:10:00'),
+(2, 19, 365, '2025-12-03 08:20:00'),
+(2, 19, 372, '2025-12-03 08:30:00'),
+(2, 19, 368, '2025-12-03 08:40:00'),
+(2, 19, 375, '2025-12-03 08:50:00'),
+(2, 19, 381, '2025-12-03 09:00:00'),
+(2, 19, 387, '2025-12-03 09:10:00'),
+(2, 19, 393, '2025-12-03 09:20:00'),
+(2, 19, 390, '2025-12-03 09:30:00'),
+(2, 19, 396, '2025-12-03 09:40:00'),
+(2, 19, 402, '2025-12-03 09:50:00');
 
 -- SENSOR 20 (ambiente 3)
 INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
-(3, 20, 490, '2025-12-03 08:00:00'),
-(3, 20, 498, '2025-12-03 08:10:00'),
-(3, 20, 505, '2025-12-03 08:20:00'),
-(3, 20, 512, '2025-12-03 08:30:00'),
-(3, 20, 509, '2025-12-03 08:40:00'),
-(3, 20, 517, '2025-12-03 08:50:00'),
-(3, 20, 523, '2025-12-03 09:00:00'),
-(3, 20, 529, '2025-12-03 09:10:00'),
-(3, 20, 536, '2025-12-03 09:20:00'),
-(3, 20, 532, '2025-12-03 09:30:00'),
-(3, 20, 538, '2025-12-03 09:40:00'),
-(3, 20, 545, '2025-12-03 09:50:00');
+(2, 20, 490, '2025-12-03 08:00:00'),
+(2, 20, 498, '2025-12-03 08:10:00'),
+(2, 20, 505, '2025-12-03 08:20:00'),
+(2, 20, 512, '2025-12-03 08:30:00'),
+(2, 20, 509, '2025-12-03 08:40:00'),
+(2, 20, 517, '2025-12-03 08:50:00'),
+(2, 20, 523, '2025-12-03 09:00:00'),
+(2, 20, 529, '2025-12-03 09:10:00'),
+(2, 20, 536, '2025-12-03 09:20:00'),
+(2, 20, 532, '2025-12-03 09:30:00'),
+(2, 20, 538, '2025-12-03 09:40:00'),
+(2, 20, 545, '2025-12-03 09:50:00');
+
+
+---------------------------------------------------------
+-- AMBIENTE 3 — Sensores 21 a 28
+---------------------------------------------------------
 
 -- SENSOR 21 (ambiente 3)
 INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
@@ -932,62 +592,276 @@ INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
 (3, 24, 504, '2025-12-03 09:50:00');
 
 -- SENSOR 25 (ambiente 3)
--- INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
--- (3, 25, 520, '2025-12-03 08:00:00'),
--- (3, 25, 528, '2025-12-03 08:10:00'),
--- (3, 25, 535, '2025-12-03 08:20:00'),
--- (3, 25, 542, '2025-12-03 08:30:00'),
--- (3, 25, 539, '2025-12-03 08:40:00'),
--- (3, 25, 546, '2025-12-03 08:50:00'),
--- (3, 25, 552, '2025-12-03 09:00:00'),
--- (3, 25, 558, '2025-12-03 09:10:00'),
--- (3, 25, 564, '2025-12-03 09:20:00'),
--- (3, 25, 560, '2025-12-03 09:30:00'),
--- (3, 25, 567, '2025-12-03 09:40:00'),
--- (3, 25, 573, '2025-12-03 09:50:00');
+INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
+(3, 25, 520, '2025-12-03 08:00:00'),
+(3, 25, 528, '2025-12-03 08:10:00'),
+(3, 25, 535, '2025-12-03 08:20:00'),
+(3, 25, 542, '2025-12-03 08:30:00'),
+(3, 25, 539, '2025-12-03 08:40:00'),
+(3, 25, 546, '2025-12-03 08:50:00'),
+(3, 25, 552, '2025-12-03 09:00:00'),
+(3, 25, 558, '2025-12-03 09:10:00'),
+(3, 25, 564, '2025-12-03 09:20:00'),
+(3, 25, 560, '2025-12-03 09:30:00'),
+(3, 25, 567, '2025-12-03 09:40:00'),
+(3, 25, 573, '2025-12-03 09:50:00');
 
--- -- SENSOR 26 (ambiente 3)
--- INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
--- (3, 26, 310, '2025-12-03 08:00:00'),
--- (3, 26, 318, '2025-12-03 08:10:00'),
--- (3, 26, 323, '2025-12-03 08:20:00'),
--- (3, 26, 329, '2025-12-03 08:30:00'),
--- (3, 26, 325, '2025-12-03 08:40:00'),
--- (3, 26, 332, '2025-12-03 08:50:00'),
--- (3, 26, 338, '2025-12-03 09:00:00'),
--- (3, 26, 343, '2025-12-03 09:10:00'),
--- (3, 26, 349, '2025-12-03 09:20:00'),
--- (3, 26, 346, '2025-12-03 09:30:00'),
--- (3, 26, 353, '2025-12-03 09:40:00'),
--- (3, 26, 359, '2025-12-03 09:50:00');
+-- SENSOR 26 (ambiente 3)
+INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
+(3, 26, 310, '2025-12-03 08:00:00'),
+(3, 26, 318, '2025-12-03 08:10:00'),
+(3, 26, 323, '2025-12-03 08:20:00'),
+(3, 26, 329, '2025-12-03 08:30:00'),
+(3, 26, 325, '2025-12-03 08:40:00'),
+(3, 26, 332, '2025-12-03 08:50:00'),
+(3, 26, 338, '2025-12-03 09:00:00'),
+(3, 26, 343, '2025-12-03 09:10:00'),
+(3, 26, 349, '2025-12-03 09:20:00'),
+(3, 26, 346, '2025-12-03 09:30:00'),
+(3, 26, 353, '2025-12-03 09:40:00'),
+(3, 26, 359, '2025-12-03 09:50:00');
 
--- -- SENSOR 27 (ambiente 3)
--- INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
--- (3, 27, 420, '2025-12-03 08:00:00'),
--- (3, 27, 428, '2025-12-03 08:10:00'),
--- (3, 27, 435, '2025-12-03 08:20:00'),
--- (3, 27, 441, '2025-12-03 08:30:00'),
--- (3, 27, 438, '2025-12-03 08:40:00'),
--- (3, 27, 445, '2025-12-03 08:50:00'),
--- (3, 27, 451, '2025-12-03 09:00:00'),
--- (3, 27, 457, '2025-12-03 09:10:00'),
--- (3, 27, 463, '2025-12-03 09:20:00'),
--- (3, 27, 460, '2025-12-03 09:30:00'),
--- (3, 27, 466, '2025-12-03 09:40:00'),
--- (3, 27, 473, '2025-12-03 09:50:00');
+-- SENSOR 27 (ambiente 3)
+INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
+(3, 27, 420, '2025-12-03 08:00:00'),
+(3, 27, 428, '2025-12-03 08:10:00'),
+(3, 27, 435, '2025-12-03 08:20:00'),
+(3, 27, 441, '2025-12-03 08:30:00'),
+(3, 27, 438, '2025-12-03 08:40:00'),
+(3, 27, 445, '2025-12-03 08:50:00'),
+(3, 27, 451, '2025-12-03 09:00:00'),
+(3, 27, 457, '2025-12-03 09:10:00'),
+(3, 27, 463, '2025-12-03 09:20:00'),
+(3, 27, 460, '2025-12-03 09:30:00'),
+(3, 27, 466, '2025-12-03 09:40:00'),
+(3, 27, 473, '2025-12-03 09:50:00');
 
--- -- SENSOR 28 (ambiente 3)
--- INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
--- (3, 28, 550, '2025-12-03 08:00:00'),
--- (3, 28, 557, '2025-12-03 08:10:00'),
--- (3, 28, 565, '2025-12-03 08:20:00'),
--- (3, 28, 571, '2025-12-03 08:30:00'),
--- (3, 28, 568, '2025-12-03 08:40:00'),
--- (3, 28, 575, '2025-12-03 08:50:00'),
--- (3, 28, 582, '2025-12-03 09:00:00'),
--- (3, 28, 587, '2025-12-03 09:10:00'),
--- (3, 28, 594, '2025-12-03 09:20:00'),
--- (3, 28, 590, '2025-12-03 09:30:00'),
--- (3, 28, 597, '2025-12-03 09:40:00'),
--- (3, 28, 603, '2025-12-03 09:50:00');
+-- SENSOR 28 (ambiente 3)
+INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
+(3, 28, 550, '2025-12-03 08:00:00'),
+(3, 28, 557, '2025-12-03 08:10:00'),
+(3, 28, 565, '2025-12-03 08:20:00'),
+(3, 28, 571, '2025-12-03 08:30:00'),
+(3, 28, 568, '2025-12-03 08:40:00'),
+(3, 28, 575, '2025-12-03 08:50:00'),
+(3, 28, 582, '2025-12-03 09:00:00'),
+(3, 28, 587, '2025-12-03 09:10:00'),
+(3, 28, 594, '2025-12-03 09:20:00'),
+(3, 28, 590, '2025-12-03 09:30:00'),
+(3, 28, 597, '2025-12-03 09:40:00'),
+(3, 28, 603, '2025-12-03 09:50:00');
 
+-- AMBIENTE 4 — Sensores 29 a 36 (muito acima)
+
+INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
+(4, 29, 880, '2025-12-03 08:00:00'),
+(4, 29, 890, '2025-12-03 08:10:00'),
+(4, 29, 905, '2025-12-03 08:20:00'),
+(4, 29, 915, '2025-12-03 08:30:00'),
+(4, 29, 908, '2025-12-03 08:40:00'),
+(4, 29, 920, '2025-12-03 08:50:00'),
+(4, 29, 930, '2025-12-03 09:00:00'),
+(4, 29, 940, '2025-12-03 09:10:00'),
+(4, 29, 950, '2025-12-03 09:20:00'),
+(4, 29, 945, '2025-12-03 09:30:00'),
+(4, 29, 960, '2025-12-03 09:40:00'),
+(4, 29, 970, '2025-12-03 09:50:00'),
+
+(4, 30, 860, '2025-12-03 08:00:00'),
+(4, 30, 872, '2025-12-03 08:10:00'),
+(4, 30, 885, '2025-12-03 08:20:00'),
+(4, 30, 895, '2025-12-03 08:30:00'),
+(4, 30, 888, '2025-12-03 08:40:00'),
+(4, 30, 900, '2025-12-03 08:50:00'),
+(4, 30, 910, '2025-12-03 09:00:00'),
+(4, 30, 920, '2025-12-03 09:10:00'),
+(4, 30, 930, '2025-12-03 09:20:00'),
+(4, 30, 925, '2025-12-03 09:30:00'),
+(4, 30, 940, '2025-12-03 09:40:00'),
+(4, 30, 950, '2025-12-03 09:50:00'),
+
+(4, 31, 900, '2025-12-03 08:00:00'),
+(4, 31, 910, '2025-12-03 08:10:00'),
+(4, 31, 925, '2025-12-03 08:20:00'),
+(4, 31, 935, '2025-12-03 08:30:00'),
+(4, 31, 928, '2025-12-03 08:40:00'),
+(4, 31, 940, '2025-12-03 08:50:00'),
+(4, 31, 950, '2025-12-03 09:00:00'),
+(4, 31, 960, '2025-12-03 09:10:00'),
+(4, 31, 970, '2025-12-03 09:20:00'),
+(4, 31, 965, '2025-12-03 09:30:00'),
+(4, 31, 980, '2025-12-03 09:40:00'),
+(4, 31, 990, '2025-12-03 09:50:00'),
+
+(4, 32, 870, '2025-12-03 08:00:00'),
+(4, 32, 880, '2025-12-03 08:10:00'),
+(4, 32, 895, '2025-12-03 08:20:00'),
+(4, 32, 905, '2025-12-03 08:30:00'),
+(4, 32, 898, '2025-12-03 08:40:00'),
+(4, 32, 910, '2025-12-03 08:50:00'),
+(4, 32, 920, '2025-12-03 09:00:00'),
+(4, 32, 930, '2025-12-03 09:10:00'),
+(4, 32, 940, '2025-12-03 09:20:00'),
+(4, 32, 935, '2025-12-03 09:30:00'),
+(4, 32, 950, '2025-12-03 09:40:00'),
+(4, 32, 960, '2025-12-03 09:50:00'),
+
+(4, 33, 910, '2025-12-03 08:00:00'),
+(4, 33, 920, '2025-12-03 08:10:00'),
+(4, 33, 935, '2025-12-03 08:20:00'),
+(4, 33, 945, '2025-12-03 08:30:00'),
+(4, 33, 938, '2025-12-03 08:40:00'),
+(4, 33, 950, '2025-12-03 08:50:00'),
+(4, 33, 960, '2025-12-03 09:00:00'),
+(4, 33, 970, '2025-12-03 09:10:00'),
+(4, 33, 980, '2025-12-03 09:20:00'),
+(4, 33, 975, '2025-12-03 09:30:00'),
+(4, 33, 990, '2025-12-03 09:40:00'),
+(4, 33, 1000, '2025-12-03 09:50:00'),
+
+(4, 34, 890, '2025-12-03 08:00:00'),
+(4, 34, 900, '2025-12-03 08:10:00'),
+(4, 34, 915, '2025-12-03 08:20:00'),
+(4, 34, 925, '2025-12-03 08:30:00'),
+(4, 34, 918, '2025-12-03 08:40:00'),
+(4, 34, 930, '2025-12-03 08:50:00'),
+(4, 34, 940, '2025-12-03 09:00:00'),
+(4, 34, 950, '2025-12-03 09:10:00'),
+(4, 34, 960, '2025-12-03 09:20:00'),
+(4, 34, 955, '2025-12-03 09:30:00'),
+(4, 34, 970, '2025-12-03 09:40:00'),
+(4, 34, 980, '2025-12-03 09:50:00'),
+
+(4, 35, 920, '2025-12-03 08:00:00'),
+(4, 35, 930, '2025-12-03 08:10:00'),
+(4, 35, 945, '2025-12-03 08:20:00'),
+(4, 35, 955, '2025-12-03 08:30:00'),
+(4, 35, 948, '2025-12-03 08:40:00'),
+(4, 35, 960, '2025-12-03 08:50:00'),
+(4, 35, 970, '2025-12-03 09:00:00'),
+(4, 35, 980, '2025-12-03 09:10:00'),
+(4, 35, 990, '2025-12-03 09:20:00'),
+(4, 35, 985, '2025-12-03 09:30:00'),
+(4, 35, 1000, '2025-12-03 09:40:00'),
+(4, 35, 1010, '2025-12-03 09:50:00'),
+
+(4, 36, 870, '2025-12-03 08:00:00'),
+(4, 36, 880, '2025-12-03 08:10:00'),
+(4, 36, 895, '2025-12-03 08:20:00'),
+(4, 36, 905, '2025-12-03 08:30:00'),
+(4, 36, 898, '2025-12-03 08:40:00'),
+(4, 36, 910, '2025-12-03 08:50:00'),
+(4, 36, 920, '2025-12-03 09:00:00'),
+(4, 36, 930, '2025-12-03 09:10:00'),
+(4, 36, 940, '2025-12-03 09:20:00'),
+(4, 36, 935, '2025-12-03 09:30:00'),
+(4, 36, 950, '2025-12-03 09:40:00'),
+(4, 36, 960, '2025-12-03 09:50:00');
+
+
+-- AMBIENTE 5 — Sensores 37 a 44 (muito abaixo)
+
+INSERT INTO regSensor (fkAmbiente, fkSensor, intensidadeLuz, dtHora) VALUES
+(5, 37, 40, '2025-12-03 08:00:00'),
+(5, 37, 45, '2025-12-03 08:10:00'),
+(5, 37, 50, '2025-12-03 08:20:00'),
+(5, 37, 55, '2025-12-03 08:30:00'),
+(5, 37, 52, '2025-12-03 08:40:00'),
+(5, 37, 58, '2025-12-03 08:50:00'),
+(5, 37, 60, '2025-12-03 09:00:00'),
+(5, 37, 65, '2025-12-03 09:10:00'),
+(5, 37, 70, '2025-12-03 09:20:00'),
+(5, 37, 68, '2025-12-03 09:30:00'),
+(5, 37, 72, '2025-12-03 09:40:00'),
+(5, 37, 75, '2025-12-03 09:50:00'),
+
+(5, 38, 30, '2025-12-03 08:00:00'),
+(5, 38, 35, '2025-12-03 08:10:00'),
+(5, 38, 40, '2025-12-03 08:20:00'),
+(5, 38, 45, '2025-12-03 08:30:00'),
+(5, 38, 42, '2025-12-03 08:40:00'),
+(5, 38, 48, '2025-12-03 08:50:00'),
+(5, 38, 50, '2025-12-03 09:00:00'),
+(5, 38, 55, '2025-12-03 09:10:00'),
+(5, 38, 60, '2025-12-03 09:20:00'),
+(5, 38, 58, '2025-12-03 09:30:00'),
+(5, 38, 62, '2025-12-03 09:40:00'),
+(5, 38, 65, '2025-12-03 09:50:00'),
+
+(5, 39, 80, '2025-12-03 08:00:00'),
+(5, 39, 85, '2025-12-03 08:10:00'),
+(5, 39, 90, '2025-12-03 08:20:00'),
+(5, 39, 95, '2025-12-03 08:30:00'),
+(5, 39, 92, '2025-12-03 08:40:00'),
+(5, 39, 98, '2025-12-03 08:50:00'),
+(5, 39, 100, '2025-12-03 09:00:00'),
+(5, 39, 105, '2025-12-03 09:10:00'),
+(5, 39, 110, '2025-12-03 09:20:00'),
+(5, 39, 108, '2025-12-03 09:30:00'),
+(5, 39, 112, '2025-12-03 09:40:00'),
+(5, 39, 115, '2025-12-03 09:50:00'),
+
+(5, 40, 25, '2025-12-03 08:00:00'),
+(5, 40, 30, '2025-12-03 08:10:00'),
+(5, 40, 35, '2025-12-03 08:20:00'),
+(5, 40, 40, '2025-12-03 08:30:00'),
+(5, 40, 38, '2025-12-03 08:40:00'),
+(5, 40, 42, '2025-12-03 08:50:00'),
+(5, 40, 45, '2025-12-03 09:00:00'),
+(5, 40, 50, '2025-12-03 09:10:00'),
+(5, 40, 55, '2025-12-03 09:20:00'),
+(5, 40, 52, '2025-12-03 09:30:00'),
+(5, 40, 58, '2025-12-03 09:40:00'),
+(5, 40, 60, '2025-12-03 09:50:00'),
+
+(5, 41, 90, '2025-12-03 08:00:00'),
+(5, 41, 95, '2025-12-03 08:10:00'),
+(5, 41, 100, '2025-12-03 08:20:00'),
+(5, 41, 105, '2025-12-03 08:30:00'),
+(5, 41, 102, '2025-12-03 08:40:00'),
+(5, 41, 108, '2025-12-03 08:50:00'),
+(5, 41, 110, '2025-12-03 09:00:00'),
+(5, 41, 115, '2025-12-03 09:10:00'),
+(5, 41, 120, '2025-12-03 09:20:00'),
+(5, 41, 118, '2025-12-03 09:30:00'),
+(5, 41, 122, '2025-12-03 09:40:00'),
+(5, 41, 125, '2025-12-03 09:50:00'),
+
+(5, 42, 20, '2025-12-03 08:00:00'),
+(5, 42, 25, '2025-12-03 08:10:00'),
+(5, 42, 30, '2025-12-03 08:20:00'),
+(5, 42, 35, '2025-12-03 08:30:00'),
+(5, 42, 32, '2025-12-03 08:40:00'),
+(5, 42, 38, '2025-12-03 08:50:00'),
+(5, 42, 40, '2025-12-03 09:00:00'),
+(5, 42, 45, '2025-12-03 09:10:00'),
+(5, 42, 50, '2025-12-03 09:20:00'),
+(5, 42, 48, '2025-12-03 09:30:00'),
+(5, 42, 52, '2025-12-03 09:40:00'),
+(5, 42, 55, '2025-12-03 09:50:00'),
+
+(5, 43, 70, '2025-12-03 08:00:00'),
+(5, 43, 75, '2025-12-03 08:10:00'),
+(5, 43, 80, '2025-12-03 08:20:00'),
+(5, 43, 85, '2025-12-03 08:30:00'),
+(5, 43, 82, '2025-12-03 08:40:00'),
+(5, 43, 88, '2025-12-03 08:50:00'),
+(5, 43, 90, '2025-12-03 09:00:00'),
+(5, 43, 95, '2025-12-03 09:10:00'),
+(5, 43, 100, '2025-12-03 09:20:00'),
+(5, 43, 98, '2025-12-03 09:30:00'),
+(5, 43, 102, '2025-12-03 09:40:00'),
+(5, 43, 105, '2025-12-03 09:50:00'),
+
+(5, 44, 50, '2025-12-03 08:00:00'),
+(5, 44, 55, '2025-12-03 08:10:00'),
+(5, 44, 60, '2025-12-03 08:20:00'),
+(5, 44, 65, '2025-12-03 08:30:00'),
+(5, 44, 62, '2025-12-03 08:40:00'),
+(5, 44, 68, '2025-12-03 08:50:00'),
+(5, 44, 70, '2025-12-03 09:00:00'),
+(5, 44, 75, '2025-12-03 09:10:00'),
+(5, 44, 80, '2025-12-03 09:20:00'),
+(5, 44, 78, '2025-12-03 09:30:00'),
+(5, 44, 82, '2025-12-03 09:40:00'),
+(5, 44, 85, '2025-12-03 09:50:00');

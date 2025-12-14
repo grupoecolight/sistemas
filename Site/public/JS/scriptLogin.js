@@ -93,9 +93,15 @@ function entrar() {
                 sessionStorage.EMPRESAADMIN_USUARIO = json.empresaAdmin;
                 sessionStorage.IDEMPRESA_USUARIO = json.idEmpresa
 
-                setTimeout(function () {
-                  window.location = "./dashEspecifico.html";
-                }, 1000); // apenas para exibir o loading
+                if (sessionStorage.USERADMIN_USUARIO == 1) {
+                  setTimeout(function () {
+                    window.location = "./suporte.html";
+                  }, 1000); // apenas para exibir o loading 
+                } else {
+                  setTimeout(function () {
+                    window.location = "./dashEspecifico.html";
+                  }, 1000); // apenas para exibir o loading
+                }
               });
             } else {
               div_mensagemSenha.innerHTML = `Email e/ou Senha não encontrado.`; 
